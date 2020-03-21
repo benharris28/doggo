@@ -1,0 +1,10 @@
+.Header {
+    height: 40px;
+    display: flex;
+    align-items: normal;
+    justify-content: space-between;
+  }
+
+  .Header h1 {
+    margin: 0;
+  }
