@@ -40,6 +40,9 @@ class WalkerListingPage extends React.Component {
                                 <WalkerItem
                                     id={walker.id}
                                     name={walker.name}
+                                    photo={walker.profile_photo}
+                                    postal={walker.postal_short}
+                                    rating={walker.rating}
                                 />
                             </li>)}
                     </ul>
