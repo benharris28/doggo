@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import WalkerItem from '../WalkerItem/WalkerItem';
+import ApiContext from '../../ApiContext'
 
 class WalkerListingPage extends React.Component {
+    
+    static contextType = ApiContext;
+
     render() {
+        const { walkers }= this.context;
+        console.log(walkers)
+        
+       
+
         return (
             <section className="walker_listing_page">
                 
@@ -22,6 +32,17 @@ class WalkerListingPage extends React.Component {
 
                     </form>
                 
+                </div>
+                <div className="walker-list">
+                    <ul className="walk-ul">
+                        {walkers.map(walker => 
+                            <li key={walker.id}>
+                                <WalkerItem
+                                    id={walker.id}
+                                    name={walker.name}
+                                />
+                            </li>)}
+                    </ul>
                 </div>
                 
               
