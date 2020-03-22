@@ -7,6 +7,7 @@ import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
 import WalkerListingPage from './components/WalkerListingPage/WalkerListingPage.js';
+import WalkerPage from './components/WalkerPage/WalkerPage';
 import ApiContext from './ApiContext';
 import STORE from './STORE';
 
@@ -37,6 +38,11 @@ class App extends React.Component {
               exact
               path={'/walker'}
               component={WalkerListingPage}
+            />
+            <Route
+              exact
+              path={'/walker/:walker_id'}
+              component={WalkerPage}
             />
             <Route
               component={NotFoundPage}
