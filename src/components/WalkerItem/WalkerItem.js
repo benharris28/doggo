@@ -16,7 +16,10 @@ class WalkerItem extends React.Component {
                 </div >
 
                 <div className="walker-info">
-                    <p>{name}</p>
+                    <Link to={`/walker/${id}`}>
+                        {name}
+                    </Link>
+                    
                     <p>Area: {postal}</p>
                     
                     Rating: {rating}
