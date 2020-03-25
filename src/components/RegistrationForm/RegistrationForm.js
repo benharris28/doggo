@@ -1,6 +1,6 @@
 import React from 'react';
 
-class LoginForm extends React.Component {
+class RegistrationForm extends React.Component {
     handleSubmit() {
         
     }
@@ -8,9 +8,9 @@ class LoginForm extends React.Component {
     render() {
         return (
             <>
-                <form id="signup-form">
+                <form id="registration-form">
                     <h3>
-                        Login to your Doggo account
+                        Sign up for Doggo!
                     </h3>
                     <div>
                         <label htmlFor="email">Email</label>
@@ -34,4 +34,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm;
+export default RegistrationForm;

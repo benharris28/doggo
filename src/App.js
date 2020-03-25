@@ -6,6 +6,7 @@ import LandingPage from './Routes/LandingPage/LandingPage';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import LoginPage from './Routes/LoginPage/LoginPage';
+import RegistrationPage from './Routes/RegistrationPage/RegistrationPage';
 import WalkerListingPage from './Routes/WalkerListingPage/WalkerListingPage';
 import UserAccountPage from './Routes/UserAccountPage/UserAccountPage';
 import WalkerPage from './Routes/WalkerPage/WalkerPage';
@@ -42,6 +43,11 @@ class App extends React.Component {
               exact
               path={'/login'}
               component={LoginPage}
+              />
+            <Route
+              exact
+              path={'/register'}
+              component={RegistrationPage}
               />
             <Route
               exact

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LoginForm from '../../components/LoginForm/LoginForm'
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 
 // Make Login form and import
 
-class LoginPage extends React.Component {
+class RegistrationPage extends React.Component {
     static defaultProps = {
         history: {
             push: () => {},
@@ -23,13 +23,13 @@ class LoginPage extends React.Component {
             <section className="login-page">
 
                 <div>
-                    <LoginForm />
+                    <RegistrationForm />
                 </div>
                 <div>
-                    Don't have an account?
+                    Already have an account?
                     <Link
-                        to={'/register'}>
-                            Click here to sign up!
+                        to={'/login'}>
+                            Click here to login
                     </Link>
                 </div>
 
@@ -38,4 +38,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage;
+export default RegistrationPage;
