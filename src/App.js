@@ -7,18 +7,22 @@ import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import LoginPage from './Routes/LoginPage/LoginPage';
 import WalkerListingPage from './Routes/WalkerListingPage/WalkerListingPage';
+import UserAccountPage from './Routes/UserAccountPage/UserAccountPage';
 import WalkerPage from './Routes/WalkerPage/WalkerPage';
 import ApiContext from './ApiContext';
 import STORE from './STORE';
+import Walks from './Walks';
 
 class App extends React.Component {
   state = {
-    walkers: STORE.walkers
+    walkers: STORE.walkers,
+    walks: Walks.walks
   };
 
   render() {
     const value = {
-      walkers: this.state.walkers
+      walkers: this.state.walkers,
+      walks: this.state.walks
     };
 
     return (
@@ -36,6 +40,11 @@ class App extends React.Component {
             />
             <Route
               exact
+              path={'/login'}
+              component={LoginPage}
+              />
+            <Route
+              exact
               path={'/walker'}
               component={WalkerListingPage}
             />
@@ -44,6 +53,11 @@ class App extends React.Component {
               path={'/walker/:walker_id'}
               component={WalkerPage}
             />
+            <Route
+              exact
+              path={'/user/:user_id'}
+              component={UserAccountPage}
+              />
             <Route
               component={NotFoundPage}
             />

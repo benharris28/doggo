@@ -37,8 +37,7 @@ class WalkerPage extends React.Component {
                 </section>
                 <div className="feedback-list">
                     <FeedbackList
-                        name={selectedWalker.name}
-                        id={selectedWalker.id} 
+                        id={selectedWalker.id}
                         />
                 </div>
             </section>

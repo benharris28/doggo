@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LandingPage.css'
 
 class LandingPage extends React.Component {
@@ -9,25 +10,35 @@ class LandingPage extends React.Component {
                     <h2>
                         Book a walk with dog walkers near you
                     </h2>
-                    <button>
-                        Book Now
-                    </button>
+                    <Link to='/login'>
+                        <button 
+                            type="button">
+                                Book Now
+                            </button>
+                    </Link>
                 </div>
                 <div className="landing_page_hero_2">
                     <h2>
                         Copy #2
                     </h2>
-                    <button>
-                        Book Now
-                    </button>
+                    <Link to='/login'>
+                        <button 
+                            type="button">
+                                Book Now
+                            </button>
+                    </Link>
+                   
                 </div>
                 <div className="landing_page_hero_3">
                     <h2>
                         Copy #3
                     </h2>
-                    <button>
-                        Book Now
-                    </button>
+                    <Link to='/login'>
+                        <button 
+                            type="button">
+                                Book Now
+                            </button>
+                    </Link>
                 </div>
             </section>
         )
