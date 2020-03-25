@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import WalkerItem from '../WalkerItem/WalkerItem';
+import WalkerItem from '../../components/WalkerItem/WalkerItem';
 import ApiContext from '../../ApiContext'
 import './WalkerListingPage.css'
 

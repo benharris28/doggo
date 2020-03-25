@@ -7,6 +7,7 @@ export default {
             "postal_short": "M5P",
             "profile_photo": "https://unsplash.com/photos/6qf1uljGpU4",
             "bio": "Test biography copy"
+
         },
         {
             "id": 2,

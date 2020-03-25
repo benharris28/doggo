@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
-import NotFoundPage from './components/NotFoundPage/NotFoundPage.js';
-import LandingPage from './components/LandingPage/LandingPage.js';
+import NotFoundPage from './Routes/NotFoundPage/NotFoundPage';
+import LandingPage from './Routes/LandingPage/LandingPage';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
-import LoginPage from './components/LoginPage/LoginPage.js';
-import WalkerListingPage from './components/WalkerListingPage/WalkerListingPage.js';
-import WalkerPage from './components/WalkerPage/WalkerPage';
+import LoginPage from './Routes/LoginPage/LoginPage';
+import WalkerListingPage from './Routes/WalkerListingPage/WalkerListingPage';
+import WalkerPage from './Routes/WalkerPage/WalkerPage';
 import ApiContext from './ApiContext';
 import STORE from './STORE';
 
