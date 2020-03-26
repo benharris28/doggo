@@ -12,7 +12,7 @@ class WalkerItem extends React.Component {
             <div className="walker-card">
                 <div className="walker-image">
                 
-                <img src={photo} />
+                    <img src={photo} />
                 </div >
 
                 <div className="walker-info">

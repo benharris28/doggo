@@ -23,7 +23,7 @@ class WalkerPage extends React.Component {
         return (
             <section className="walker-bio">
                 <div className="walker-image">
-                    {selectedWalker.profile_photo}
+                    <img src={selectedWalker.profile_photo} />
                 </div>
                 <div className="walker-blurb">
                     <h3>{selectedWalker.name}</h3>
@@ -38,6 +38,7 @@ class WalkerPage extends React.Component {
                 <div className="feedback-list">
                     <FeedbackList
                         id={selectedWalker.id}
+                        name={selectedWalker.name}
                         />
                 </div>
             </section>

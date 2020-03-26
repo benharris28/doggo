@@ -1,0 +1,21 @@
+
+
+.feedback-card {
+    display: flex;
+    border: 1px solid grey;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .feedback-info {
+    padding: 10px;
+  }
+
+
+  .feedback-image-box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid grey;
+    background-color: grey;
+    color: white;
+}

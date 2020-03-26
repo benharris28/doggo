@@ -8,3 +8,8 @@
   .walker-info {
     padding: 10px;
   }
+
+  .walker-image img{
+      height: 100px;
+
+  }
