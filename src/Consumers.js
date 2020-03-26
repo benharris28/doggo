@@ -1,8 +1,7 @@
 export default {
-    "walkers": [
+    "users": [
         {
-            "id": 1,
-            "type": "walker",
+            "user_id": 1,
             "name": "Test Name 1",
             "rating": 4.8,
             "postal_short": "M5P",
@@ -11,8 +10,7 @@ export default {
 
         },
         {
-            "id": 2,
-            "type": "walker",
+            "user_id": 2,
             "name": "Test Name 2",
             "rating": 4.7,
             "postal_short": "M2J",
@@ -20,8 +18,7 @@ export default {
             "bio": "Test biography copy"
         },
         {
-            "id": 3,
-            "type": "user",
+            "user_id": 3,
             "name": "Test Name 2",
             "rating": 4.7,
             "postal_short": "M2J",

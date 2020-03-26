@@ -12,17 +12,20 @@ import UserAccountPage from './Routes/UserAccountPage/UserAccountPage';
 import WalkerPage from './Routes/WalkerPage/WalkerPage';
 import ApiContext from './ApiContext';
 import STORE from './STORE';
+import Consumers from './Consumers';
 import Walks from './Walks';
 
 class App extends React.Component {
   state = {
     walkers: STORE.walkers,
+    users: Consumers.users,
     walks: Walks.walks
   };
 
   render() {
     const value = {
       walkers: this.state.walkers,
+      users: this.state.users,
       walks: this.state.walks
     };
 

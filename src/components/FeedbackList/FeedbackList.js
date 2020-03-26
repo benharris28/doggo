@@ -21,7 +21,7 @@ class FeedbackList extends React.Component {
             )
         
         const feedbackItems = getFeedbackForWalker(walks, id)
-
+        
         
 
         console.log(feedbackItems)
