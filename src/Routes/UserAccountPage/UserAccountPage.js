@@ -38,7 +38,8 @@ class UserAccountPage extends React.Component {
                             {walkItems.map(walk => 
                                 <li className="walk-li" key={walk.user_id}>
                                 <WalkItem
-                                    user={walk.user_firstname}
+                                    walk={walk.walk_id}
+                                    walker={walk.walker_firstname}
                                     date={walk.walk_date}
                                     status={walk.status}
                                     />
