@@ -10,6 +10,7 @@ import RegistrationPage from './Routes/RegistrationPage/RegistrationPage';
 import WalkerListingPage from './Routes/WalkerListingPage/WalkerListingPage';
 import UserAccountPage from './Routes/UserAccountPage/UserAccountPage';
 import WalkerPage from './Routes/WalkerPage/WalkerPage';
+import WalkPage from './Routes/WalkPage/WalkPage';
 import ApiContext from './ApiContext';
 import STORE from './STORE';
 import Consumers from './Consumers';
@@ -66,6 +67,11 @@ class App extends React.Component {
               exact
               path={'/user/:user_id'}
               component={UserAccountPage}
+              />
+            <Route
+              exact
+              path={'/walk/:walk_id'}
+              component={WalkPage}
               />
             <Route
               component={NotFoundPage}
