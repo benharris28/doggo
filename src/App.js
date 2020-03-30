@@ -23,11 +23,17 @@ class App extends React.Component {
     walks: Walks.walks
   };
 
+  cancelWalk = (walk_id) => {
+    // should I create a new walk?
+  }
+
   render() {
     const value = {
       walkers: this.state.walkers,
       users: this.state.users,
-      walks: this.state.walks
+      walks: this.state.walks,
+      cancelWalk: this.cancelWalk,
+      completeWalk: this.completeWalk
     };
 
     return (

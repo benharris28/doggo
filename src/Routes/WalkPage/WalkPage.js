@@ -5,6 +5,23 @@ import { Link } from 'react-router-dom';
 class WalkPage extends React.Component {
     static contextType = ApiContext;
 
+    state = {
+        
+    }
+
+    // To cancel a walk, Do I need to change the state of walks in App.js or just post a new status to the API?
+    handleCancelWalk = (e) => {
+      e.preventDefault();
+      const { walk_id } = this.props.match.params;
+      this.context.cancelWalk(walk_id)
+    
+      
+    }
+
+    handleCompleteWalk() {
+
+    }
+
     render() {
         const { walk_id } = this.props.match.params;
         const { walks } = this.context;
@@ -34,7 +51,8 @@ class WalkPage extends React.Component {
                      {selectWalk.pickup_address_postal_code}
                 </div>
                 <div className="walk-controls">
-                    <button>
+                    <button
+                        onSubmit={e => this.handleCancelWalk(selectWalk.walk_id)}>
                         Cancel Walk
                     </button>
                     <button>
