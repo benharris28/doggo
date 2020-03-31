@@ -12,13 +12,16 @@ class LoginPage extends React.Component {
         },
       }
 
-    // Need explanation for this function
+    
+    //usertype will be passed to this function
+    // push either acount page for walkers or walker listing for users
     handleLoginSuccess = () => {
 
         const { location, history } = this.props;
         console.log(location.state)
         // Still don't understand below...
         //const destination = (location.state || {}).from || '/'
+        // 
         history.push('/walker')
     }
 

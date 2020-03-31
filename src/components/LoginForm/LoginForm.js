@@ -5,6 +5,11 @@ class LoginForm extends React.Component {
         onLoginSuccess: () => {}
       }
 
+      // Fetch request to /login or signin endpoint
+      // in then block (if successfuk), will get response from API
+      // Response should contain usertype
+      // Pass usertype as parameter to onLoginSuccess
+      
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.onLoginSuccess();

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './WalkerItem.css';
 
 class WalkerItem extends React.Component {
-    // Need to add quotes to img sources to render properly
     render() {
         const {id , name, photo, postal, rating } = this.props;
         console.log(photo)

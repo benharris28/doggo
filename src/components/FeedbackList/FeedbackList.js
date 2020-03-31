@@ -13,7 +13,7 @@ class FeedbackList extends React.Component {
         const { walks=[] } = this.context;
         console.log(walks)
         
-        // I can't get this work...
+      
         const getFeedbackForWalker = (walks, id) => (
             (!id)
             ? walks

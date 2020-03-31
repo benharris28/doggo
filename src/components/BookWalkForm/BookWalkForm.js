@@ -4,6 +4,7 @@ class BookWalkForm extends React.Component {
     
     // How should I convert a new walk entry to json?
     // Should new walk be added to state?
+    // When user logs in in for the first time, send all data that is required to context
     state = {
         walk_id: '',
         walker_id: '',
@@ -18,16 +19,17 @@ class BookWalkForm extends React.Component {
         pickup_address_city: '',
         pickup_address_province: '',
         pickup_address_postal_code: '',
-        status: '',
-        rating: '',
-        comment: ''
 
     }
 // Build out onsubmit
 
     handleSubmit = () => {
-        // Build out
+        // Fetch request (contains a post)
+        // Some values are coming from context (this.context.user_id, etc)
+        // Create new object with complete walk item
+        // Update context in the then block
     }
+// Add onChange events for each input in the form to add to state
 
     render() {
         const { name, id } = this.props;

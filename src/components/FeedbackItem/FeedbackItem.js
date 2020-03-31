@@ -4,7 +4,7 @@ import './FeedbackItem.css'
 
 
 class FeedbackItem extends React.Component {
-    // Need to add quotes to img sources to render properly
+    
     render() {
         const { user, photo, comment, rating, date  } = this.props;
         console.log(user)

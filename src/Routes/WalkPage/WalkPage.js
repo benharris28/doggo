@@ -4,24 +4,39 @@ import { Link } from 'react-router-dom';
 
 class WalkPage extends React.Component {
     static contextType = ApiContext;
+    
+    
 
-    state = {
-        walks: [...this.context.walks]
+
+    componentDidMount() {
+
+        // Make API call to walk table
+        // Pass in current logged in user_id and walk_id
+        // On server side, for this walk_id, check if logged in user_id matches user_id in walks table
+        // If successful, render the page, if not, push back to landing page
+        // Create logic so that if logged in user is admin, render page (check on same route)
     }
 
-    
-
     // To cancel a walk, Do I need to change the state of walks in App.js or just post a new status to the API?
-    handleCancelWalk = (e) => {
-      e.preventDefault();
-      const { walk_id } = this.props.match.params;
-      this.context.cancelWalk(walk_id)
-      
     
+    
+    handleCancelWalk = (e) => {
       
+      const { history } = this.props;
+      const { walk_id } = this.props.match.params;
+      
+      this.context.cancelWalk(walk_id);
+      history.push('/walk/1')
+    
     }
 
     handleCompleteWalk() {
+    const { history } = this.props;
+    const { walk_id } = this.props.match.params;
+      
+    this.context.completeWalk(walk_id)
+    history.push('/walk/1')
+      
 
     }
 
@@ -29,7 +44,8 @@ class WalkPage extends React.Component {
         const { walk_id } = this.props.match.params;
         const { walks } = this.context;
         const selectWalk = walks.find(walk => walk.walk_id == walk_id)
-        console.log(this.state)
+        console.log(walk_id)
+        console.log(this.context);
 
         return (
             <div>
@@ -53,12 +69,19 @@ class WalkPage extends React.Component {
                      {' '}
                      {selectWalk.pickup_address_postal_code}
                 </div>
+                <div className="walk-status">
+                    Status: {selectWalk.status}
+                </div>
                 <div className="walk-controls">
                     <button
-                        onSubmit={e => this.handleCancelWalk(selectWalk.walk_id)}>
+                        type="button"
+                        onClick={e => this.handleCancelWalk(selectWalk.walk_id)}>
                         Cancel Walk
                     </button>
-                    <button>
+                    <button
+                        type="button"
+                        onClick={e => this.handleCompleteWalk(selectWalk.walk_id)}
+                        >
                         Complete Walk
                     </button>
                 </div>
