@@ -6,14 +6,17 @@ class WalkPage extends React.Component {
     static contextType = ApiContext;
 
     state = {
-        
+        walks: [...this.context.walks]
     }
+
+    
 
     // To cancel a walk, Do I need to change the state of walks in App.js or just post a new status to the API?
     handleCancelWalk = (e) => {
       e.preventDefault();
       const { walk_id } = this.props.match.params;
       this.context.cancelWalk(walk_id)
+      
     
       
     }
@@ -26,7 +29,7 @@ class WalkPage extends React.Component {
         const { walk_id } = this.props.match.params;
         const { walks } = this.context;
         const selectWalk = walks.find(walk => walk.walk_id == walk_id)
-
+        console.log(this.state)
 
         return (
             <div>

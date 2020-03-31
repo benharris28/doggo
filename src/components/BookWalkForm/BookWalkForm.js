@@ -2,17 +2,41 @@ import React from 'react';
 
 class BookWalkForm extends React.Component {
     
+    // How should I convert a new walk entry to json?
+    // Should new walk be added to state?
+    state = {
+        walk_id: '',
+        walker_id: '',
+        user_firstname: '',
+        dog_name: '',
+        walker_firstname: '',
+        user_id: '',
+        request_time: '',
+        walk_date: '',
+        pickup_address_street_number: '',
+        pickup_address_street_name: '',
+        pickup_address_city: '',
+        pickup_address_province: '',
+        pickup_address_postal_code: '',
+        status: '',
+        rating: '',
+        comment: ''
+
+    }
 // Build out onsubmit
 
-    onSubmit = () => {
+    handleSubmit = () => {
         // Build out
     }
-    
+
     render() {
         const { name, id } = this.props;
         
         return (
-            <form>
+            <form
+                className="book-walk-form"
+                onSubmit={this.handleSubmit}
+                >
                 <h3>{`Book a walk with ${name}`}</h3>
                 <div className="book-walk-date">
                     <label htmlFor="book-walk-date">

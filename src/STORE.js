@@ -22,9 +22,9 @@ export default {
         {
             "id": 3,
             "type": "user",
-            "name": "Test Name 2",
-            "rating": 4.7,
-            "postal_short": "M2J",
+            "name": "Test Name 3",
+            "rating": 4.5,
+            "postal_short": "M3T",
             "profile_photo": "https://www.w3schools.com/bootstrap4/img_avatar6.png",
             "bio": "Test biography copy"
         }

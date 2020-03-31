@@ -33,7 +33,7 @@ class WalkerListingPage extends React.Component {
                         <p>Enter your walk date and browse available walkers in your area</p>
               
                         <div>
-                            <label for="walk-date">When would you like to book a walk?</label>
+                            <label htmlFor="walk-date">When would you like to book a walk?</label>
                             <input type="date" name="walk-date" required />
                         </div>
 

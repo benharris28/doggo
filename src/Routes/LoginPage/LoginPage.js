@@ -1,21 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import LoginForm from '../../components/LoginForm/LoginForm'
 
 // Make Login form and import
 
 class LoginPage extends React.Component {
     static defaultProps = {
+        location: {},
         history: {
-            push: () => {},
-        }
-    }
+          push: () => {},
+        },
+      }
 
     // Need explanation for this function
     handleLoginSuccess = () => {
+
         const { location, history } = this.props;
-        const destination = (location.state || {}).from || '/'
-        history.push(destination)
+        console.log(location.state)
+        // Still don't understand below...
+        //const destination = (location.state || {}).from || '/'
+        history.push('/walker')
     }
 
     render() {
@@ -23,7 +27,8 @@ class LoginPage extends React.Component {
             <section className="login-page">
 
                 <div>
-                    <LoginForm />
+                    <LoginForm 
+                        onLoginSuccess={this.handleLoginSuccess} />
                 </div>
                 <div>
                     Don't have an account?

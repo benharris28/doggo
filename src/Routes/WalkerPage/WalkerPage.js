@@ -10,6 +10,7 @@ import BookWalkForm from '../../components/BookWalkForm/BookWalkForm';
 // Update address input to be elastic search of addresses
 // How can I reuse components (like lists) if they look similar but have different outputs (eg feedback vs. name)
 
+//Submition of book walk form should create a new walk with status "requested"
 class WalkerPage extends React.Component {
     static contextType = ApiContext;
     

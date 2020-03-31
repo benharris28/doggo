@@ -1,14 +1,22 @@
 import React from 'react';
 
 class LoginForm extends React.Component {
-    handleSubmit() {
-        
+    static defaultProps = {
+        onLoginSuccess: () => {}
+      }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.onLoginSuccess();
     }
     
     render() {
         return (
             <>
-                <form id="signup-form">
+                <form 
+                    className="signup-form"
+                    onSubmit={this.handleSubmit}
+                    >
                     <h3>
                         Login to your Doggo account
                     </h3>
@@ -22,8 +30,8 @@ class LoginForm extends React.Component {
                     </div>
               
                     <button
-                        type="submit"
-                        onSubmit={this.handleSubmit}>
+                        type="submit">
+                        
                             Sign In
                     </button>
             </form>
