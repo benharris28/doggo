@@ -59,7 +59,7 @@ export default {
         },
         {
             "user_id": 6,
-            "type": "user",
+            "type": "walker",
             "first_name": "Test Walker 3",
             "last_name": "LastName",
             "dog_name": null,

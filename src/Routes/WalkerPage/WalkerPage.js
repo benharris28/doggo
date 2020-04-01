@@ -14,14 +14,17 @@ import BookWalkForm from '../../components/BookWalkForm/BookWalkForm';
 class WalkerPage extends React.Component {
     static contextType = ApiContext;
     
+    
+
     render() {
     const { walkers, users } = this.context
+    console.log(walkers)
     const { user_id } = this.props.match.params
     console.log(user_id)
     
     const id = 4
 
-    const selectUser =  walkers.find(walker => walker.user_id == user_id && walker.type == 'walker')
+    const selectUser =  walkers.find(walker => walker.user_id == user_id)
 
     console.log(selectUser)
   

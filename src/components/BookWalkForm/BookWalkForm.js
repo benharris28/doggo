@@ -21,15 +21,16 @@ class BookWalkForm extends React.Component {
     }
 // Build out onsubmit
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
         // Fetch request (contains a post)
         // Some values are coming from context (this.context.user_id, etc)
         // Create new object with complete walk item
         // Update context in the then block
+        e.preventDefault();
         const { id } = this.props;
         const { users, walkers } = this.context;
         
-        const selectUser =  this.context.users
+        const selectUser =  users;
            
         const selectWalker =  walkers.find(walker => walker.user_id == id && walker.type === 'walker')
 
@@ -126,7 +127,7 @@ class BookWalkForm extends React.Component {
         return (
             <form
                 className="book-walk-form"
-                onSubmit={this.handleSubmit}
+                onSubmit={e => this.handleSubmit(e)}
                 >
                 <h3>{`Book a walk with ${name}`}</h3>
                 <div className="book-walk-date">

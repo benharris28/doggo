@@ -19,21 +19,46 @@ import Walks from './Walks';
 class App extends React.Component {
   state = {
     walkers: Consumers.users,
-    users: Consumers.users,
+    users: [],
     walks: Walks.walks
   };
 
+  setUsers = () => {
+    const users = Consumers.users;
+    const logIn = 1;
+    const loggedInUser = users.find(user => user.user_id == logIn)
+
+    const walkersList = Consumers.users.filter(user => user.type === "walker")
+    console.log(walkersList)
+    
+    this.setState({
+      walkers: walkersList,
+      users: loggedInUser,
+      
+    })
+    
+  }
+
+  
   componentDidMount() {
     // dummy logged in user is 1
     const users = Consumers.users;
     const logIn = 1;
     const loggedInUser = users.find(user => user.user_id == logIn)
+
+    const walkersList = Consumers.users.filter(user => user.type === "walker")
+    console.log(walkersList)
     
     this.setState({
-      users: loggedInUser
+      users: loggedInUser,
+      walkers: walkersList
     })
+    
   }
+
   // Add componentDidMount function to get all data for context only for logged in user
+
+  
 
   handleNewWalk = (newWalk) => {
     this.setState({
