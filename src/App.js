@@ -23,22 +23,6 @@ class App extends React.Component {
     walks: Walks.walks
   };
 
-  setUsers = () => {
-    const users = Consumers.users;
-    const logIn = 1;
-    const loggedInUser = users.find(user => user.user_id == logIn)
-
-    const walkersList = Consumers.users.filter(user => user.type === "walker")
-    console.log(walkersList)
-    
-    this.setState({
-      walkers: walkersList,
-      users: loggedInUser,
-      
-    })
-    
-  }
-
   
   componentDidMount() {
     // dummy logged in user is 1
@@ -56,6 +40,7 @@ class App extends React.Component {
     
   }
 
+  
   // Add componentDidMount function to get all data for context only for logged in user
 
   
