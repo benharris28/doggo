@@ -18,12 +18,28 @@ import Walks from './Walks';
 
 class App extends React.Component {
   state = {
-    walkers: STORE.walkers,
+    walkers: Consumers.users,
     users: Consumers.users,
     walks: Walks.walks
   };
 
+  componentDidMount() {
+    // dummy logged in user is 1
+    const users = Consumers.users;
+    const logIn = 1;
+    const loggedInUser = users.find(user => user.user_id == logIn)
+    
+    this.setState({
+      users: loggedInUser
+    })
+  }
   // Add componentDidMount function to get all data for context only for logged in user
+
+  handleNewWalk = (newWalk) => {
+    this.setState({
+      walks: [...this.state.walks, newWalk]
+    })
+  }
 
   cancelWalk = (walk_id) => {
     // Make API call to cancel walk
@@ -46,7 +62,7 @@ class App extends React.Component {
         walks: clonedWalks
       });
 
-
+      console.log(this.state)
 
   }
 
@@ -114,7 +130,7 @@ class App extends React.Component {
             />
             <Route
               exact
-              path={'/walker/:walker_id'}
+              path={'/walker/:user_id'}
               component={WalkerPage}
             />
             <Route

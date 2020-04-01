@@ -15,31 +15,35 @@ class WalkerPage extends React.Component {
     static contextType = ApiContext;
     
     render() {
-    const { walkers } = this.context
-    const { walker_id } = this.props.match.params
-    console.log(walker_id)
+    const { walkers, users } = this.context
+    const { user_id } = this.props.match.params
+    console.log(user_id)
+    
+    const id = 4
 
-    const selectedWalker = walkers.find(walker => walker.id == walker_id)
+    const selectUser =  walkers.find(walker => walker.user_id == user_id && walker.type == 'walker')
+
+    console.log(selectUser)
   
         return (
             <section className="walker-bio">
                 <div className="walker-image">
-                    <img src={selectedWalker.profile_photo} />
+                    <img src={selectUser.profile_photo} />
                 </div>
                 <div className="walker-blurb">
-                    <h3>{selectedWalker.name}</h3>
-                    <p>{selectedWalker.bio}</p>
+                    <h3>{selectUser.name}</h3>
+                    <p>{selectUser.bio}</p>
                 </div>
                 <section className="book-walk-form">
                     <BookWalkForm 
-                        name={selectedWalker.name}
-                        id={selectedWalker.id}
+                        name={selectUser.name}
+                        id={selectUser.user_id}
                         />
                 </section>
                 <div className="feedback-list">
                     <FeedbackList
-                        id={selectedWalker.id}
-                        name={selectedWalker.name}
+                        id={selectUser.user_id}
+                        name={selectUser.name}
                         />
                 </div>
             </section>
