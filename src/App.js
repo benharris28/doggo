@@ -20,7 +20,8 @@ class App extends React.Component {
   state = {
     walkers: Consumers.users,
     users: [],
-    walks: Walks.walks
+    walks: Walks.walks,
+    loggedIn: false
   };
 
   
@@ -96,18 +97,36 @@ class App extends React.Component {
       this.setState({
         walks: clonedWalks
       });
+    }
 
+    handleLogin = () => {
+      this.setState({
+        loggedIn: true
+      })
+    }
+    
+    handleLogout = () => {
+      this.setState({
+        loggedIn: false
+      })
+    }
+      
 
-
-  }
+  
 
   render() {
+    const locale = this.props.match;
+    console.log(locale)
+    
     const value = {
       walkers: this.state.walkers,
       users: this.state.users,
       walks: this.state.walks,
+      loggedIn: this.state.loggedIn,
       cancelWalk: this.cancelWalk,
-      completeWalk: this.completeWalk
+      completeWalk: this.completeWalk,
+      handleLogin: this.handleLogin,
+      handleLogout: this.handleLogout
     };
 
     console.log(this.state)
@@ -116,7 +135,8 @@ class App extends React.Component {
       <ApiContext.Provider value={value}>
       <div className="doggo-app">
         <header className='App_header'>
-          <Header />
+          <Header 
+            locale={this.props.match}/>
         </header>
         <main className='App_main'>
           <Switch>

@@ -8,7 +8,7 @@ class UserAccountPage extends React.Component {
     
     render() {
         const { users, walks } = this.context
-        const { user_id } = this.props.match.params
+        const { user_id } = this.props.match.params;
         console.log(user_id)
         console.log(walks)
     

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import LoginForm from '../../components/LoginForm/LoginForm'
+import LoginForm from '../../components/LoginForm/LoginForm';
+import ApiContext from '../../ApiContext';
+
 
 // Make Login form and import
 
 class LoginPage extends React.Component {
+    static contextType = ApiContext;
+    
     static defaultProps = {
         location: {},
         history: {
@@ -22,6 +26,7 @@ class LoginPage extends React.Component {
         // Still don't understand below...
         //const destination = (location.state || {}).from || '/'
         // 
+        this.context.handleLogin()
         history.push('/walker')
     }
 
