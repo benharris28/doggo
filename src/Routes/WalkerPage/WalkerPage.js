@@ -24,29 +24,29 @@ class WalkerPage extends React.Component {
     
     const id = 4
 
-    const selectUser =  walkers.find(walker => walker.user_id == user_id)
+    const selectWalker =  walkers.find(walker => walker.user_id == user_id)
 
-    console.log(selectUser)
+    console.log(selectWalker)
   
         return (
             <section className="walker-bio">
                 <div className="walker-image">
-                    <img src={selectUser.profile_photo} />
+                    <img src={selectWalker.profile_photo} />
                 </div>
                 <div className="walker-blurb">
-                    <h3>{selectUser.name}</h3>
-                    <p>{selectUser.bio}</p>
+                    <h3>{selectWalker.name}</h3>
+                    <p>{selectWalker.bio}</p>
                 </div>
                 <section className="book-walk-form">
                     <BookWalkForm 
-                        name={selectUser.name}
-                        id={selectUser.user_id}
+                        name={selectWalker.first_name}
+                        id={selectWalker.user_id}
                         />
                 </section>
                 <div className="feedback-list">
                     <FeedbackList
-                        id={selectUser.user_id}
-                        name={selectUser.name}
+                        id={selectWalker.user_id}
+                        name={selectWalker.name}
                         />
                 </div>
             </section>

@@ -7,7 +7,7 @@ class BookWalkForm extends React.Component {
     // Should new walk be added to state?
     // When user logs in in for the first time, send all data that is required to context
     state = {
-        walk_id: 4,
+        
         walker_firstname: '',
         user_id: '',
         request_time: '',
@@ -28,19 +28,22 @@ class BookWalkForm extends React.Component {
         // Update context in the then block
         e.preventDefault();
         const { id } = this.props;
-        const { users, walkers } = this.context;
+        const { users, walkers, walks } = this.context;
+        const walkNum = walks.length;
+        const newWalkId = walkNum + 1;
+        
         
         const selectUser =  users;
            
         const selectWalker =  walkers.find(walker => walker.user_id == id && walker.type === 'walker')
 
-        const userFind = selectUser(users, id)
+        //const userFind = selectUser(users, id)
 
-        console.log(userFind)
+        //console.log(userFind)
         console.log(this.state)
 
         const { 
-            walk_id, 
+           
             walk_date, 
             request_time,
             pickup_address_street_number,
@@ -53,7 +56,7 @@ class BookWalkForm extends React.Component {
 
         
         const newWalk = {
-            walk_id,
+            walk_id: newWalkId,
             walker_id: id,
             user_firstname: selectUser.user_firstname,
             dog_name: selectUser.dog_name,
@@ -71,7 +74,7 @@ class BookWalkForm extends React.Component {
         }
         console.log(newWalk)
 
-        this.handleNewWalk(newWalk)
+        this.context.handleNewWalk(newWalk)
     }
    
 

@@ -126,7 +126,8 @@ class App extends React.Component {
       cancelWalk: this.cancelWalk,
       completeWalk: this.completeWalk,
       handleLogin: this.handleLogin,
-      handleLogout: this.handleLogout
+      handleLogout: this.handleLogout,
+      handleNewWalk: this.handleNewWalk
     };
 
     console.log(this.state)

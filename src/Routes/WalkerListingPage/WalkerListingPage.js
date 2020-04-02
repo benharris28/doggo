@@ -45,8 +45,8 @@ class WalkerListingPage extends React.Component {
                         {walkers.map(walker => 
                             <li className="walk-li" key={walker.id}>
                                 <WalkerItem
-                                    id={walker.id}
-                                    name={walker.name}
+                                    id={walker.user_id}
+                                    name={walker.first_name}
                                     photo={walker.profile_photo}
                                     postal={walker.postal_short}
                                     rating={walker.rating}
