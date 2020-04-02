@@ -110,6 +110,8 @@ class App extends React.Component {
       completeWalk: this.completeWalk
     };
 
+    console.log(this.state)
+
     return (
       <ApiContext.Provider value={value}>
       <div className="doggo-app">

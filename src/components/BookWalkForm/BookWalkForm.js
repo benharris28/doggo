@@ -19,7 +19,7 @@ class BookWalkForm extends React.Component {
         pickup_address_postal_code: '',
 
     }
-// Build out onsubmit
+
 
     handleSubmit = (e) => {
         // Fetch request (contains a post)
