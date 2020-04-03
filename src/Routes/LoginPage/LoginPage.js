@@ -8,7 +8,7 @@ import ApiContext from '../../ApiContext';
 
 class LoginPage extends React.Component {
     static contextType = ApiContext;
-    
+
     static defaultProps = {
         location: {},
         history: {
@@ -19,15 +19,18 @@ class LoginPage extends React.Component {
     
     //usertype will be passed to this function
     // push either acount page for walkers or walker listing for users
-    handleLoginSuccess = () => {
+    handleLoginSuccess = (userType, userRef) => {
 
         const { location, history } = this.props;
+        
+
         console.log(location.state)
         // Still don't understand below...
         //const destination = (location.state || {}).from || '/'
         // 
+        const destination = userType === 'user' ? '/walker' : `/user/${userRef.user_id}`
         this.context.handleLogin()
-        history.push('/walker')
+        history.push(destination)
     }
 
     render() {

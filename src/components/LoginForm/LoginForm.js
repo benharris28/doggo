@@ -1,10 +1,18 @@
 import React from 'react';
+import ApiContext from '../../ApiContext';
 
 class LoginForm extends React.Component {
+    
+    static contextType = ApiContext;
+    
     static defaultProps = {
         onLoginSuccess: () => {}
       }
 
+      state = {
+          email: '',
+          password: ''
+      }
       // Fetch request to /login or signin endpoint
       // in then block (if successfuk), will get response from API
       // Response should contain usertype
@@ -12,7 +20,25 @@ class LoginForm extends React.Component {
       
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.onLoginSuccess();
+        const { email } = this.state;
+        const { users } = this.context;
+        const userRef = users.find(user => user.email === email);
+        const userType = userRef.type;
+
+        
+        this.props.onLoginSuccess(userType, userRef);
+    }
+
+    updateEmail = (email) => {
+        this.setState({
+            email: email
+        })
+    }
+
+    updatePassword = (password) => {
+        this.setState({
+            password: password
+        })
     }
     
     render() {
@@ -27,11 +53,21 @@ class LoginForm extends React.Component {
                     </h3>
                     <div>
                         <label htmlFor="email">Email</label>
-                        <input type="text" name="email" placeholder="youremail@email.com" required />
+                        <input 
+                            type="text" 
+                            name="email" 
+                            placeholder="youremail@email.com"
+                            onChange={e => this.updateEmail(e)}
+                            required />
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input type="text" name="password" placeholder="enter password" required />
+                        <input 
+                            type="text" 
+                            name="password" 
+                            placeholder="enter password"
+                            onChange={e => this.updatePassword(e)} 
+                            required />
                     </div>
               
                     <button

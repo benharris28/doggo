@@ -31,7 +31,7 @@ class FeedbackList extends React.Component {
                 <h3>Feedback for {name}</h3>
                 <ul className="feedback-ul">
                     {feedbackItems.map(feedback => 
-                            <li className="walk-li" key={feedback.walker_id}>
+                            <li className="walk-li" key={feedback.walk_id}>
                                 <FeedbackItem
                                     user={feedback.user_firstname}
                                     photo={feedback.user_photo}

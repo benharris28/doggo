@@ -6,6 +6,13 @@ class BookWalkForm extends React.Component {
     // How should I convert a new walk entry to json?
     // Should new walk be added to state?
     // When user logs in in for the first time, send all data that is required to context
+    static defaultProps = {
+        location: {},
+        history: {
+          push: () => {},
+        },
+      }
+   
     state = {
         
         walker_firstname: '',
@@ -26,8 +33,9 @@ class BookWalkForm extends React.Component {
         // Some values are coming from context (this.context.user_id, etc)
         // Create new object with complete walk item
         // Update context in the then block
+
         e.preventDefault();
-        const { id } = this.props;
+        const { id, history } = this.props;
         const { users, walkers, walks } = this.context;
         const walkNum = walks.length;
         const newWalkId = walkNum + 1;
@@ -58,9 +66,9 @@ class BookWalkForm extends React.Component {
         const newWalk = {
             walk_id: newWalkId,
             walker_id: id,
-            user_firstname: selectUser.user_firstname,
+            user_firstname: selectUser.first_name,
             dog_name: selectUser.dog_name,
-            walker_firstname: selectWalker.user_firstname,
+            walker_firstname: selectWalker.first_name,
             user_id: selectUser.user_id,
             request_time,
             walk_date,
@@ -75,6 +83,7 @@ class BookWalkForm extends React.Component {
         console.log(newWalk)
 
         this.context.handleNewWalk(newWalk)
+        history.push('/')
     }
    
 
@@ -116,6 +125,12 @@ class BookWalkForm extends React.Component {
         })
     }
 
+    handleProvince(province) {
+        this.setState({
+            pickup_address_province: province
+        })
+    }
+
     handlePostalCode(postal) {
         this.setState({
             pickup_address_postal_code: postal
@@ -124,8 +139,10 @@ class BookWalkForm extends React.Component {
 
     render() {
         const { id, name } = this.props;
-        const { walkers } = this.context;
+        const { walkers, walks } = this.context;
         const selectedWalker = walkers.find(walker => walker.id == id)
+        const walkNum = walks.length;
+        console.log(walkNum)
         
         return (
             <form
@@ -186,6 +203,16 @@ class BookWalkForm extends React.Component {
                             type="text" 
                             name="city"
                             onChange={e => this.handleCity(e.target.value)}
+                            required />
+                    </div>
+                    <div className="province-input">
+                    <label htmlFor="province">
+                            Province
+                        </label>
+                        <input 
+                            type="text" 
+                            name="province"
+                            onChange={e => this.handleProvince(e.target.value)}
                             required />
                     </div>
                     <div className="postal-code-input">

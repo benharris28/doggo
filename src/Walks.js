@@ -37,7 +37,7 @@ export default {
             "comment": "Best walk ever"
         },
         {
-            "walk_id": 2,
+            "walk_id": 3,
             "walker_id": 5,
             "user_firstname": "Test user 1",
             "dog_name": "Dog Name 1",
