@@ -12,8 +12,13 @@ static contextType = ApiContext;
   }
 
 
+
+
   renderLogoutLink() {
+      const { loggedInUser } = this.context;
+      console.log(loggedInUser)
     return (
+    <>
       <div className='Header__logged-in'>
         <Link
           onClick={this.handleLogoutClick}
@@ -21,6 +26,13 @@ static contextType = ApiContext;
           Logout
         </Link>
       </div>
+      <div className="header-user-account">
+        <Link
+          to={`/user/${loggedInUser.user_id}`}>
+            My Account
+        </Link>
+      </div>
+    </>
     )
   }
 

@@ -20,8 +20,10 @@ class LoginForm extends React.Component {
       
     handleSubmit = (e) => {
         e.preventDefault();
+        console.log(this.state)
         const { email } = this.state;
         const { users } = this.context;
+        const selectUser = users.find(user => user.email == email)
         const loggedInUser = this.getLoggedInUser(users, email)
         console.log(loggedInUser)
         const userType = loggedInUser.type;
@@ -45,7 +47,10 @@ class LoginForm extends React.Component {
     }
 
     getLoggedInUser = (users=[], email) => {
-        users.find(user => user.email === email)
+        console.log(users)
+        return users.find(user => user.email == email)
+
+        
     }
     
     render() {
@@ -68,7 +73,7 @@ class LoginForm extends React.Component {
                             type="text" 
                             name="email" 
                             placeholder="youremail@email.com"
-                            onChange={e => this.updateEmail(e)}
+                            onChange={e => this.updateEmail(e.target.value)}
                             required />
                     </div>
                     <div>
@@ -77,7 +82,7 @@ class LoginForm extends React.Component {
                             type="text" 
                             name="password" 
                             placeholder="enter password"
-                            onChange={e => this.updatePassword(e)} 
+                            onChange={e => this.updatePassword(e.target.value)} 
                             required />
                     </div>
               

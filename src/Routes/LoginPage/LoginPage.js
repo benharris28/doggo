@@ -19,7 +19,7 @@ class LoginPage extends React.Component {
     
     //usertype will be passed to this function
     // push either acount page for walkers or walker listing for users
-    handleLoginSuccess = (userType, userRef) => {
+    handleLoginSuccess = (userType, loggedInUser) => {
 
         const { location, history } = this.props;
         
@@ -28,8 +28,8 @@ class LoginPage extends React.Component {
         // Still don't understand below...
         //const destination = (location.state || {}).from || '/'
         // 
-        const destination = userType === 'user' ? '/walker' : `/user/${userRef.user_id}`
-        this.context.handleLogin()
+        const destination = userType === 'user' ? '/walker' : `/user/${loggedInUser.user_id}`
+        this.context.handleLogin(loggedInUser)
         history.push(destination)
     }
 

@@ -20,6 +20,7 @@ class App extends React.Component {
   state = {
     walkers: Consumers.users,
     users: [],
+    loggedInUser: '',
     walks: Walks.walks,
     loggedIn: false
   };
@@ -28,14 +29,13 @@ class App extends React.Component {
   componentDidMount() {
     // dummy logged in user is 1
     const users = Consumers.users;
-    const logIn = 1;
-    const loggedInUser = users.find(user => user.user_id == logIn)
+    
 
     const walkersList = Consumers.users.filter(user => user.type === "walker")
     console.log(walkersList)
     
     this.setState({
-      users: loggedInUser,
+      users: users,
       walkers: walkersList
     })
     
@@ -99,9 +99,10 @@ class App extends React.Component {
       });
     }
 
-    handleLogin = () => {
+    handleLogin = (user) => {
       this.setState({
-        loggedIn: true
+        loggedIn: true,
+        loggedInUser: user
       })
     }
     
