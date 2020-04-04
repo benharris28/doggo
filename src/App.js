@@ -21,6 +21,7 @@ class App extends React.Component {
     walkers: Consumers.users,
     users: [],
     loggedInUser: '',
+    userType: '',
     walks: Walks.walks,
     loggedIn: false
   };
@@ -99,10 +100,11 @@ class App extends React.Component {
       });
     }
 
-    handleLogin = (user) => {
+    handleLogin = (userType, user) => {
       this.setState({
         loggedIn: true,
-        loggedInUser: user
+        loggedInUser: user,
+        userType: userType
       })
     }
     
@@ -123,6 +125,7 @@ class App extends React.Component {
       walkers: this.state.walkers,
       users: this.state.users,
       walks: this.state.walks,
+      loggedInUser: this.state.loggedInUser,
       loggedIn: this.state.loggedIn,
       cancelWalk: this.cancelWalk,
       completeWalk: this.completeWalk,

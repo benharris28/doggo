@@ -29,7 +29,7 @@ class LoginPage extends React.Component {
         //const destination = (location.state || {}).from || '/'
         // 
         const destination = userType === 'user' ? '/walker' : `/user/${loggedInUser.user_id}`
-        this.context.handleLogin(loggedInUser)
+        this.context.handleLogin(userType, loggedInUser)
         history.push(destination)
     }
 
