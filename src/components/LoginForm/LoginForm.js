@@ -22,12 +22,15 @@ class LoginForm extends React.Component {
         e.preventDefault();
         const { email } = this.state;
         const { users } = this.context;
-        const userRef = users.find(user => user.email === email);
-        const userType = userRef.type;
+        const loggedInUser = this.getLoggedInUser(users, email)
+        console.log(loggedInUser)
+        const userType = loggedInUser.type;
 
         
-        this.props.onLoginSuccess(userType, userRef);
+        this.props.onLoginSuccess(userType, loggedInUser);
     }
+
+    
 
     updateEmail = (email) => {
         this.setState({
@@ -40,8 +43,16 @@ class LoginForm extends React.Component {
             password: password
         })
     }
+
+    getLoggedInUser = (users=[], email) => {
+        users.find(user => user.email === email)
+    }
     
     render() {
+        const { email } = this.state;
+        const { users } = this.context;
+        
+        
         return (
             <>
                 <form 
