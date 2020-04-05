@@ -24,20 +24,108 @@ class WalkPage extends React.Component {
       
       const { history } = this.props;
       const { walk_id } = this.props.match.params;
+      const { loggedInUser } = this.context;
+      
+
       
       this.context.cancelWalk(walk_id);
-      history.push('/walk/1')
+      history.push(`/user/${loggedInUser.user_id}`)
     
     }
 
     handleCompleteWalk() {
     const { history } = this.props;
     const { walk_id } = this.props.match.params;
+    const { loggedInUser } = this.context;
       
     this.context.completeWalk(walk_id)
-    history.push('/walk/1')
+    history.push(`/user/${loggedInUser.user_id}`)
       
 
+    }
+
+    handleAcceptWalk() {
+        const { history } = this.props;
+        const { walk_id } = this.props.match.params;
+        const { loggedInUser } = this.context;
+          
+        this.context.acceptWalk(walk_id)
+        history.push(`/user/${loggedInUser.user_id}`)
+          
+    
+        }
+
+    handleDeclineWalk() {
+        const { history } = this.props;
+        const { walk_id } = this.props.match.params;
+        const { loggedInUser } = this.context;
+              
+        this.context.declineWalk(walk_id)
+        history.push(`/user/${loggedInUser.user_id}`)
+              
+        
+        }
+
+
+    renderUserRequestControls = (walkId) => {
+        return (
+            <>
+            <button
+                type="button"
+                onClick={e => this.handleCancelWalk(walkId)}>
+                Cancel Walk Request
+            </button>
+            </>
+        )
+    }
+
+    renderWalkerRequestControls = (walkId) => {
+        return (
+            <>
+            <button
+                type="button"
+                onClick={e => this.handleAcceptWalk(walkId)}>
+                Accept Walk
+            </button>
+            <button
+                type="button"
+                onClick={e => this.handleDeclineWalk(walkId)}>
+                Decline Walk
+            </button>
+            </>
+        )
+    }
+
+
+
+    renderActiveWalkControls = (walkId) => {
+        return (
+        <>
+
+            <button
+                type="button"
+                onClick={e => this.handleCancelWalk(walkId)}>
+                    Cancel Walk
+                </button>
+                <button
+                    type="button"
+                    onClick={e => this.handleCompleteWalk(walkId)}
+                >
+                     Complete Walk
+                </button>
+        </>
+        )
+    }
+
+    renderRequestControls = (walkId) => {
+        const { loggedInUser } = this.context;
+
+        return (
+
+        loggedInUser.type === "user" 
+        ? this.renderUserRequestControls(walkId)
+        : this.renderWalkerRequestControls(walkId)
+        )
     }
 
     render() {
@@ -73,17 +161,10 @@ class WalkPage extends React.Component {
                     Status: {selectWalk.status}
                 </div>
                 <div className="walk-controls">
-                    <button
-                        type="button"
-                        onClick={e => this.handleCancelWalk(selectWalk.walk_id)}>
-                        Cancel Walk
-                    </button>
-                    <button
-                        type="button"
-                        onClick={e => this.handleCompleteWalk(selectWalk.walk_id)}
-                        >
-                        Complete Walk
-                    </button>
+                    {selectWalk.status === "requested"
+                        ? this.renderRequestControls(selectWalk.walk_id)
+                        : this.renderActiveWalkControls(selectWalk.walk_id)}
+                    
                 </div>
             </div>
 

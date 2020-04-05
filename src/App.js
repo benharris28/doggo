@@ -79,20 +79,40 @@ class App extends React.Component {
   }
 
   completeWalk = (walk_id) => {
-    // Make API call to cancel walk
-
-
-      // Find specific walk in the walks array
-      // Clone context of walks
-      // Loop over state of walks, find specific walk_id
-      // set walk = cancelled in loop function
-      // Update state
 
       let clonedWalks = JSON.parse(JSON.stringify(this.state.walks));
 
       clonedWalks.forEach((walk) => {
         if (walk.walk_id == walk_id)
           walk.status = 'complete'
+      });
+
+      this.setState({
+        walks: clonedWalks
+      });
+    }
+
+    acceptWalk = (walk_id) => {
+
+      let clonedWalks = JSON.parse(JSON.stringify(this.state.walks));
+
+      clonedWalks.forEach((walk) => {
+        if (walk.walk_id == walk_id)
+          walk.status = 'accepted'
+      });
+
+      this.setState({
+        walks: clonedWalks
+      });
+    }
+
+    declineWalk = (walk_id) => {
+
+      let clonedWalks = JSON.parse(JSON.stringify(this.state.walks));
+
+      clonedWalks.forEach((walk) => {
+        if (walk.walk_id == walk_id)
+          walk.status = 'declined'
       });
 
       this.setState({
@@ -130,6 +150,8 @@ class App extends React.Component {
       loggedIn: this.state.loggedIn,
       cancelWalk: this.cancelWalk,
       completeWalk: this.completeWalk,
+      acceptWalk: this.acceptWalk,
+      declineWalk: this.declineWalk,
       handleLogin: this.handleLogin,
       handleLogout: this.handleLogout,
       handleNewWalk: this.handleNewWalk
