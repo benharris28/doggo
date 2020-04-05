@@ -1,0 +1,15 @@
+.walk-card {
+    display: flex;
+    border: 1px solid grey;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .walker-info {
+    padding: 10px;
+  }
+
+  .walker-image img{
+      height: 100px;
+
+  }

@@ -14,10 +14,13 @@ import BookWalkForm from '../../components/BookWalkForm/BookWalkForm';
 class WalkerPage extends React.Component {
     static contextType = ApiContext;
     
-    
+    handleBackToSearch = (e) => {
+        const { history } = this.props;
+        history.push('/walker')
+    }
 
     render() {
-    const { walkers, users } = this.context
+    const { walkers, users, walks } = this.context
     console.log(walkers)
     const { user_id } = this.props.match.params
     console.log(user_id)
@@ -30,6 +33,13 @@ class WalkerPage extends React.Component {
   
         return (
             <section className="walker-bio">
+                <div className="return-to-list-button">
+                    <button
+                        type="button"
+                        onClick={e => this.handleBackToSearch(e)}>
+                        Return to search
+                    </button>
+                </div>
                 <div className="walker-image">
                     <img src={selectWalker.profile_photo} />
                 </div>
@@ -46,7 +56,7 @@ class WalkerPage extends React.Component {
                 <div className="feedback-list">
                     <FeedbackList
                         id={selectWalker.user_id}
-                        name={selectWalker.name}
+                        name={selectWalker.first_name}
                         />
                 </div>
             </section>

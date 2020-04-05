@@ -17,7 +17,7 @@ class FeedbackList extends React.Component {
         const getFeedbackForWalker = (walks, id) => (
             (!id)
             ? walks
-            : walks.filter(walk => walk['walker_id'] === id)
+            : walks.filter(walk => walk.walker_id === id && walk.status === "complete")
             )
         
         const feedbackItems = getFeedbackForWalker(walks, id)
