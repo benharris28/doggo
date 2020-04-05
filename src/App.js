@@ -126,6 +126,7 @@ class App extends React.Component {
       users: this.state.users,
       walks: this.state.walks,
       loggedInUser: this.state.loggedInUser,
+      userType: this.state.userType,
       loggedIn: this.state.loggedIn,
       cancelWalk: this.cancelWalk,
       completeWalk: this.completeWalk,

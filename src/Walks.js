@@ -50,7 +50,7 @@ export default {
             "pickup_address_city": "Toronto",
             "pickup_address_province": "Ontario",
             "pickup_address_postal_code": "M2P1Z6",
-            "status": "complete",
+            "status": "requested",
             "rating": 4.8,
             "comment": "Fantastic walk"
         },
