@@ -23,6 +23,9 @@ class UserAccountPage extends React.Component {
 
         const getWalkRequests = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status === "requested") : walks.filter(walk => walk.walker_id == user_id && walk.status === "requested")
         const walkRequests = getWalkRequests(walks, userType, user_id)
+
+        const getUpcomingWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status === "accepted") : walks.filter(walk => walk.walker_id == user_id && walk.status === "accepted")
+        const upcomingWalks = getUpcomingWalks(walks, userType, user_id)
             
         return (
                 <section className="walker-bio">
@@ -49,6 +52,24 @@ class UserAccountPage extends React.Component {
                         </ul>
                     </div>
 
+                    <div className="upcoming-walks">
+                        <h2>Upcoming Walks</h2>
+                        {upcomingWalks.length === 0 ? 'No upcoming walks' : null}
+                        <ul>
+                            {upcomingWalks.map(walk => 
+                                <li className="walk-li" key={walk.walk_id}>
+                                <WalkItem
+                                    walk={walk.walk_id}
+                                    walker={walk.walker_firstname}
+                                    date={walk.walk_date}
+                                    status={walk.status}
+                                    />
+                                </li>)}
+
+                        </ul>
+
+                    </div>
+                    
                     <div className="user-walklist">
                         <h2>Walk History</h2>
                         <ul>

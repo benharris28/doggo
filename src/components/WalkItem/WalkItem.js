@@ -4,6 +4,11 @@ import './WalkItem.css'
 
 class WalkItem extends React.Component {
     renderButtons = () => {
+        return (
+            <>
+                
+            </>
+        )
         
     }
     

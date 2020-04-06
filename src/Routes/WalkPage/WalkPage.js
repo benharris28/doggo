@@ -98,23 +98,35 @@ class WalkPage extends React.Component {
 
 
 
-    renderActiveWalkControls = (walkId) => {
-        return (
-        <>
+    renderActiveWalkControls = (walkId, status) => {
+        if (status !== "complete") {
+            return (
+                <>
+        
+                    <button
+                        type="button"
+                        onClick={e => this.handleCancelWalk(walkId)}>
+                            Cancel Walk
+                        </button>
+                        <button
+                            type="button"
+                            onClick={e => this.handleCompleteWalk(walkId)}
+                        >
+                             Complete Walk
+                        </button>
+                </>
+                ) 
 
-            <button
-                type="button"
-                onClick={e => this.handleCancelWalk(walkId)}>
-                    Cancel Walk
-                </button>
-                <button
-                    type="button"
-                    onClick={e => this.handleCompleteWalk(walkId)}
-                >
-                     Complete Walk
-                </button>
-        </>
-        )
+
+        } else {
+            return (
+                <>
+                </>
+            )
+        }
+        
+        
+        
     }
 
     renderRequestControls = (walkId) => {
@@ -163,7 +175,9 @@ class WalkPage extends React.Component {
                 <div className="walk-controls">
                     {selectWalk.status === "requested"
                         ? this.renderRequestControls(selectWalk.walk_id)
-                        : this.renderActiveWalkControls(selectWalk.walk_id)}
+                        : this.renderActiveWalkControls(selectWalk.walk_id, selectWalk.status)}
+
+                    
                     
                 </div>
             </div>
