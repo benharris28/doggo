@@ -1,0 +1,25 @@
+.LandingPage {
+    margin-top: 0px;
+}
+.title_section {
+    height: 40vh;
+    background-color: lightblue;
+}
+
+.title_section h2 {
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.landing_page_hero {
+    height: 30vh;
+    padding-top: 40px;
+
+}
+
+.two {
+    background-color: lightgrey
+    
+
+}

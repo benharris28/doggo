@@ -36,7 +36,8 @@ class BookWalkForm extends React.Component {
 
         e.preventDefault();
         const { id, history } = this.props;
-        const { users, walkers, walks } = this.context;
+        console.log(history)
+        const { users, walkers, walks, loggedInUser } = this.context;
         const walkNum = walks.length;
         const newWalkId = walkNum + 1;
         
@@ -66,10 +67,10 @@ class BookWalkForm extends React.Component {
         const newWalk = {
             walk_id: newWalkId,
             walker_id: id,
-            user_firstname: selectUser.first_name,
-            dog_name: selectUser.dog_name,
+            user_firstname: loggedInUser.first_name,
+            dog_name: loggedInUser.dog_name,
             walker_firstname: selectWalker.first_name,
-            user_id: selectUser.user_id,
+            user_id: loggedInUser.user_id,
             request_time,
             walk_date,
             pickup_address_street_number,
@@ -83,11 +84,20 @@ class BookWalkForm extends React.Component {
         console.log(newWalk)
 
         this.context.handleNewWalk(newWalk)
-        history.push('/')
+        this.handleSubmitAlert()
+        this.props.handleBackToSearch()
     }
    
 
-    // Add onChange events for each input in the form to add to state
+    // how can i conditionally render a "submitted" notification
+    handleSubmitAlert() {
+
+        return (
+            <>
+                <p>Request submitted!</p>
+            </>
+        )
+    }
 
     handleWalkDate(walk_date) {
         this.setState({
@@ -229,6 +239,9 @@ class BookWalkForm extends React.Component {
                         <button type="submit">
                             Request Walk
                         </button>
+                    </div>
+                    <div className="submit-confirmation">
+                       
                     </div>
                        
 

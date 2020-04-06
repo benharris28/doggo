@@ -19,6 +19,8 @@ class WalkerPage extends React.Component {
         history.push('/walker')
     }
 
+    
+
     render() {
     const { walkers, users, walks } = this.context
     console.log(walkers)
@@ -51,6 +53,7 @@ class WalkerPage extends React.Component {
                     <BookWalkForm 
                         name={selectWalker.first_name}
                         id={selectWalker.user_id}
+                        handleBackToSearch={this.handleBackToSearch}
                         />
                 </section>
                 <div className="feedback-list">

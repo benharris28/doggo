@@ -17,6 +17,10 @@ class LandingPage extends React.Component {
         
         return (
             <section className="LandingPage">
+                <div className="title_section">
+                    <h2>Welcome to Doggo</h2>
+                </div>
+                
                 <div className="landing_page_hero">
                     <h2>
                         Book a walk with dog walkers near you
@@ -29,7 +33,7 @@ class LandingPage extends React.Component {
                             </button>
                     </Link>
                 </div>
-                <div className="landing_page_hero_2">
+                <div className="landing_page_hero two">
                     <h2>
                         Copy #2
                     </h2>
@@ -41,7 +45,7 @@ class LandingPage extends React.Component {
                     </Link>
                    
                 </div>
-                <div className="landing_page_hero_3">
+                <div className="landing_page_hero 3">
                     <h2>
                         Copy #3
                     </h2>
