@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
 import { Link } from 'react-router-dom';
+import './WalkPage.css'
 
 class WalkPage extends React.Component {
     static contextType = ApiContext;
@@ -154,7 +155,7 @@ class WalkPage extends React.Component {
         console.log(this.context);
 
         return (
-            <div>
+            <div className="walk-page">
                 <div className="back-button">
                     <button
                         onClick={e => this.handleBackToAccount(e)}>

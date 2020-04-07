@@ -2,6 +2,7 @@ import React from 'react';
 import ApiContext from '../../ApiContext';
 import FeedbackList from '../../components/FeedbackList/FeedbackList';
 import BookWalkForm from '../../components/BookWalkForm/BookWalkForm';
+import './WalkerPage.css'
 
 //To do
 // Add route to App.js
@@ -34,7 +35,7 @@ class WalkerPage extends React.Component {
     console.log(selectWalker)
   
         return (
-            <section className="walker-bio">
+            <section className="walker-page">
                 <div className="return-to-list-button">
                     <button
                         type="button"

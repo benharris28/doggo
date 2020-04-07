@@ -49,7 +49,7 @@ class UserAccountPage extends React.Component {
         
             
         return (
-                <section className="walker-bio">
+                <section className="user-account-page">
                     <div className="walker-image">
                         <img src={loggedInUser.profile_photo} />
                     </div>

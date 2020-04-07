@@ -1,5 +1,10 @@
+.walker_listing_page {
+    width: 90%;
+    margin: auto
+}
 .walk-ul {
     list-style: none;
+    padding: 0px;
     
 }
 

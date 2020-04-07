@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import ApiContext from '../../ApiContext';
+import './LoginPage.css'
 
 
 // Make Login form and import
