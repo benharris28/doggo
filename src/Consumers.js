@@ -73,6 +73,18 @@ export default {
             "postal_short": "M3T",
             "profile_photo": "https://www.w3schools.com/bootstrap4/img_avatar6.png",
             "bio": "Test biography copy"
+        },
+        {
+            "user_id": 7,
+            "type": "admin",
+            "first_name": "Test Admin 1",
+            "last_name": "LastName",
+            "email": "testadmin1@testy.com",
+            "dog_name": null,
+            "rating": 4.5,
+            "postal_short": "M3T",
+            "profile_photo": "https://www.w3schools.com/bootstrap4/img_avatar6.png",
+            "bio": "Test biography copy"
         }
     ]
 

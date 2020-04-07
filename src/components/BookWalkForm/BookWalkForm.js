@@ -24,6 +24,7 @@ class BookWalkForm extends React.Component {
         pickup_address_city: '',
         pickup_address_province: '',
         pickup_address_postal_code: '',
+        submitted: false
 
     }
 
@@ -37,6 +38,7 @@ class BookWalkForm extends React.Component {
         e.preventDefault();
         const { id, history } = this.props;
         console.log(history)
+
         const { users, walkers, walks, loggedInUser } = this.context;
         const walkNum = walks.length;
         const newWalkId = walkNum + 1;
@@ -46,6 +48,11 @@ class BookWalkForm extends React.Component {
            
         const selectWalker =  walkers.find(walker => walker.user_id == id && walker.type === 'walker')
 
+        // set state to submit: true
+
+        this.setState({
+            submitted: true
+        })
         //const userFind = selectUser(users, id)
 
         //console.log(userFind)
@@ -241,7 +248,7 @@ class BookWalkForm extends React.Component {
                         </button>
                     </div>
                     <div className="submit-confirmation">
-                       
+                      
                     </div>
                        
 
