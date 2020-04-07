@@ -15,17 +15,38 @@ class UserAccountPage extends React.Component {
         console.log(walks)
     
      
+        // Admin filters for walk displays
+        const adminRequests = walks.filter(walk => walk.status === "requested")
+        const adminAccepted = walks.filter(walk => walk.status === "accepted")
+        const adminComplete = walks.filter(walk => walk.status !== "requested" && walk.status !== "accepted")
+        
+        // Filter walk lists based on loggedin usertype. Filter based on user_id for users and walker_id for walkers
 
-        const getWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status !== "requested") : walks.filter(walk => walk.walker_id == user_id && walk.status !== "requested")
-        const walkList = getWalks(walks, userType, user_id)
-        console.log(walkList)
-        console.log(getWalks)
+        // Walk History List
+        let walkList = [];
 
+        const getWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status !== "requested" && walk.status !== "accepted") : walks.filter(walk => walk.walker_id == user_id && walk.status !== "requested" && walk.status !== "accepted")
+        
+        walkList = userType == "admin" ? adminComplete : getWalks(walks, userType, user_id)
+
+
+        
+        // Walk Request List
+        let walkRequests = [];
+        
         const getWalkRequests = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status === "requested") : walks.filter(walk => walk.walker_id == user_id && walk.status === "requested")
-        const walkRequests = getWalkRequests(walks, userType, user_id)
-
+       
+        walkRequests = userType == "admin" ? adminRequests : getWalkRequests(walks, userType, user_id)
+        
+        
+        // Upcoming Walk List
+        let upcomingWalks = []
+        
         const getUpcomingWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status === "accepted") : walks.filter(walk => walk.walker_id == user_id && walk.status === "accepted")
-        const upcomingWalks = getUpcomingWalks(walks, userType, user_id)
+        
+        upcomingWalks = userType == "admin" ? adminAccepted : getUpcomingWalks(walks, userType, user_id)
+        
+        
             
         return (
                 <section className="walker-bio">

@@ -140,6 +140,12 @@ class WalkPage extends React.Component {
         )
     }
 
+    handleBackToAccount = (e) => {
+        const { history } = this.props;
+        const { loggedInUser } = this.context;
+        history.push(`/user/${loggedInUser.user_id}`)
+    }
+
     render() {
         const { walk_id } = this.props.match.params;
         const { walks } = this.context;
@@ -149,6 +155,12 @@ class WalkPage extends React.Component {
 
         return (
             <div>
+                <div className="back-button">
+                    <button
+                        onClick={e => this.handleBackToAccount(e)}>
+                        Back to my account
+                    </button>
+                </div>
                 <div className="walk-page-title">
                     Walk for {`${selectWalk.dog_name}`}
                 </div>

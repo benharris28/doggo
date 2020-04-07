@@ -50,9 +50,7 @@ class BookWalkForm extends React.Component {
 
         // set state to submit: true
 
-        this.setState({
-            submitted: true
-        })
+        
         //const userFind = selectUser(users, id)
 
         //console.log(userFind)
@@ -91,20 +89,24 @@ class BookWalkForm extends React.Component {
         console.log(newWalk)
 
         this.context.handleNewWalk(newWalk)
-        this.handleSubmitAlert()
-        this.props.handleBackToSearch()
+        
+        this.setState({
+            submitted: true
+        }, () => {
+            setTimeout(() => {
+                this.setState({
+                    submitted: false
+                }, () => {
+                    this.props.handleBackToSearch()
+                })
+            }, 4000)
+        })
+        
     }
    
 
     // how can i conditionally render a "submitted" notification
-    handleSubmitAlert() {
-
-        return (
-            <>
-                <p>Request submitted!</p>
-            </>
-        )
-    }
+    
 
     handleWalkDate(walk_date) {
         this.setState({
@@ -247,10 +249,11 @@ class BookWalkForm extends React.Component {
                             Request Walk
                         </button>
                     </div>
+                    {this.state.submitted && 
                     <div className="submit-confirmation">
-                      
+                        <p>Request submitted!</p>
                     </div>
-                       
+                    }
 
             </form>
         )
