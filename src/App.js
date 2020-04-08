@@ -28,6 +28,7 @@ class App extends React.Component {
 
   
   componentDidMount() {
+    
     // dummy logged in user is 1
     const users = Consumers.users;
     
