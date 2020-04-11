@@ -6,14 +6,14 @@ class WalkItem extends React.Component {
     renderButtons = () => {
         return (
             <>
-                
+
             </>
         )
         
     }
     
     render() {
-        const { walk, walker, date, status } = this.props;
+        const { walk, walker, date, walk_status } = this.props;
         const { loggedInUser, userType } = this.context;
 
         return (
@@ -23,7 +23,7 @@ class WalkItem extends React.Component {
             <div>
                <p>Walker: {walker}</p>
                 <p>Date: {date}</p>
-                <p>Status: {status}</p>
+                <p>Status: {walk_status}</p>
 
             </div>
             <div className="walk-controls">

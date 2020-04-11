@@ -15,6 +15,7 @@ import ApiContext from './ApiContext';
 import STORE from './STORE';
 import Consumers from './Consumers';
 import Walks from './Walks';
+import WalkApiService from './services/walk-api-service';
 
 class App extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class App extends React.Component {
     users: [],
     loggedInUser: '',
     userType: '',
-    walks: Walks.walks,
+    walks: [],
     loggedIn: false
   };
 
@@ -34,6 +35,9 @@ class App extends React.Component {
     // Pull walks table entries for logged in user
     // Should walks table pull wait until user loads account page for first time?
     const users = Consumers.users;
+
+    // Set walks for logged in user
+
     
 
     const walkersList = Consumers.users.filter(user => user.type === "walker")
@@ -130,7 +134,21 @@ class App extends React.Component {
         loggedInUser: user,
         userType: userType
       })
-    }
+      
+      WalkApiService.getAllWalksForUserId(user.user_id)
+       
+        .then(walks => {
+          this.setWalks(walks)
+   
+    })
+  }
+
+    setWalks = (walks) => {
+      console.log(walks)
+      this.setState({
+        walks: walks
+    })
+    }  
     
     handleLogout = () => {
       this.setState({

@@ -16,16 +16,16 @@ class UserAccountPage extends React.Component {
     
      
         // Admin filters for walk displays
-        const adminRequests = walks.filter(walk => walk.status === "requested")
-        const adminAccepted = walks.filter(walk => walk.status === "accepted")
-        const adminComplete = walks.filter(walk => walk.status !== "requested" && walk.status !== "accepted")
+        const adminRequests = walks.filter(walk => walk.walk_status === "requested")
+        const adminAccepted = walks.filter(walk => walk.walk_status === "accepted")
+        const adminComplete = walks.filter(walk => walk.walk_status !== "requested" && walk.walk_status !== "accepted")
         
         // Filter walk lists based on loggedin usertype. Filter based on user_id for users and walker_id for walkers
 
         // Walk History List
         let walkList = [];
 
-        const getWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status !== "requested" && walk.status !== "accepted") : walks.filter(walk => walk.walker_id == user_id && walk.status !== "requested" && walk.status !== "accepted")
+        const getWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.walk_status !== "requested" && walk.walk_status !== "accepted") : walks.filter(walk => walk.walker_id == user_id && walk.walk_status !== "requested" && walk.walk_status !== "accepted")
         
         walkList = userType == "admin" ? adminComplete : getWalks(walks, userType, user_id)
 
@@ -34,7 +34,7 @@ class UserAccountPage extends React.Component {
         // Walk Request List
         let walkRequests = [];
         
-        const getWalkRequests = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status === "requested") : walks.filter(walk => walk.walker_id == user_id && walk.status === "requested")
+        const getWalkRequests = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.walk_status === "requested") : walks.filter(walk => walk.walker_id == user_id && walk.walk_status === "requested")
        
         walkRequests = userType == "admin" ? adminRequests : getWalkRequests(walks, userType, user_id)
         
@@ -42,7 +42,7 @@ class UserAccountPage extends React.Component {
         // Upcoming Walk List
         let upcomingWalks = []
         
-        const getUpcomingWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.status === "accepted") : walks.filter(walk => walk.walker_id == user_id && walk.status === "accepted")
+        const getUpcomingWalks = (walks, userType, user_id) => (userType == "user") ? walks.filter(walk => walk.user_id == user_id && walk.walk_status === "accepted") : walks.filter(walk => walk.walker_id == user_id && walk.walk_status === "accepted")
         
         upcomingWalks = userType == "admin" ? adminAccepted : getUpcomingWalks(walks, userType, user_id)
         
@@ -66,7 +66,7 @@ class UserAccountPage extends React.Component {
                                     walk={walk.walk_id}
                                     walker={walk.walker_firstname}
                                     date={walk.walk_date}
-                                    status={walk.status}
+                                    walk_status={walk.walk_status}
                                     />
                                 </li>)}
 
@@ -83,7 +83,7 @@ class UserAccountPage extends React.Component {
                                     walk={walk.walk_id}
                                     walker={walk.walker_firstname}
                                     date={walk.walk_date}
-                                    status={walk.status}
+                                    walk_status={walk.walk_status}
                                     />
                                 </li>)}
 
@@ -100,7 +100,7 @@ class UserAccountPage extends React.Component {
                                     walk={walk.walk_id}
                                     walker={walk.walker_firstname}
                                     date={walk.walk_date}
-                                    status={walk.status}
+                                    walk_status={walk.walk_status}
                                     />
                                 </li>)}
 
