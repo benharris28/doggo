@@ -2,20 +2,33 @@ import React from 'react';
 import ApiContext from '../../ApiContext';
 import { Link } from 'react-router-dom';
 import './WalkPage.css'
+import WalkService from '../../services/walk-api-service';
 
 class WalkPage extends React.Component {
     static contextType = ApiContext;
     
-    
+    state = {
+        walk: ''
+    }
+    // To update walk, should context be updated and a new walks array pushed to database?
+    // should each walk update post directly to the database?
 
 
     componentDidMount() {
-
+        const { walk_id } = this.props.match.params;
+        WalkService.getWalkById(walk_id)
+            .then(walk => this.setWalk(walk))
         // Make API call to walk table
         // Pass in current logged in user_id and walk_id
         // On server side, for this walk_id, check if logged in user_id matches user_id in walks table
         // If successful, render the page, if not, push back to landing page
         // Create logic so that if logged in user is admin, render page (check on same route)
+    }
+
+    setWalk = (walk) => {
+        this.setState({
+            walk: walk
+        })
     }
 
     // To cancel a walk, Do I need to change the state of walks in App.js or just post a new status to the API?
@@ -99,8 +112,8 @@ class WalkPage extends React.Component {
 
 
 
-    renderActiveWalkControls = (walkId, status) => {
-        if (status !== "complete") {
+    renderActiveWalkControls = (walkId, walk_status) => {
+        if (walk_status !== "complete") {
             return (
                 <>
         
@@ -135,7 +148,7 @@ class WalkPage extends React.Component {
 
         return (
 
-        loggedInUser.type === "user" 
+        loggedInUser.user_type === "user" 
         ? this.renderUserRequestControls(walkId)
         : this.renderWalkerRequestControls(walkId)
         )
@@ -149,6 +162,8 @@ class WalkPage extends React.Component {
 
     render() {
         const { walk_id } = this.props.match.params;
+        const { walk } = this.state;
+        console.log(walk)
         const { walks } = this.context;
         const selectWalk = walks.find(walk => walk.walk_id == walk_id)
         console.log(walk_id)
@@ -163,30 +178,30 @@ class WalkPage extends React.Component {
                     </button>
                 </div>
                 <div className="walk-page-title">
-                    Walk for {`${selectWalk.dog_name}`}
+                    Walk for {`${walk.dog_name}`}
                 </div>
                 <div className="walk-page-data">
-                    <p>Walk with: {selectWalk.walker_firstname}</p>
-                    <p>Walk Date: {selectWalk.walk_date}</p>
+                    <p>Walk with: {walk.walker_firstname}</p>
+                    <p>Walk Date: {walk.walk_date}</p>
                 </div>
                 <div className="walk-page-address">
                     Pickup Address:
                     {' '}
-                    {selectWalk.pickup_address_street_number}
+                    {walk.pickup_address_street_number}
                     {' '}
-                     {selectWalk.pickup_address_street_name},
+                     {walk.pickup_address_street_name},
                      {' '}
-                     {selectWalk.pickup_address_city}
+                     {walk.pickup_address_city}
                      {' '}
-                     {selectWalk.pickup_address_province},
+                     {walk.pickup_address_province},
                      {' '}
-                     {selectWalk.pickup_address_postal_code}
+                     {walk.pickup_address_postal_code}
                 </div>
                 <div className="walk-status">
-                    Status: {selectWalk.status}
+                    Status: {walk.walk_status}
                 </div>
                 <div className="walk-controls">
-                    {selectWalk.status === "requested"
+                    {walk.walk_status === "requested"
                         ? this.renderRequestControls(selectWalk.walk_id)
                         : this.renderActiveWalkControls(selectWalk.walk_id, selectWalk.status)}
 

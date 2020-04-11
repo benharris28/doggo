@@ -75,7 +75,7 @@ class App extends React.Component {
 
       clonedWalks.forEach((walk) => {
         if (walk.walk_id == walk_id)
-          walk.status = 'cancelled'
+          walk.walk_status = 'cancelled'
       });
 
       this.setState({
@@ -92,7 +92,7 @@ class App extends React.Component {
 
       clonedWalks.forEach((walk) => {
         if (walk.walk_id == walk_id)
-          walk.status = 'complete'
+          walk.walk_status = 'complete'
       });
 
       this.setState({
@@ -106,7 +106,7 @@ class App extends React.Component {
 
       clonedWalks.forEach((walk) => {
         if (walk.walk_id == walk_id)
-          walk.status = 'accepted'
+          walk.walk_status = 'accepted'
       });
 
       this.setState({
@@ -120,7 +120,7 @@ class App extends React.Component {
 
       clonedWalks.forEach((walk) => {
         if (walk.walk_id == walk_id)
-          walk.status = 'declined'
+          walk.walk_status = 'declined'
       });
 
       this.setState({
