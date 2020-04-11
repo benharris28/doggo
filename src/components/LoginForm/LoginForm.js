@@ -32,9 +32,9 @@ class LoginForm extends React.Component {
             
             console.log(res)
             
-            const userType = res.user_type;
+            const userType = res.dbUser.user_type;
             console.log(userType)
-            const user = res;
+            const user = res.dbUser;
             this.props.onLoginSuccess(userType, user)
         })
     }
