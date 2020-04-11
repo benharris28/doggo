@@ -20,6 +20,12 @@ class LoginPage extends React.Component {
     
     //usertype will be passed to this function
     // push either acount page for walkers or walker listing for users
+    
+    handleLoginSuccessApi = (user) => {
+        const { location, history } = this.props;
+        
+    }
+
     handleLoginSuccess = (userType, loggedInUser) => {
 
         const { location, history } = this.props;

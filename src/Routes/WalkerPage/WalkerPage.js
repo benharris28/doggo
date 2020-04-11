@@ -4,12 +4,8 @@ import FeedbackList from '../../components/FeedbackList/FeedbackList';
 import BookWalkForm from '../../components/BookWalkForm/BookWalkForm';
 import './WalkerPage.css'
 
-//To do
-// Add route to App.js
-// Need a find method to isolate individual walker from array
-// Should form input be its own component?
-// Update address input to be elastic search of addresses
-// How can I reuse components (like lists) if they look similar but have different outputs (eg feedback vs. name)
+//WalkerPage
+
 
 //Submition of book walk form should create a new walk with status "requested"
 class WalkerPage extends React.Component {

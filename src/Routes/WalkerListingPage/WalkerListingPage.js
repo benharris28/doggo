@@ -14,6 +14,9 @@ class WalkerListingPage extends React.Component {
     
     static contextType = ApiContext;
 
+    // API
+    // Pull all walkers from the database (for now) and add them to context - will need to isolate later
+
     render() {
         const { walkers }= this.context;
         console.log(walkers)

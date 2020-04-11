@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
+import AuthApiService from '../../services/auth-api-service'
 
 class LoginForm extends React.Component {
     
@@ -18,19 +19,39 @@ class LoginForm extends React.Component {
       // Response should contain usertype
       // Pass usertype as parameter to onLoginSuccess
       
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(this.state)
-        const { email } = this.state;
-        const { users } = this.context;
-        const selectUser = users.find(user => user.email == email)
-        const loggedInUser = this.getLoggedInUser(users, email)
-        console.log(loggedInUser)
-        const userType = loggedInUser.type;
+    handleApiSubmit = (e) => {
+        e.preventDefault()
+        const { email, password } = this.state;
+
+        AuthApiService.postLogin({
+            email: email,
+            password: password,
+        })
+
+        .then(res => {
+            
+            console.log(res)
+            
+            const userType = res.user_type;
+            console.log(userType)
+            const user = res;
+            this.props.onLoginSuccess(userType, user)
+        })
+    }
+    
+     // handleSubmit = (e) => {
+        //e.preventDefault();
+        //console.log(this.state)
+        //const { email } = this.state;
+        //const { users } = this.context;
+        //const selectUser = users.find(user => user.email == email)
+        //const loggedInUser = this.getLoggedInUser(users, email)
+        //console.log(loggedInUser)
+        //const userType = loggedInUser.type;
 
         
-        this.props.onLoginSuccess(userType, loggedInUser);
-    }
+        //this.props.onLoginSuccess(userType, loggedInUser);
+    //}
 
     
 
@@ -62,7 +83,7 @@ class LoginForm extends React.Component {
             <>
                 <form 
                     className="signup-form"
-                    onSubmit={this.handleSubmit}
+                    onSubmit={this.handleApiSubmit}
                     >
                     <h3>
                         Login to your Doggo account

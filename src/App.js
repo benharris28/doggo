@@ -29,8 +29,10 @@ class App extends React.Component {
   //TEST
   
   componentDidMount() {
-    
-    // dummy logged in user is 1
+    //API
+    // Pull logged in user from users table (input from login form)
+    // Pull walks table entries for logged in user
+    // Should walks table pull wait until user loads account page for first time?
     const users = Consumers.users;
     
 
