@@ -39,9 +39,11 @@ class WalkPage extends React.Component {
       const { history } = this.props;
       const { walk_id } = this.props.match.params;
       const { loggedInUser } = this.context;
-      
+      const newStatus = ({
+          status: "cancelled"
+      })
 
-      
+      WalkService.updateWalk(walk_id, newStatus)
       this.context.cancelWalk(walk_id);
       history.push(`/user/${loggedInUser.user_id}`)
     
@@ -62,7 +64,9 @@ class WalkPage extends React.Component {
         const { history } = this.props;
         const { walk_id } = this.props.match.params;
         const { loggedInUser } = this.context;
-          
+        const newStatus = "accepted"
+        
+        WalkService.updateWalk(walk_id, newStatus)
         this.context.acceptWalk(walk_id)
         history.push(`/user/${loggedInUser.user_id}`)
           
