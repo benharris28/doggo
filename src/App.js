@@ -39,7 +39,7 @@ class App extends React.Component {
     // Set walks for logged in user
 
     
-
+    
     const walkersList = Consumers.users.filter(user => user.type === "walker")
     console.log(walkersList)
     

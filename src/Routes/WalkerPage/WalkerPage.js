@@ -43,7 +43,7 @@ class WalkerPage extends React.Component {
                     <img src={selectWalker.profile_photo} />
                 </div>
                 <div className="walker-blurb">
-                    <h3>{selectWalker.name}</h3>
+                    <h3>{selectWalker.first_name}</h3>
                     <p>{selectWalker.bio}</p>
                 </div>
                 <section className="book-walk-form">

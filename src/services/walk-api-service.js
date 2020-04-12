@@ -26,18 +26,25 @@ const WalkApiService = {
                 )
             },
             updateWalk(walk_id, walk_status) {
+                
                 return fetch(`${config.API_ENDPOINT}/walk/${walk_id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json',
                     },
                     body: JSON.stringify(walk_status)
+                    
                 })
+                
                 .then(res => 
+                 
+                    
                     (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
-                    : res.json()
+                    : res
+                    
                 )
+                
             },
     }
 

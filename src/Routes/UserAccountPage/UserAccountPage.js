@@ -7,6 +7,10 @@ import './UserAccountPage.css'
 class UserAccountPage extends React.Component {
     static contextType = ApiContext;
     
+    handleWalkItem = () => {
+            
+    }
+
     render() {
         const { userType, loggedInUser, users, walks } = this.context
         const { user_id } = this.props.match.params;
@@ -47,6 +51,7 @@ class UserAccountPage extends React.Component {
         upcomingWalks = userType == "admin" ? adminAccepted : getUpcomingWalks(walks, userType, user_id)
         
         
+        const userProp = userType == "walker" ? "user_firstname" : "walker_firstname"
             
         return (
                 <section className="user-account-page">
@@ -64,7 +69,7 @@ class UserAccountPage extends React.Component {
                                 <li className="walk-li" key={walk.walk_id}>
                                 <WalkItem
                                     walk={walk.walk_id}
-                                    walker={walk.walker_firstname}
+                                    user={`walk.${userProp}`}
                                     date={walk.walk_date}
                                     walk_status={walk.walk_status}
                                     />

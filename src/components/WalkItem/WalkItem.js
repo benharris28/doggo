@@ -13,15 +13,15 @@ class WalkItem extends React.Component {
     }
     
     render() {
-        const { walk, walker, date, walk_status } = this.props;
+        const { walk, user, date, walk_status } = this.props;
         const { loggedInUser, userType } = this.context;
-
+        const userTitle = userType == "walker" ? "User" : "Walker"
         return (
             <div className="walk-card">
                 <Link
                     to={`/walk/${walk}`}>
             <div>
-               <p>Walker: {walker}</p>
+               <p>{userTitle}: {user}</p>
                 <p>Date: {date}</p>
                 <p>Status: {walk_status}</p>
 
