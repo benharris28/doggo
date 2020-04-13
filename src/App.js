@@ -113,14 +113,22 @@ class App extends React.Component {
         userType: userType
       })
       
-      WalkApiService.getAllWalksForUserId(user.user_id)
+      if (userType == "user") {
+        
+         WalkApiService.getAllWalksForUserId(user.user_id)
        
         .then(walks => {
           this.setWalks(walks)
-   
-    })
-  }
-
+        
+        })
+        } else {
+          WalkApiService.getAllWalksForWalkerId(user.user_id)
+            .then(walks => {
+              this.setWalks(walks)
+              })
+        }
+      }
+      
     setWalks = (walks) => {
       console.log(walks)
       this.setState({

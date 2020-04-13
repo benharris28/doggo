@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns'
 import './WalkPage.css'
 import WalkService from '../../services/walk-api-service';
 
@@ -202,7 +203,9 @@ class WalkPage extends React.Component {
                 </div>
                 <div className="walk-page-data">
                     <p>Walk with: {walk.walker_firstname}</p>
+                    
                     <p>Walk Date: {walk.walk_date}</p>
+                    <p>Walk Time: {walk.request_time}</p>
                 </div>
                 <div className="walk-page-address">
                     Pickup Address:

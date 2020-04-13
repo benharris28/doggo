@@ -39,21 +39,6 @@ class LoginForm extends React.Component {
         })
     }
     
-     // handleSubmit = (e) => {
-        //e.preventDefault();
-        //console.log(this.state)
-        //const { email } = this.state;
-        //const { users } = this.context;
-        //const selectUser = users.find(user => user.email == email)
-        //const loggedInUser = this.getLoggedInUser(users, email)
-        //console.log(loggedInUser)
-        //const userType = loggedInUser.type;
-
-        
-        //this.props.onLoginSuccess(userType, loggedInUser);
-    //}
-
-    
 
     updateEmail = (email) => {
         this.setState({

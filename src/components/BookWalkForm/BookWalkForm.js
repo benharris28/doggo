@@ -92,21 +92,23 @@ class BookWalkForm extends React.Component {
         WalkApiService.createWalk(newWalk)
             .then(res => {
                 this.context.handleNewWalk(res)
+
+                this.setState({
+                    submitted: true
+                }, () => {
+                    setTimeout(() => {
+                        this.setState({
+                            submitted: false
+                        }, () => {
+                            this.props.handleBackToSearch()
+                        })
+                    }, 4000)
+                })
             })
 
         
         
-        this.setState({
-            submitted: true
-        }, () => {
-            setTimeout(() => {
-                this.setState({
-                    submitted: false
-                }, () => {
-                    this.props.handleBackToSearch()
-                })
-            }, 4000)
-        })
+        
         
     }
    
