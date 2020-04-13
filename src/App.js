@@ -106,6 +106,20 @@ class App extends React.Component {
       });
     }
 
+    handleFeedback = (walk_id, rating, comment) => {
+      let clonedWalks = JSON.parse(JSON.stringify(this.state.walks));
+
+      clonedWalks.forEach((walk) => {
+        if (walk.walk_id == walk_id)
+          walk.rating = rating;
+          walk.comment = comment
+      });
+
+      this.setState({
+        walks: clonedWalks
+      });
+    }
+
     handleLogin = (userType, user) => {
       this.setState({
         loggedIn: true,
@@ -128,7 +142,7 @@ class App extends React.Component {
               })
         }
       }
-      
+
     setWalks = (walks) => {
       console.log(walks)
       this.setState({
@@ -147,6 +161,8 @@ class App extends React.Component {
         walkers: walkers
       })
     }
+
+    
 
   
 

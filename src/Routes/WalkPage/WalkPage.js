@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns'
 import './WalkPage.css'
 import WalkService from '../../services/walk-api-service';
+import WalkFeedbackForm from '../../components/WalkFeedbackForm/WalkFeedbackForm'
 
 class WalkPage extends React.Component {
     static contextType = ApiContext;
@@ -175,6 +176,19 @@ class WalkPage extends React.Component {
         )
     }
 
+    renderFeedbackForm = (walk_id) => {
+        return (
+            <WalkFeedbackForm 
+                walk_id={walk_id}
+                handleFeedback={this.handleFeedback}/>
+        )
+    }
+
+    handleFeedback = (walk_id, rating, comment) => {
+        this.context.handleFeedback(walk_id, rating, comment)
+
+    }
+
     handleBackToAccount = (e) => {
         const { history } = this.props;
         const { loggedInUser } = this.context;
@@ -183,6 +197,7 @@ class WalkPage extends React.Component {
 
     render() {
         const { walk_id } = this.props.match.params;
+        const { loggedInUser } = this.context;
         const { walk } = this.state;
         console.log(walk)
         const { walks } = this.context;
@@ -231,6 +246,17 @@ class WalkPage extends React.Component {
                     
                     
                 </div>
+                
+                
+                <div className="walk-feedback">
+                    {(walk.walk_status === "complete" && loggedInUser == "user") ?
+                        <WalkFeedbackForm 
+                            walk_id={walk.walk_id}
+                            handleFeedback={this.handleFeedback}/> :
+                        null }
+                    
+                </div>
+                
             </div>
 
             
