@@ -12,14 +12,11 @@ import UserAccountPage from './Routes/UserAccountPage/UserAccountPage';
 import WalkerPage from './Routes/WalkerPage/WalkerPage';
 import WalkPage from './Routes/WalkPage/WalkPage';
 import ApiContext from './ApiContext';
-import STORE from './STORE';
-import Consumers from './Consumers';
-import Walks from './Walks';
 import WalkApiService from './services/walk-api-service';
 
 class App extends React.Component {
   state = {
-    walkers: Consumers.users,
+    walkers: [],
     users: [],
     loggedInUser: '',
     userType: '',
@@ -27,31 +24,12 @@ class App extends React.Component {
     loggedIn: false
   };
 
-  //TEST
+  
   
   componentDidMount() {
-    //API
-    // Pull logged in user from users table (input from login form)
-    // Pull walks table entries for logged in user
-    // Should walks table pull wait until user loads account page for first time?
-    const users = Consumers.users;
-
-    // Set walks for logged in user
-
-    
-    
-    const walkersList = Consumers.users.filter(user => user.type === "walker")
-    console.log(walkersList)
-    
-    this.setState({
-      users: users,
-      walkers: walkersList
-    })
+   
     
   }
-
-  
-  // Add componentDidMount function to get all data for context only for logged in user
 
   
 
@@ -155,7 +133,12 @@ class App extends React.Component {
         loggedIn: false
       })
     }
-      
+    
+    handleWalkerList = (walkers) => {
+      this.setState({
+        walkers: walkers
+      })
+    }
 
   
 
@@ -176,7 +159,8 @@ class App extends React.Component {
       declineWalk: this.declineWalk,
       handleLogin: this.handleLogin,
       handleLogout: this.handleLogout,
-      handleNewWalk: this.handleNewWalk
+      handleNewWalk: this.handleNewWalk,
+      handleWalkerList: this.handleWalkerList
     };
 
     console.log(this.state)

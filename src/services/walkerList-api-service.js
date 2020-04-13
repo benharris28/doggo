@@ -1,8 +1,8 @@
 import config from '../config';
 
-const WalkApiService = {
-    getAllWalksForUserId(user_id) {
-        return fetch(`${config.API_ENDPOINT}/walk/all/${user_id}`, {
+const WalkerListApiService = {
+    getAllWalkers() {
+        return fetch(`${config.API_ENDPOINT}/walker`, {
             headers: {
               //'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
@@ -15,5 +15,5 @@ const WalkApiService = {
         },
 }
 
-export default WalkApiService;
+export default WalkerListApiService;
 

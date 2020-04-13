@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
+import WalkApiService from '../../services/walk-api-service';
 
 class BookWalkForm extends React.Component {
     static contextType = ApiContext;
@@ -40,13 +41,13 @@ class BookWalkForm extends React.Component {
         console.log(history)
 
         const { users, walkers, walks, loggedInUser } = this.context;
-        const walkNum = walks.length;
-        const newWalkId = walkNum + 1;
+
+       
         
         
         const selectUser =  users;
            
-        const selectWalker =  walkers.find(walker => walker.user_id == id && walker.type === 'walker')
+        const selectWalker =  walkers.find(walker => walker.user_id == id && walker.user_type === 'walker')
 
         // set state to submit: true
 
@@ -70,7 +71,6 @@ class BookWalkForm extends React.Component {
 
         
         const newWalk = {
-            walk_id: newWalkId,
             walker_id: id,
             user_firstname: loggedInUser.first_name,
             dog_name: loggedInUser.dog_name,
@@ -83,12 +83,18 @@ class BookWalkForm extends React.Component {
             pickup_address_city,
             pickup_address_province,
             pickup_address_postal_code,
-            status: "requested",
+            walk_status: "requested",
 
         }
         console.log(newWalk)
 
-        this.context.handleNewWalk(newWalk)
+        // API Call
+        WalkApiService.createWalk(newWalk)
+            .then(res => {
+                this.context.handleNewWalk(res)
+            })
+
+        
         
         this.setState({
             submitted: true

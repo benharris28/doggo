@@ -2,13 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import WalkerItem from '../../components/WalkerItem/WalkerItem';
 import ApiContext from '../../ApiContext'
+import WalkerListApiService from '../../services/walkerList-api-service'
 import './WalkerListingPage.css'
 
-//To do
-// Make each walker item a link to the walker page
-// Fix img links
-// Add submit button to walk form
-// Should inputed form trigger API call for available walkers?
+
 
 class WalkerListingPage extends React.Component {
     
@@ -16,6 +13,13 @@ class WalkerListingPage extends React.Component {
 
     // API
     // Pull all walkers from the database (for now) and add them to context - will need to isolate later
+    componentDidMount() {
+        WalkerListApiService.getAllWalkers()
+            .then(res => {
+                console.log(res)
+                this.context.handleWalkerList(res)
+            })
+    }
 
     render() {
         const { walkers }= this.context;

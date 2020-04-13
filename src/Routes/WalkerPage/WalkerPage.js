@@ -4,7 +4,6 @@ import FeedbackList from '../../components/FeedbackList/FeedbackList';
 import BookWalkForm from '../../components/BookWalkForm/BookWalkForm';
 import './WalkerPage.css'
 
-//WalkerPage
 
 
 //Submition of book walk form should create a new walk with status "requested"
@@ -23,8 +22,6 @@ class WalkerPage extends React.Component {
     console.log(walkers)
     const { user_id } = this.props.match.params
     console.log(user_id)
-    
-    const id = 4
 
     const selectWalker =  walkers.find(walker => walker.user_id == user_id)
 
