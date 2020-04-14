@@ -106,6 +106,7 @@ class App extends React.Component {
       });
     }
 
+    /*
     handleFeedback = (walk_id, rating, comment) => {
       let clonedWalks = JSON.parse(JSON.stringify(this.state.walks));
 
@@ -119,6 +120,7 @@ class App extends React.Component {
         walks: clonedWalks
       });
     }
+    */
 
     handleLogin = (userType, user) => {
       this.setState({
@@ -184,7 +186,8 @@ class App extends React.Component {
       handleLogin: this.handleLogin,
       handleLogout: this.handleLogout,
       handleNewWalk: this.handleNewWalk,
-      handleWalkerList: this.handleWalkerList
+      handleWalkerList: this.handleWalkerList,
+      handleFeedback: this.handleFeedback
     };
 
     console.log(this.state)

@@ -184,10 +184,10 @@ class WalkPage extends React.Component {
         )
     }
 
-    handleFeedback = (walk_id, rating, comment) => {
-        this.context.handleFeedback(walk_id, rating, comment)
+    //handleFeedback = (walk_id, rating, comment) => {
+        //this.context.handleFeedback(walk_id, rating, comment)
 
-    }
+    //}
 
     handleBackToAccount = (e) => {
         const { history } = this.props;
@@ -195,9 +195,94 @@ class WalkPage extends React.Component {
         history.push(`/user/${loggedInUser.user_id}`)
     }
 
+
+
+    renderUserButtons = () => {
+        const { walk } = this.state;
+        const walkStatus = walk.walk_status;
+
+        if (walkStatus == "complete") {
+            return (
+                <div>
+                   
+                </div>
+            )
+        } else if (walkStatus == "requested") {
+            return (
+                
+                <>
+                    <button
+                        type="button"
+                        onClick={e => this.handleCancelWalk(walk.walk_id)}>
+                            Cancel Walk Request
+                    </button>
+                </>
+               
+            )
+        } else {
+            return (
+                <>
+        
+                    <button
+                        type="button"
+                        onClick={e => this.handleCancelWalk(walk.walk_id)}>
+                            Cancel Walk
+                    </button>
+                       
+                </>
+            )
+        }
+    }
+
+    renderWalkerButtons = () => {
+        const { walk } = this.state;
+        const walkStatus = walk.walk_status;
+
+        if (walkStatus == "complete") {
+            return (
+                <div>
+                   
+                </div>
+            )
+        } else if (walkStatus == "requested") {
+            return (
+                
+                <>
+                    <button
+                        type="button"
+                        onClick={e => this.handleAcceptWalk(walk.walk_id)}>
+                        Accept Walk
+                    </button>
+                    <button
+                        type="button"
+                        onClick={e => this.handleDeclineWalk(walk.walk_id)}>
+                        Decline Walk
+                    </button>
+                </>
+               
+            )
+        } else {
+            return (
+                <>
+        
+                    <button
+                        type="button"
+                        onClick={e => this.handleCancelWalk(walk.walk_id)}>
+                            Cancel Walk
+                        </button>
+                        <button
+                            type="button"
+                            onClick={e => this.handleCompleteWalk(walk.walk_id)}
+                        >
+                             Complete Walk
+                    </button>
+                </>
+            )
+        }
+    }
     render() {
         const { walk_id } = this.props.match.params;
-        const { loggedInUser } = this.context;
+        const { loggedInUser, userType } = this.context;
         const { walk } = this.state;
         console.log(walk)
         const { walks } = this.context;
@@ -238,22 +323,18 @@ class WalkPage extends React.Component {
                 <div className="walk-status">
                     Status: {walk.walk_status}
                 </div>
-                <div className="walk-controls">
-                    {walk.walk_status === "requested"
-                        ? this.renderRequestControls(selectWalk.walk_id)
-                        : this.renderActiveWalkControls(selectWalk.walk_id, selectWalk.status)}
-
-                    
-                    
+                
+                <div className="walk-control-buttons">
+                    {userType === "user" 
+                    ? this.renderUserButtons()
+                    : this.renderWalkerButtons()}
                 </div>
-                
-                
+
                 <div className="walk-feedback">
-                    {(walk.walk_status === "complete" && loggedInUser == "user") ?
+                    {(walk.walk_status === "complete" && userType == "user") ?
                         <WalkFeedbackForm 
                             walk_id={walk.walk_id}
-                            handleFeedback={this.handleFeedback}/> :
-                        null }
+                           /> : null }
                     
                 </div>
                 

@@ -23,7 +23,14 @@ class WalkFeedbackForm extends React.Component {
         }
 
         WalkApiService.updateWalk(walk_id, feedback)
-        this.props.handleFeedback(rating, comment)
+            .then(res => {
+
+                    // Need set timeout here
+                this.props.handleBackToSearch()
+               
+                
+            })
+        //this.props.handleFeedback(rating, comment)
 
     }
 
@@ -46,6 +53,9 @@ class WalkFeedbackForm extends React.Component {
     render() {
         return (
             <div>
+                <div className="feedback-title">
+                    Leave feedback for your walker
+                </div>
                 <form 
                     className="walk-feedback-form"
                     onSubmit={e => this.handleSubmit(e)}>
