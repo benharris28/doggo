@@ -12,10 +12,9 @@ class RegistrationPage extends React.Component {
     }
 
     // Need explanation for this function
-    handleLoginSuccess = () => {
-        const { location, history } = this.props;
-        const destination = (location.state || {}).from || '/'
-        history.push(destination)
+    handleRegistrationSuccess = (user) => {
+        const { history } = this.props;
+        history.push('/login')
     }
 
     render() {
@@ -23,7 +22,8 @@ class RegistrationPage extends React.Component {
             <section className="login-page">
 
                 <div>
-                    <RegistrationForm />
+                    <RegistrationForm 
+                        onRegistrationSuccess={this.onRegistrationSuccess}/>
                 </div>
                 <div>
                     Already have an account?

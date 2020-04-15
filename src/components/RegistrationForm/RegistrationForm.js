@@ -1,10 +1,35 @@
 import React from 'react';
+import AuthApiService from '../../services/auth-api-service'
 
 // How can I build a mock account page?
 class RegistrationForm extends React.Component {
-    handleSubmit = (e) => {
+    
+  state = {
+    error: null
+  }
+  
+  handleSubmit = (e) => {
         e.preventDefault(e);
+        const { first_name , last_name, email, password, user_type} = e.target
 
+        AuthApiService.postUser({
+          email: email.value,
+          password: password.value,
+          first_name: first_name.value,
+          last_name: last_name.value,
+          user_type: user_type.value
+        })
+        .then(user => {
+          email.value = ''
+          password.value = ''
+          first_name.value = ''
+          last_name.value = ''
+          user_type.value = ''
+          this.props.onRegistrationSuccess()
+        })
+        .catch(res => {
+          this.setState({ error: res.error})
+        })
     }
     
     render() {
@@ -17,19 +42,15 @@ class RegistrationForm extends React.Component {
               <p>We just need a few details to get your account up and running</p>
               
               <div>
-                <label htmlFor="first-name">First Name</label>
-                <input type="text" name="first-name" required />
+                <label htmlFor="first_name">First Name</label>
+                <input type="text" name="first_name" required />
               </div>
               
               <div>
-                <label htmlFor="last-name">Last Name</label>
-                <input type="text" name="last-name" required />
+                <label htmlFor="last_name">Last Name</label>
+                <input type="text" name="last_name" required />
               </div>
               
-              <div>
-                <label htmlFor="zip-code">ZIP Code</label>
-                <input type="text" name="zip-code" required />
-              </div>
               
               <div>
                 <label htmlFor="email">Email</label>
@@ -37,18 +58,18 @@ class RegistrationForm extends React.Component {
               </div>
               
               <div>
-                <label htmlFor="create-password">Create Password</label>
-                <input type="text" name="create-password" placeholder="enter password" required />
+                <label htmlFor="password">Create Password</label>
+                <input type="text" name="password" placeholder="enter password" required />
               </div>
 
               <div>
-                <label htmlFor="repeat-password">Repeat Password</label>
-                <input type="text" name="repeat-password" placeholder="enter password" required /> 
+                <label htmlFor="repeat_password">Repeat Password</label>
+                <input type="text" name="repeat_password" placeholder="enter password" required /> 
               </div>
 
               <div>
-                <label htmlFor="account-type">What type of account</label>
-                <select id="account-type">
+                <label htmlFor="user_type">What type of account</label>
+                <select id="user_type">
                   <option value="dog-owner">Dog Owner</option>
                   <option value="dog-walker">Dog Walker</option>
                   <option value="dog-owner-walker">Dog Owner and Walker</option>

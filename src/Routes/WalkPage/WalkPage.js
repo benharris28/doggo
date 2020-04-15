@@ -219,15 +219,19 @@ class WalkPage extends React.Component {
                 </>
                
             )
-        } else {
+        } else if (walkStatus == "accepted") {
             return (
                 <>
-        
                     <button
                         type="button"
                         onClick={e => this.handleCancelWalk(walk.walk_id)}>
                             Cancel Walk
                     </button>
+                </>
+            )
+        } else {
+            return (
+                <>
                        
                 </>
             )
