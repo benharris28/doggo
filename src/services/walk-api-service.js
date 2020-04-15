@@ -1,10 +1,11 @@
 import config from '../config';
+import TokenService from './token-service'
 
 const WalkApiService = {
     getAllWalksForUserId(user_id) {
         return fetch(`${config.API_ENDPOINT}/walk/all/user/${user_id}`, {
             headers: {
-              //'authorization': `bearer ${TokenService.getAuthToken()}`,
+              'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
           })
             .then(res =>
@@ -16,7 +17,7 @@ const WalkApiService = {
         getAllWalksForWalkerId(user_id) {
             return fetch(`${config.API_ENDPOINT}/walk/all/walker/${user_id}`, {
                 headers: {
-                  //'authorization': `bearer ${TokenService.getAuthToken()}`,
+                  'authorization': `bearer ${TokenService.getAuthToken()}`,
                 },
               })
                 .then(res =>
@@ -28,7 +29,7 @@ const WalkApiService = {
         getWalkById(walk_id) {
             return fetch(`${config.API_ENDPOINT}/walk/${walk_id}`, {
                 headers: {
-                  //'authorization': `bearer ${TokenService.getAuthToken()}`,
+                  'authorization': `bearer ${TokenService.getAuthToken()}`,
                 },
               })
                 .then(res =>

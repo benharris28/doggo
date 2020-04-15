@@ -36,7 +36,7 @@ class WalkerListingPage extends React.Component {
                 <div className="walker-list">
                     <ul className="walk-ul">
                         {walkers.map(walker => 
-                            <li className="walk-li" key={walker.id}>
+                            <li className="walk-li" key={walker.user_id}>
                                 <WalkerItem
                                     id={walker.user_id}
                                     name={walker.first_name}

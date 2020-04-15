@@ -1,10 +1,11 @@
 import config from '../config';
+import TokenService from './token-service'
 
 const WalkerListApiService = {
     getAllWalkers() {
         return fetch(`${config.API_ENDPOINT}/walker`, {
             headers: {
-              //'authorization': `bearer ${TokenService.getAuthToken()}`,
+              'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
           })
             .then(res =>
