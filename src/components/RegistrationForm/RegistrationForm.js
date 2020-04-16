@@ -1,7 +1,6 @@
 import React from 'react';
 import AuthApiService from '../../services/auth-api-service'
 
-// How can I build a mock account page?
 class RegistrationForm extends React.Component {
     
   state = {
@@ -84,7 +83,9 @@ class RegistrationForm extends React.Component {
       console.log(this.state)
         return (
             <>
-            <form id="signup-form">
+            <form 
+              id="signup-form"
+              onSubmit={e => this.handleSubmit(e)}>
               <h3>
                 Signup for Doggo!
               </h3>
@@ -142,15 +143,15 @@ class RegistrationForm extends React.Component {
                   onChange={e => this.updateUserType(e.target.value)}
                   >
                   <option selected>Please select one</option>
-                  <option value="dog-owner">Dog Owner</option>
-                  <option value="dog-walker">Dog Walker</option>
+                  <option value="user">Dog Owner</option>
+                  <option value="walker">Dog Walker</option>
                   
                   
                   
                 </select>
                 </div>
 
-                {this.state.user_type === "dog-owner" && 
+                {this.state.user_type === "user" && 
                 
                 <div>
                   
@@ -165,7 +166,7 @@ class RegistrationForm extends React.Component {
               
               <button
                 type="submit"
-                onSubmit={e => this.handleSubmit(e)}>
+                >
                     Sign Up
                 </button>
               
