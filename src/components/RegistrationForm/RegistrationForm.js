@@ -27,10 +27,13 @@ class RegistrationForm extends React.Component {
         
         }
 
+        this.setState({ error: null })
+
         AuthApiService.postUser(user)
-        .then(user => {
+        .then(res => {
+
          
-          this.props.onRegistrationSuccess()
+          this.props.onRegistrationSuccess(res)
         })
         .catch(res => {
           this.setState({ error: res.error})
