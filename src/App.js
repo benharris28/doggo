@@ -13,6 +13,8 @@ import WalkerPage from './Routes/WalkerPage/WalkerPage';
 import WalkPage from './Routes/WalkPage/WalkPage';
 import ApiContext from './ApiContext';
 import WalkApiService from './services/walk-api-service';
+import PrivateRoute from './components/Utils/PrivateRoute';
+import PublicOnlyRoute from './components/Utils/PublicOnlyRoute'
 
 class App extends React.Component {
   state = {

@@ -1,6 +1,8 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
-import AuthApiService from '../../services/auth-api-service'
+import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service'
+
 
 class LoginForm extends React.Component {
     
@@ -12,7 +14,8 @@ class LoginForm extends React.Component {
 
       state = {
           email: '',
-          password: ''
+          password: '',
+          error: null
       }
       // Fetch request to /login or signin endpoint
       // in then block (if successfuk), will get response from API
@@ -21,7 +24,9 @@ class LoginForm extends React.Component {
       
     handleApiSubmit = (e) => {
         e.preventDefault()
-        const { email, password } = this.state;
+        const { email, password, error } = this.state;
+
+        this.setState({ error: null})
 
         AuthApiService.postLogin({
             email: email,
@@ -31,11 +36,14 @@ class LoginForm extends React.Component {
         .then(res => {
             
             console.log(res)
-            
+            TokenService.saveAuthToken(res.authToken)
             const userType = res.dbUser.user_type;
             console.log(userType)
             const user = res.dbUser;
             this.props.onLoginSuccess(userType, user)
+        })
+        .catch(res => {
+            this.setState({ error: res.error })
         })
     }
     
@@ -60,7 +68,7 @@ class LoginForm extends React.Component {
     }
     
     render() {
-        const { email } = this.state;
+        const { email, error } = this.state;
         const { users } = this.context;
         
         
@@ -73,6 +81,9 @@ class LoginForm extends React.Component {
                     <h3>
                         Login to your Doggo account
                     </h3>
+                    <div role='alert'>
+                        {error && <p className='red'>{error}</p>}
+                    </div>
                     <div>
                         <label htmlFor="email">Email</label>
                         <input 
