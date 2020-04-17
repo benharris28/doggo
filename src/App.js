@@ -23,7 +23,8 @@ class App extends React.Component {
     loggedInUser: '',
     userType: '',
     walks: [],
-    loggedIn: false
+    loggedIn: false,
+    newUser: false
   };
 
   
@@ -166,6 +167,12 @@ class App extends React.Component {
       })
     }
 
+    handleNewRegistration = () => {
+      this.setState({
+        newUser: true
+      })
+    }
+
     
 
   
@@ -189,7 +196,9 @@ class App extends React.Component {
       handleLogout: this.handleLogout,
       handleNewWalk: this.handleNewWalk,
       handleWalkerList: this.handleWalkerList,
-      handleFeedback: this.handleFeedback
+      handleFeedback: this.handleFeedback,
+      handleNewRegistration: this.handleNewRegistration,
+      newUser: this.state.newUser
     };
 
     console.log(this.state)

@@ -7,6 +7,8 @@ import WalkService from '../../services/walk-api-service';
 import WalkFeedbackForm from '../../components/WalkFeedbackForm/WalkFeedbackForm'
 
 class WalkPage extends React.Component {
+    // Prevent unauthorized users from seeing walk pages that they are not apart of
+    
     static contextType = ApiContext;
     
     state = {

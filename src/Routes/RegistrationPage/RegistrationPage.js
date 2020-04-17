@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import ApiContext from '../../ApiContext';
+
 
 // Make Login form and import
 
 class RegistrationPage extends React.Component {
+    static contextType = ApiContext;
+
     static defaultProps = {
         history: {
             push: () => {},
@@ -15,6 +19,7 @@ class RegistrationPage extends React.Component {
     handleRegistrationSuccess = (user) => {
         const { history } = this.props;
         console.log(history)
+        this.context.handleNewRegistration()
         history.push('/login')
     }
 
@@ -24,7 +29,7 @@ class RegistrationPage extends React.Component {
 
                 <div>
                     <RegistrationForm 
-                        onRegistrationSuccess={this.onRegistrationSuccess}/>
+                        onRegistrationSuccess={this.handleRegistrationSuccess}/>
                 </div>
                 <div>
                     Already have an account?

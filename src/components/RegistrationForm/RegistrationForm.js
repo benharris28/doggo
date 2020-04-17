@@ -32,7 +32,7 @@ class RegistrationForm extends React.Component {
         AuthApiService.postUser(user)
         .then(res => {
 
-         
+          
           this.props.onRegistrationSuccess(res)
         })
         .catch(res => {
@@ -68,10 +68,11 @@ class RegistrationForm extends React.Component {
       })
     }
 
-    updateUserType = (type) => {
+    updateUserType = (e) => {
+      e.preventDefault()
       console.log(this.state.user_type)
       this.setState({
-        user_type: type
+        user_type: e.target.value
       })
     }
 
@@ -143,7 +144,7 @@ class RegistrationForm extends React.Component {
                 <label htmlFor="user_type">What type of account</label>
                 <select 
                   id="user_type"
-                  onChange={e => this.updateUserType(e.target.value)}
+                  onChange={this.updateUserType}
                   >
                   <option selected>Please select one</option>
                   <option value="user">Dog Owner</option>
