@@ -82,6 +82,15 @@ class RegistrationForm extends React.Component {
         dog_name: dog_name
       })
     }
+
+    validateSelection = (selection) => {
+      if(selection === "selectone") {
+        return (
+          <p>Please select an account type</p>
+        )
+          
+      }
+    }
     
     render() {
       console.log(this.state)
@@ -146,7 +155,7 @@ class RegistrationForm extends React.Component {
                   id="user_type"
                   onChange={this.updateUserType}
                   >
-                  <option selected>Please select one</option>
+                  <option value="selectone" selected>Please select one</option>
                   <option value="user">Dog Owner</option>
                   <option value="walker">Dog Walker</option>
                   

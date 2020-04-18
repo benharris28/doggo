@@ -27,12 +27,6 @@ class App extends React.Component {
     newUser: false
   };
 
-  
-  
-  componentDidMount() {
-   
-    
-  }
 
   
 
@@ -43,14 +37,6 @@ class App extends React.Component {
   }
 
   cancelWalk = (walk_id) => {
-    // Make API call to cancel walk
-
-
-      // Find specific walk in the walks array
-      // Clone context of walks
-      // Loop over state of walks, find specific walk_id
-      // set walk = cancelled in loop function
-      // Update state
 
       let clonedWalks = JSON.parse(JSON.stringify(this.state.walks));
 
@@ -109,21 +95,6 @@ class App extends React.Component {
       });
     }
 
-    /*
-    handleFeedback = (walk_id, rating, comment) => {
-      let clonedWalks = JSON.parse(JSON.stringify(this.state.walks));
-
-      clonedWalks.forEach((walk) => {
-        if (walk.walk_id == walk_id)
-          walk.rating = rating;
-          walk.comment = comment
-      });
-
-      this.setState({
-        walks: clonedWalks
-      });
-    }
-    */
 
     handleLogin = (userType, user) => {
       this.setState({
@@ -227,23 +198,19 @@ class App extends React.Component {
               path={'/register'}
               component={RegistrationPage}
               />
-            <Route
-              exact
+            <PrivateRoute
               path={'/walker'}
               component={WalkerListingPage}
             />
-            <Route
-              exact
+            <PrivateRoute
               path={'/walker/:user_id'}
               component={WalkerPage}
             />
-            <Route
-              exact
+            <PrivateRoute
               path={'/user/:user_id'}
               component={UserAccountPage}
               />
-            <Route
-              exact
+            <PrivateRoute
               path={'/walk/:walk_id'}
               component={WalkPage}
               />
