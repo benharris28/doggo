@@ -26,10 +26,9 @@ class WalkItem extends React.Component {
         const { loggedInUser, userType } = this.context;
         //const update = this.newDate(date)
         const testDate = new Date(date)
-        const timezone = 'utc'
-        const convertTime = moment(testDate).tz(timezone).format("YYYY-MM-DD HH:mm:ss");
+  
       
-        console.log(convertTime)
+        console.log(testDate)
        
        
         const title = userType === "walker" ? <p>User: {user}</p> : <p>Walker: {walker} </p>
