@@ -49,9 +49,7 @@ class UserAccountPage extends React.Component {
         
         upcomingWalks = userType == "admin" ? adminAccepted : getUpcomingWalks(walks, userType, user_id)
         
-        
-        const userProp = userType == "walker" ? "user_firstname" : "walker_firstname"
-            
+                    
         return (
                 <section className="user-account-page">
                     <div className="walker-image">
@@ -77,7 +75,8 @@ class UserAccountPage extends React.Component {
                                 <li className="walk-li" key={walk.walk_id}>
                                 <WalkItem
                                     walk={walk.walk_id}
-                                    user={`walk.${userProp}`}
+                                    user={walk.user_firstname}
+                                    walker={walk.walker_firstname}
                                     date={walk.walk_date}
                                     walk_status={walk.walk_status}
                                     />
