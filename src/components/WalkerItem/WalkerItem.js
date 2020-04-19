@@ -5,7 +5,7 @@ import './WalkerItem.css';
 class WalkerItem extends React.Component {
     render() {
         const {id , name, photo, postal, rating } = this.props;
-        console.log(photo)
+        console.log(id)
         return (
 
             <div className="walker-card">

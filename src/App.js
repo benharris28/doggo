@@ -199,10 +199,12 @@ class App extends React.Component {
               component={RegistrationPage}
               />
             <PrivateRoute
+              exact
               path={'/walker'}
               component={WalkerListingPage}
             />
             <PrivateRoute
+              exact
               path={'/walker/:user_id'}
               component={WalkerPage}
             />

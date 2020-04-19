@@ -2,6 +2,8 @@ import React from 'react';
 import ApiContext from '../../ApiContext';
 import { Link } from 'react-router-dom';
 import WalkItem from '../../components/WalkItem/WalkItem';
+import UploadPhoto from '../../components/UploadPhoto/UploadPhoto'
+import UploadBio from '../../components/UploadBio/UploadBio'
 import './UserAccountPage.css'
 
 class UserAccountPage extends React.Component {
@@ -14,9 +16,6 @@ class UserAccountPage extends React.Component {
     render() {
         const { userType, loggedInUser, users, walks } = this.context
         const { user_id } = this.props.match.params;
-        console.log(userType)
-        console.log(user_id)
-        console.log(walks)
     
      
         // Admin filters for walk displays
@@ -56,14 +55,23 @@ class UserAccountPage extends React.Component {
         return (
                 <section className="user-account-page">
                     <div className="walker-image">
-                        <img src={loggedInUser.profile_photo} />
+                        <UploadPhoto
+                            id={loggedInUser.user_id}
+                            photo={loggedInUser.profile_photo}
+                        />
                     </div>
                     <div className="walker-blurb">
                         <h3>{loggedInUser.first_name}</h3>
+                        {userType === "walker" &&
+                        <UploadBio 
+                            id={loggedInUser.user_id}
+                        />
+                        }
                         
                     </div>
                     <div className="walk-requests">
                         <h2>Walk Requests</h2>
+                        {walkRequests.length === 0 ? 'No walk requests yet' : null}
                     <ul>
                             {walkRequests.map(walk => 
                                 <li className="walk-li" key={walk.walk_id}>
@@ -98,6 +106,7 @@ class UserAccountPage extends React.Component {
                     
                     <div className="user-walklist">
                         <h2>Walk History</h2>
+                        {walkList.length === 0 ? 'No walks yet' : null}
                         <ul>
                             {walkList.map(walk => 
                                 <li className="walk-li" key={walk.walk_id}>
@@ -112,12 +121,14 @@ class UserAccountPage extends React.Component {
                         </ul>
                     </div>
                     <div className="button-box">
+                        {userType === "user" && 
                         <Link
                             to='/walker'>
                                 <button>
                                     Book a new walk
                                 </button>
                         </Link>
+                        }
                     </div>
                    
                    
