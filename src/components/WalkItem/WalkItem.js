@@ -26,8 +26,11 @@ class WalkItem extends React.Component {
         const { loggedInUser, userType } = this.context;
         //const update = this.newDate(date)
         const testDate = new Date(date)
-        const dateUpdate = testDate.moment().format('MMM Do YY')
-        console.log(testDate)
+        const timezone = 'utc'
+        const convertTime = moment(testDate).tz(timezone).format("YYYY-MM-DD HH:mm:ss");
+      
+        console.log(convertTime)
+       
        
         const title = userType === "walker" ? <p>User: {user}</p> : <p>Walker: {walker} </p>
         return (
@@ -36,7 +39,7 @@ class WalkItem extends React.Component {
                     to={`/walk/${walk}`}>
             <div>
                 {title}
-                {dateUpdate}
+              
                 <p>Status: {walk_status}</p>
 
             </div>
