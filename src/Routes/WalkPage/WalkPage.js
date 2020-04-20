@@ -1,10 +1,9 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
-import { Link } from 'react-router-dom';
-import { format } from 'date-fns'
 import './WalkPage.css'
 import WalkService from '../../services/walk-api-service';
 import WalkFeedbackForm from '../../components/WalkFeedbackForm/WalkFeedbackForm'
+import moment from 'moment'
 
 class WalkPage extends React.Component {
     // Prevent unauthorized users from seeing walk pages that they are not apart of
@@ -295,6 +294,8 @@ class WalkPage extends React.Component {
         const selectWalk = walks.find(walk => walk.walk_id == walk_id)
         console.log(walk_id)
         console.log(this.context);
+        const formatDate = moment(new Date(walk.walk_date)).format('MM DD YYYY')
+        const formatTime = moment(new Date(walk.walk_date)).format('h:mm:ss a')
 
         return (
             <div className="walk-page">
@@ -310,8 +311,8 @@ class WalkPage extends React.Component {
                 <div className="walk-page-data">
                     <p>Walk with: {walk.walker_firstname}</p>
                     
-                    <p>Walk Date: {walk.walk_date}</p>
-                    <p>Walk Time: {walk.request_time}</p>
+                    <p>Walk Date: {formatDate}</p>
+                    <p>Walk Time: {formatTime}</p>
                 </div>
                 <div className="walk-page-address">
                     Pickup Address:

@@ -19,9 +19,9 @@ class WalkerItem extends React.Component {
                         {name}
                     </Link>
                     
-                    <p>Area: {postal}</p>
+                    {rating ? <p>Rating: {rating}</p> : <p>Rating: 5</p>}
                     
-                    Rating: {rating}
+                    
                 </div>
                 
             </div>
