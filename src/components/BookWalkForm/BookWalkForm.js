@@ -18,7 +18,6 @@ class BookWalkForm extends React.Component {
         
         walker_firstname: '',
         user_id: '',
-        request_time: '',
         walk_date: '',
         pickup_address_street_number: '',
         pickup_address_street_name: '',
@@ -49,18 +48,12 @@ class BookWalkForm extends React.Component {
            
         const selectWalker =  walkers.find(walker => walker.user_id == id && walker.user_type === 'walker')
 
-        // set state to submit: true
-
-        
-        //const userFind = selectUser(users, id)
-
-        //console.log(userFind)
+    
         console.log(this.state)
 
         const { 
            
             walk_date, 
-            request_time,
             pickup_address_street_number,
             pickup_address_street_name,
             pickup_address_city,
@@ -76,7 +69,6 @@ class BookWalkForm extends React.Component {
             dog_name: loggedInUser.dog_name,
             walker_firstname: selectWalker.first_name,
             user_id: loggedInUser.user_id,
-            request_time,
             walk_date,
             pickup_address_street_number,
             pickup_address_street_name,
@@ -177,29 +169,19 @@ class BookWalkForm extends React.Component {
                 onSubmit={e => this.handleSubmit(e)}
                 >
                 <h3>{`Book a walk with ${name}`}</h3>
-                <div className="book-walk-date">
-                    <label htmlFor="book-walk-date">
-                        When would you like to book a walk?
-                    </label>
-                    <input 
-                        type="date"
-                        name="book-walk-date"
-                        onChange={e => this.handleWalkDate(e.target.value)}
-                        required
-                        />
-
-                    </div>
-                        
-                    <div className="walk-time-input">
-                        <label htmlFor="walk-time">
-                            What time should your dog be picked up?
+               
+                    
+                    <div className="walk-date-input">
+                        <label htmlFor="walkdate">
+                            When do you want to book a walk?
                         </label>
                         <input 
-                            type="time" 
-                            name="walk-time"
-                            onChange={e => this.handleWalkTime(e.target.value)}
+                            type="datetime-local" 
+                            name="walkdate"
+                            onChange={e => this.handleWalkDate(e.target.value)}
                             required /> 
                     </div>
+
                     {' '}
                     Where should your dog be picked up?
                     <div className="street-number-input">

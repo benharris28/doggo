@@ -11,6 +11,7 @@ import WalkerListingPage from './Routes/WalkerListingPage/WalkerListingPage';
 import UserAccountPage from './Routes/UserAccountPage/UserAccountPage';
 import WalkerPage from './Routes/WalkerPage/WalkerPage';
 import WalkPage from './Routes/WalkPage/WalkPage';
+import TestComponent from './components/TestComponent/TestComponent'
 import ApiContext from './ApiContext';
 import WalkApiService from './services/walk-api-service';
 import PrivateRoute from './components/Utils/PrivateRoute';
@@ -197,6 +198,11 @@ class App extends React.Component {
               exact
               path={'/register'}
               component={RegistrationPage}
+              />
+            <Route
+              exact
+              path={'/test'}
+              component={TestComponent}
               />
             <PrivateRoute
               exact
