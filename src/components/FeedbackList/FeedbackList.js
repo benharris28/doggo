@@ -25,7 +25,7 @@ class FeedbackList extends React.Component {
        
 
     }
-    
+
     setWalks = (walks) => {
         this.setState({
             walks: walks
@@ -37,10 +37,9 @@ class FeedbackList extends React.Component {
         console.log(id)
         const { walks=[] } = this.state;
         console.log(walks)
-        
-      
-        const feedbackItems = walks.filter(walk => walk.walk_status === "complete")
-        
+
+        const feedbackItems = walks.filter(walk => walk.comment !== null && walk.walk_status === "complete")
+
 
         console.log(feedbackItems)
      

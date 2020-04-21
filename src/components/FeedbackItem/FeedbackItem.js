@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import './FeedbackItem.css'
 
 
@@ -8,6 +9,8 @@ class FeedbackItem extends React.Component {
     render() {
         const { user, photo, comment, rating, date  } = this.props;
         console.log(user)
+        const formatDate = moment(new Date(date)).format('MM DD YYYY')
+
         
         return (
 
@@ -19,7 +22,7 @@ class FeedbackItem extends React.Component {
 
                 <div className="feedback-info">
                     <p>{user}</p>
-                    <p>Date: {date}</p>
+                    <p>Date: {formatDate}</p>
                     <p>Rating: {rating}</p>
                     <p>Comment: {comment}</p>
 

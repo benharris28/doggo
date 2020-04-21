@@ -7,8 +7,9 @@ class UploadBio extends React.Component {
     static contextType = ApiContext;
     
     state = {
-        blurb: '',
+        blurb: this.context.loggedInUser.bio,
         error: null,
+        formOpen: false,
         submitted: ''
     }
 
@@ -30,9 +31,10 @@ class UploadBio extends React.Component {
             .then(res => {
                 this.setState({
                     error: false,
-                    submitted: true
+                    submitted: true,
+                    formOpen: false
                 })
-                //this.context.handleNewWalk(res)
+                
             })
         }
         
@@ -46,46 +48,63 @@ class UploadBio extends React.Component {
             blurb: blurb
         })
     }
+
+    handleBioUpdateClick = (e) => {
+        this.setState({
+            formOpen: true
+        })
+    }
     
     render() {
         const {id , photo } = this.props;
+        const { formOpen, blurb } = this.state;
+        const { loggedInUser } = this.context;
         console.log(id)
         return (
 
             <div className="bio-section">
+                <div className="current-bio">
+                    <h3>Your current public bio says:</h3>
+                    <p>{blurb}</p>
+                    {formOpen === false && 
+                    <button
+                        onClick={this.handleBioUpdateClick}>
+                            Update Bio
+                    </button> }
+                </div>
 
                 <div className="bio-info">
         
-                <form
-                    className="bio-form"
-                    onSubmit={e => this.handleSubmit(e)}
-                >
-                    <h3>Update a blurb for your profile bio!</h3>
-                    <div className="update-blurb">
-                        <label htmlFor="blurb">
-                            What would you like your blurb to say?
-                        </label>
-                        <input 
-                            type="text"
-                            name="blurb"
-                            onChange={e => this.handleBlurb(e.target.value)}
-                            required
-                        />
+                    {formOpen && 
+                        <form
+                            className="bio-form"
+                            onSubmit={e => this.handleSubmit(e)}
+                        >
+                            <h3>Update a blurb for your profile bio!</h3>
+                            <div className="update-blurb">
+                            <label htmlFor="blurb">
+                                What would you like your blurb to say?
+                            </label>
+                            <input 
+                                type="text"
+                                name="blurb"
+                                onChange={e => this.handleBlurb(e.target.value)}
+                                required
+                            />
 
-                        </div>
-                        <div className="button-box">
-                            <button
-                                type="submit">
-                                    Submit
-                            </button>
-                        </div>
-                        <div className="confirmation">
-                            {this.state.submitted === true && 
-                            <p>Submitted!</p>}
-                        </div>
-                </form>
-                  
-                    
+                                </div>
+                                <div className="button-box">
+                                    <button
+                                        type="submit">
+                                            Submit
+                                    </button>
+                                </div>
+                                <div className="confirmation">
+                                    {this.state.submitted === true && 
+                                    <p>Submitted!</p>}
+                                </div>
+                        </form>
+                    }
                     
                 </div>
                 
