@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import moment from 'moment';
 import './FeedbackItem.css'
 
@@ -8,7 +7,7 @@ class FeedbackItem extends React.Component {
     
     render() {
         const { user, photo, comment, rating, date  } = this.props;
-        console.log(user)
+     
         const formatDate = moment(new Date(date)).format('MM DD YYYY')
 
         
@@ -17,7 +16,9 @@ class FeedbackItem extends React.Component {
             <div className="feedback-card">
                 <div className="feedback-image-box">
                 
-                    <div>Stock Photo</div>
+                {photo 
+                    ? <img src={photo} alt="profile photo"/>
+                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
                 </div >
 
                 <div className="feedback-info">

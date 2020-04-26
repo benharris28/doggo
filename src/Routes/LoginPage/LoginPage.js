@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import ApiContext from '../../ApiContext';
 import './LoginPage.css'
@@ -21,20 +21,14 @@ class LoginPage extends React.Component {
     //usertype will be passed to this function
     // push either acount page for walkers or walker listing for users
     
-    handleLoginSuccessApi = (user) => {
-        const { location, history } = this.props;
-        
-    }
+    
 
     handleLoginSuccess = (userType, loggedInUser) => {
 
-        const { location, history } = this.props;
+        const { history } = this.props;
         
 
-        console.log(location.state)
-        // Still don't understand below...
-        //const destination = (location.state || {}).from || '/'
-        // 
+        
         const destination = userType === 'user' ? '/walker' : `/user/${loggedInUser.user_id}`
         this.context.handleLogin(userType, loggedInUser)
         history.push(destination)

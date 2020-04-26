@@ -14,7 +14,7 @@ class UserAccountPage extends React.Component {
     }
 
     render() {
-        const { userType, loggedInUser, users, walks } = this.context
+        const { userType, loggedInUser, walks } = this.context
         const { user_id } = this.props.match.params;
     
      

@@ -43,7 +43,8 @@ const WalkApiService = {
                 return fetch(`${config.API_ENDPOINT}/walk/${walk_id}`, {
                     method: 'PATCH',
                     headers: {
-                        'content-type': 'application/json',
+                      'authorization': `bearer ${TokenService.getAuthToken()}`,
+                      'content-type': 'application/json',
                     },
                     body: JSON.stringify(walk_status)
                     

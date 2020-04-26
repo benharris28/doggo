@@ -6,7 +6,7 @@ import WalkFeedbackForm from '../../components/WalkFeedbackForm/WalkFeedbackForm
 import moment from 'moment'
 
 class WalkPage extends React.Component {
-    // Prevent unauthorized users from seeing walk pages that they are not apart of
+    
     
     static contextType = ApiContext;
     
@@ -185,11 +185,7 @@ class WalkPage extends React.Component {
         )
     }
 
-    //handleFeedback = (walk_id, rating, comment) => {
-        //this.context.handleFeedback(walk_id, rating, comment)
-
-    //}
-
+   
     handleBackToAccount = (e) => {
         const { history } = this.props;
         const { loggedInUser } = this.context;
@@ -287,13 +283,10 @@ class WalkPage extends React.Component {
     }
     render() {
         const { walk_id } = this.props.match.params;
-        const { loggedInUser, userType } = this.context;
+        const { userType } = this.context;
         const { walk } = this.state;
         console.log(walk)
-        const { walks } = this.context;
-        const selectWalk = walks.find(walk => walk.walk_id == walk_id)
-        console.log(walk_id)
-        console.log(this.context);
+       
         const formatDate = moment(new Date(walk.walk_date)).format('MM DD YYYY')
         const formatTime = moment(new Date(walk.walk_date)).format('h:mm:ss a')
 

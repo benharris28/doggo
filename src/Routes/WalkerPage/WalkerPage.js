@@ -18,14 +18,13 @@ class WalkerPage extends React.Component {
     
 
     render() {
-    const { walkers, users, walks } = this.context
-    console.log(walkers)
+    const { walkers } = this.context
     const { user_id } = this.props.match.params
-    console.log(user_id)
+   
 
     const selectWalker =  walkers.find(walker => walker.user_id == user_id)
 
-    console.log(selectWalker)
+    
   
         return (
             <section className="walker-page">
@@ -37,7 +36,7 @@ class WalkerPage extends React.Component {
                     </button>
                 </div>
                 <div className="walker-image">
-                    <img src={selectWalker.profile_photo} />
+                    <img src={selectWalker.profile_photo} alt="profile photo"/>
                 </div>
                 <div className="walker-blurb">
                     <h3>{selectWalker.first_name}</h3>

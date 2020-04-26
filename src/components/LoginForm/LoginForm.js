@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
       
     handleApiSubmit = (e) => {
         e.preventDefault()
-        const { email, password, error } = this.state;
+        const { email, password, error} = this.state;
 
         this.setState({ error: null})
 
@@ -35,10 +35,9 @@ class LoginForm extends React.Component {
 
         .then(res => {
             
-            console.log(res)
+        
             TokenService.saveAuthToken(res.authToken)
             const userType = res.dbUser.user_type;
-            console.log(userType)
             const user = res.dbUser;
             this.props.onLoginSuccess(userType, user)
         })
@@ -61,15 +60,14 @@ class LoginForm extends React.Component {
     }
 
     getLoggedInUser = (users=[], email) => {
-        console.log(users)
+        
         return users.find(user => user.email == email)
 
         
     }
     
     render() {
-        const { email, error } = this.state;
-        const { users } = this.context;
+        const { error } = this.state;
         
         
         return (

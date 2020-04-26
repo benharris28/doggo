@@ -11,7 +11,9 @@ class WalkerItem extends React.Component {
             <div className="walker-card">
                 <div className="walker-image">
                 
-                    <img src={photo} />
+                {photo 
+                    ? <img src={photo} alt="profile photo"/>
+                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
                 </div >
 
                 <div className="walker-info">
