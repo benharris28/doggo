@@ -36,7 +36,10 @@ class WalkerPage extends React.Component {
                     </button>
                 </div>
                 <div className="walker-image">
-                    <img src={selectWalker.profile_photo} alt="profile photo"/>
+        
+                    {selectWalker.profile_photo
+                    ? <img src={selectWalker.profile_photo} alt="profile photo"/>
+                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
                 </div>
                 <div className="walker-blurb">
                     <h3>{selectWalker.first_name}</h3>
