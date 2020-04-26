@@ -11,7 +11,6 @@ import WalkerListingPage from './Routes/WalkerListingPage/WalkerListingPage';
 import UserAccountPage from './Routes/UserAccountPage/UserAccountPage';
 import WalkerPage from './Routes/WalkerPage/WalkerPage';
 import WalkPage from './Routes/WalkPage/WalkPage';
-import TestComponent from './components/TestComponent/TestComponent'
 import ApiContext from './ApiContext';
 import WalkApiService from './services/walk-api-service';
 import PrivateRoute from './components/Utils/PrivateRoute';
@@ -149,8 +148,8 @@ class App extends React.Component {
   
 
   render() {
-    const locale = this.props.match;
-    console.log(locale)
+    
+    
     
     const value = {
       walkers: this.state.walkers,
@@ -172,7 +171,7 @@ class App extends React.Component {
       newUser: this.state.newUser
     };
 
-    console.log(this.state)
+    
 
     return (
       <ApiContext.Provider value={value}>
@@ -198,11 +197,7 @@ class App extends React.Component {
               path={'/register'}
               component={RegistrationPage}
               />
-            <Route
-              exact
-              path={'/test'}
-              component={TestComponent}
-              />
+            
             <PrivateRoute
               exact
               path={'/walker'}

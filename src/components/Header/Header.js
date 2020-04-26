@@ -18,7 +18,7 @@ static contextType = ApiContext;
 
   renderLogoutLink() {
       const { loggedInUser } = this.context;
-      console.log(loggedInUser)
+     
     return (
     <>
       <div className='Header__logged-in'>
@@ -51,10 +51,8 @@ static contextType = ApiContext;
   }
 
   render() {
-    const { loggedIn } = this.context;
-    const locale = this.props.match
-    console.log(loggedIn)
-    console.log(locale)
+    
+    
 
     return <>
       <nav className='Header'>

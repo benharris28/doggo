@@ -9,11 +9,11 @@ class LandingPage extends React.Component {
     
     render() {
        const { loggedIn } = this.context;
-       console.log(loggedIn)
+    
        const loggedInDestination = '/walker';
        const loggedOutDestination = '/login';
        const destination = loggedIn ? loggedInDestination : loggedOutDestination
-       console.log(destination)
+       
         
         return (
             <section className="LandingPage">
