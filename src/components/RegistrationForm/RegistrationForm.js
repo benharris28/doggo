@@ -7,6 +7,8 @@ class RegistrationForm extends React.Component {
     error: null,
     email: '',
     password: '',
+    password_touched: '',
+    repeat_password: '',
     first_name: '',
     last_name: '',
     user_type: '',
@@ -68,6 +70,13 @@ class RegistrationForm extends React.Component {
       })
     }
 
+    updateRepeatPassword = (repeatPassword) => {
+   
+      this.setState({
+        repeat_password: repeatPassword
+      })
+    }
+
     updateUserType = (e) => {
       e.preventDefault()
       console.log(this.state.user_type)
@@ -91,8 +100,13 @@ class RegistrationForm extends React.Component {
           
       }
     }
+
+
+
+    
     
     render() {
+      const { error, repeat_password, password } = this.state;
       console.log(this.state)
         return (
             <>
@@ -104,6 +118,9 @@ class RegistrationForm extends React.Component {
               </h3>
               <p>We just need a few details to get your account up and running</p>
               
+              <div className="error-bar" role='alert'>
+                {error && <p className='red'>{error}</p>}
+              </div>
               
               <div>
                 <label htmlFor="first_name">First Name</label>
@@ -142,20 +159,33 @@ class RegistrationForm extends React.Component {
                   placeholder="enter password"
                   onChange={e => this.updatePassword(e.target.value)}
                   required />
+                 
               </div>
 
               <div>
                 <label htmlFor="repeat_password">Repeat Password</label>
-                <input type="text" name="repeat_password" placeholder="enter password" required /> 
+                <input 
+                  type="text" 
+                  name="repeat_password" 
+                  placeholder="enter password" 
+                  onChange={e => this.updateRepeatPassword(e.target.value)}
+                  required /> 
+
+                  
+              </div>
+              <div>
+                {repeat_password !== password ? <p>Passwords do not mach</p> : null}
               </div>
 
               <div>
                 <label htmlFor="user_type">What type of account</label>
                 <select 
+                  name="user-type"
                   id="user_type"
                   onChange={this.updateUserType}
+                  required
                   >
-                  <option value="selectone" selected>Please select one</option>
+                  <option value="selectone" selected>Please Select One</option>
                   <option value="user">Dog Owner</option>
                   <option value="walker">Dog Walker</option>
                   
@@ -163,6 +193,12 @@ class RegistrationForm extends React.Component {
                   
                 </select>
                 </div>
+              <div className="error-bar">
+                {this.state.user_type === "selectone" && 
+                  <div>
+                    Please select an account type
+                  </div>}
+              </div>
 
                 {this.state.user_type === "user" && 
                 

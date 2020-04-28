@@ -2,6 +2,7 @@ import React from 'react';
 import ApiContext from '../../ApiContext';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service'
+import './LoginForm.css'
 
 
 class LoginForm extends React.Component {
@@ -79,7 +80,7 @@ class LoginForm extends React.Component {
                     <h3>
                         Login to your Doggo account
                     </h3>
-                    <div role='alert'>
+                    <div className="error-bar" role='alert'>
                         {error && <p className='red'>{error}</p>}
                     </div>
                     <div>
