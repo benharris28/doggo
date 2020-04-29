@@ -5,9 +5,29 @@ import PhotoApiService from '../../services/photo-api-service'
 class UploadPhoto extends React.Component {
     state = {
         photo: '',
-        submitted: false
+        submitted: false,
+        photo_url: ''
     }
     
+    componentDidMount = () => {
+        // Get profile photo from AWS
+        
+        const { photo } =  this.props
+        
+        photo ? 
+        PhotoApiService.getImage(photo)
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    photo_url: res.returnData.url
+                })
+                
+            })
+        : this.setState({
+            photo_url: 'https://www.w3schools.com/howto/img_avatar.png'
+        })
+
+    }
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -15,18 +35,24 @@ class UploadPhoto extends React.Component {
         const { photo } = this.state;
         
         
-        const Key = photo.name
+        const fileName = photo.name
        
-        const ContentType = photo.type
+        const fileType = photo.type
+
+        const file = {
+            profile_photo: photo.name
+        }
 
        
         
 
-        PhotoApiService.putUrl(Key, ContentType)
+        PhotoApiService.uploadImage(fileName, fileType)
             .then(res => {
                 this.setState({
                     submitted: true
                 })
+                
+                PhotoApiService.updateImageInDB(id, file)
                 
             })
 
@@ -41,6 +67,8 @@ class UploadPhoto extends React.Component {
 
     render() {
         const {id , photo } = this.props;
+        const { photo_url } = this.state;
+        console.log(this.state)
        
         console.log(this.state.photo)
         return (
@@ -48,7 +76,7 @@ class UploadPhoto extends React.Component {
             <div className="bio-section">
                 <div className="walker-image">
                     {photo 
-                    ? <img src={photo} alt="profile photo"/>
+                    ? <img src={photo_url} alt="profile photo"/>
                     : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
                     
                 </div >
