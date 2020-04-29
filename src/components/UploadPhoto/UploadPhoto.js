@@ -1,26 +1,31 @@
 import React from 'react';
 import './UploadPhoto.css';
-import UserApiService from '../../services/user-api-service'
+import PhotoApiService from '../../services/photo-api-service'
 
 class UploadPhoto extends React.Component {
     state = {
-        photo: ''
+        photo: '',
+        submitted: false
     }
     
 
     handleSubmit = (e) => {
         e.preventDefault()
         const { id } = this.props;
+        const { photo } = this.state;
         
-        const newPhoto = {
-            profile_photo: this.state.photo
+        
+        const Key = photo.name
+       
+        const ContentType = photo.type
 
-        }
+       
+        
 
-        UserApiService.patchPhoto(id, newPhoto)
+        PhotoApiService.putUrl(Key, ContentType)
             .then(res => {
                 this.setState({
-                    photo: ''
+                    submitted: true
                 })
                 
             })
@@ -36,7 +41,7 @@ class UploadPhoto extends React.Component {
 
     render() {
         const {id , photo } = this.props;
-        console.log(id)
+       
         console.log(this.state.photo)
         return (
 
