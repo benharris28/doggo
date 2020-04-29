@@ -6,9 +6,7 @@ const PhotoApiService = {
         
         return fetch (`${config.API_ENDPOINT}/photo/upload?Key=${Key}&ContentType=${ContentType}`, {
             method: 'GET',
-            headers: {
-                'content-type': 'application/json'
-            },
+            
             
         })
         .then(res => 
