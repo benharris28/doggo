@@ -28,7 +28,7 @@ const PhotoApiService = {
         .then(res => 
             (!res.ok)
             ? res.then(e => Promise.reject(e))
-            : res.json()
+            : res
             )
     },
     getImage(fileName) {

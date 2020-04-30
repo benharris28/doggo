@@ -4,7 +4,7 @@ import PhotoApiService from '../../services/photo-api-service'
 
 class UploadPhoto extends React.Component {
     state = {
-        photo: '',
+        photo_file: '',
         submitted: false,
         photo_url: ''
     }
@@ -13,7 +13,7 @@ class UploadPhoto extends React.Component {
         // Get profile photo from AWS
         
         const { photo, id } =  this.props
-        const fileName = `user${id}profile`
+        const fileName = photo
         
         photo ? 
         PhotoApiService.getImage(fileName)
@@ -33,15 +33,17 @@ class UploadPhoto extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { id } = this.props;
-        const { photo } = this.state;
+        const { photo_file } = this.state;
+        
+        const uuid = (Math.ceil(Math.random() * 10000))
         
         
-        const fileName = `user${id}profile`
+        const fileName = `${uuid}user${id}profile`
        
-        const fileType = photo.type
+        const fileType = photo_file.type
 
         const file = {
-            profile_photo: photo.name
+            profile_photo: fileName
         }
 
        
@@ -57,7 +59,7 @@ class UploadPhoto extends React.Component {
                 const signedUrl = res.returnData.signedRequest
                 
                 PhotoApiService.updateImageInDB(id, file)
-                PhotoApiService.putRequest(signedUrl, photo)
+                PhotoApiService.putRequest(signedUrl, photo_file)
                     .then(res => {
                         console.log(res)
                         PhotoApiService.getImage(fileName)
@@ -75,16 +77,17 @@ class UploadPhoto extends React.Component {
 
     updatePhoto = (event) => {
         this.setState({
-            photo: event.target.files[0],
+            photo_file: event.target.files[0],
         })
     }
 
 
     render() {
         const {id , photo } = this.props;
-        const { photo_url } = this.state;
+        const { photo_file, photo_url } = this.state;
         console.log(this.state)
-       
+        const uuid = (Math.ceil(Math.random() * 100))
+        console.log(uuid)
         console.log(this.state.photo)
         return (
 
@@ -105,7 +108,7 @@ class UploadPhoto extends React.Component {
                         onChange={this.updatePhoto}
                     />
                     <div className="upload-button">
-                        {this.state.photo && 
+                        {this.state.photo_file && 
                             <button
                                 type="submit">
                                 Upload Photo

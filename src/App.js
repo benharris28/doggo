@@ -23,7 +23,8 @@ class App extends React.Component {
     userType: '',
     walks: [],
     loggedIn: false,
-    newUser: false
+    newUser: false,
+    latestPhoto: ''
   };
 
 
@@ -143,6 +144,12 @@ class App extends React.Component {
       })
     }
 
+    handlePhotoChange = (url) => {
+      this.setState({
+        latestPhoto: url
+      })
+    }
+
     
 
   
@@ -168,7 +175,8 @@ class App extends React.Component {
       handleWalkerList: this.handleWalkerList,
       handleFeedback: this.handleFeedback,
       handleNewRegistration: this.handleNewRegistration,
-      newUser: this.state.newUser
+      newUser: this.state.newUser,
+      latestPhoto: this.state.latestPhoto
     };
 
     

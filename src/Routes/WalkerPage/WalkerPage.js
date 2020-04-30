@@ -2,13 +2,39 @@ import React from 'react';
 import ApiContext from '../../ApiContext';
 import FeedbackList from '../../components/FeedbackList/FeedbackList';
 import BookWalkForm from '../../components/BookWalkForm/BookWalkForm';
+import PhotoApiService from '../../services/photo-api-service'
 import './WalkerPage.css'
 
 
 
-//Submition of book walk form should create a new walk with status "requested"
+// To display photo, request for walkers photo will need to be made when component mounts
 class WalkerPage extends React.Component {
     static contextType = ApiContext;
+    
+    state = {
+        photo_url: ''
+    }
+
+    componentDidMount = () => {
+        const { user_id } = this.props.match.params
+        const { walkers } = this.context
+        const selectWalker =  walkers.find(walker => walker.user_id == user_id)
+        const photo = selectWalker.profile_photo
+
+        photo ? 
+        PhotoApiService.getImage(photo)
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    photo_url: res.returnData.url
+                })
+                
+            })
+        : this.setState({
+            photo_url: 'https://www.w3schools.com/howto/img_avatar.png'
+        })
+
+    }
     
     handleBackToSearch = (e) => {
         const { history } = this.props;
@@ -20,6 +46,7 @@ class WalkerPage extends React.Component {
     render() {
     const { walkers } = this.context
     const { user_id } = this.props.match.params
+    const { photo_url } = this.state
    
 
     const selectWalker =  walkers.find(walker => walker.user_id == user_id)
@@ -37,9 +64,7 @@ class WalkerPage extends React.Component {
                 </div>
                 <div className="walker-image">
         
-                    {selectWalker.profile_photo
-                    ? <img src={selectWalker.profile_photo} alt="profile photo"/>
-                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
+                    <img src={photo_url} />
                 </div>
                 <div className="walker-blurb">
                     <h3>{selectWalker.first_name}</h3>
