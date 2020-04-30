@@ -12,10 +12,11 @@ class UploadPhoto extends React.Component {
     componentDidMount = () => {
         // Get profile photo from AWS
         
-        const { photo } =  this.props
+        const { photo, id } =  this.props
+        const fileName = `user${id}profile`
         
         photo ? 
-        PhotoApiService.getImage(photo)
+        PhotoApiService.getImage(fileName)
             .then(res => {
                 console.log(res)
                 this.setState({
@@ -35,7 +36,7 @@ class UploadPhoto extends React.Component {
         const { photo } = this.state;
         
         
-        const fileName = photo.name
+        const fileName = `user${id}profile`
        
         const fileType = photo.type
 
@@ -48,12 +49,26 @@ class UploadPhoto extends React.Component {
 
         PhotoApiService.uploadImage(fileName, fileType)
             .then(res => {
+                console.log(res)
                 this.setState({
                     submitted: true
                 })
+
+                const signedUrl = res.returnData.signedRequest
                 
                 PhotoApiService.updateImageInDB(id, file)
-                
+                PhotoApiService.putRequest(signedUrl, photo)
+                    .then(res => {
+                        console.log(res)
+                        PhotoApiService.getImage(fileName)
+                            .then(res => {
+                                console.log(res)
+                                this.setState({
+                                    photo_url: res.returnData.url
+                                })
+                            })
+                    })
+                    
             })
 
     }

@@ -13,7 +13,22 @@ const PhotoApiService = {
         .then(res => 
             (!res.ok)
             ? res.then(e => Promise.reject(e))
-            : res
+            : res.json()
+            )
+    },
+    putRequest(file, photo) {
+       
+        
+        return fetch (`${file}`, {
+            method: 'PUT',
+            body: photo
+            
+            
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.then(e => Promise.reject(e))
+            : res.json()
             )
     },
     getImage(fileName) {
