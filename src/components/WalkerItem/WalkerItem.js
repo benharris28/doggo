@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './WalkerItem.css';
+import faker from 'faker';
 
 class WalkerItem extends React.Component {
     render() {
@@ -11,9 +12,9 @@ class WalkerItem extends React.Component {
             <div className="walker-card">
                 <div className="walker-image">
                 
-                {photo 
-                    ? <img src={photo} alt="profile photo"/>
-                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
+         
+                    <img src={faker.image.avatar()} alt="avatar"/>
+         
                 </div >
 
                 <div className="walker-info">

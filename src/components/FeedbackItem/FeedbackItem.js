@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import './FeedbackItem.css'
+import './FeedbackItem.css';
+import faker from 'faker';
 
 
 class FeedbackItem extends React.Component {
@@ -16,9 +17,9 @@ class FeedbackItem extends React.Component {
             <div className="feedback-card">
                 <div className="feedback-image-box">
                 
-                {photo 
-                    ? <img src={photo} alt="profile photo"/>
-                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
+                
+                    <img src={faker.image.avatar()} alt="avatar"/>
+
                 </div >
 
                 <div className="feedback-info">

@@ -4,6 +4,7 @@ import WalkerItem from '../../components/WalkerItem/WalkerItem';
 import ApiContext from '../../ApiContext'
 import WalkerListApiService from '../../services/walkerList-api-service'
 import './WalkerListingPage.css'
+import faker from 'faker'
 
 
 
@@ -40,7 +41,8 @@ class WalkerListingPage extends React.Component {
                                 <WalkerItem
                                     id={walker.user_id}
                                     name={walker.first_name}
-                                    photo={walker.profile_photo}
+                                    //photo={walker.profile_photo}
+                                    
                                     postal={walker.postal_short}
                                     rating={walker.rating}
                                 />

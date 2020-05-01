@@ -67,6 +67,27 @@ const PhotoApiService = {
         )
         
     },
+    getUnsplash(term) {
+       
+        return fetch (`https://api.unsplash.com/search/photos`, {
+            method: 'GET',
+            params: {
+                query: term
+            },
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Client-ID 8WveCpBifl3GHwxtbWb6CW6dB44CryEPAe8bWZuzKVs'
+
+            },
+            
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res
+            )
+    },
+
 }
 
 export default PhotoApiService;

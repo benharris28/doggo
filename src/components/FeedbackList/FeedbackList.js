@@ -58,6 +58,12 @@ class FeedbackList extends React.Component {
                                 />
                             </li>)}
                 </ul>
+                <div className="no-feedback">
+                    {(feedbackItems.length == 0) &&
+                     <p>No feedback yet</p>
+                     } 
+                </div>
+
             </section>
             
         )
