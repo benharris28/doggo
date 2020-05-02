@@ -52,21 +52,26 @@ class UserAccountPage extends React.Component {
                     
         return (
                 <section className="user-account-page">
+                    <div className="user-name">
+                        <h3>{loggedInUser.first_name}</h3>
+                    </div>
                     <div className="walker-image">
                         <UploadPhoto
                             id={loggedInUser.user_id}
                             photo={loggedInUser.profile_photo}
                         />
                     </div>
+
+                    {userType === "walker" &&
                     <div className="walker-blurb">
-                        <h3>{loggedInUser.first_name}</h3>
-                        {userType === "walker" &&
+            
                         <UploadBio 
                             id={loggedInUser.user_id}
                         />
-                        }
                         
                     </div>
+                    }
+                    
                     <div className="walk-requests">
                         <h2>Walk Requests</h2>
                         {walkRequests.length === 0 ? 'No walk requests yet' : null}

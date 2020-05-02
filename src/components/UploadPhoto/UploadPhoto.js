@@ -51,7 +51,7 @@ class UploadPhoto extends React.Component {
 
         PhotoApiService.uploadImage(fileName, fileType)
             .then(res => {
-                console.log(res)
+               
                 this.setState({
                     submitted: true
                 })
@@ -61,10 +61,10 @@ class UploadPhoto extends React.Component {
                 PhotoApiService.updateImageInDB(id, file)
                 PhotoApiService.putRequest(signedUrl, photo_file)
                     .then(res => {
-                        console.log(res)
+               
                         PhotoApiService.getImage(fileName)
                             .then(res => {
-                                console.log(res)
+                             
                                 this.setState({
                                     photo_url: res.returnData.url
                                 })
@@ -93,6 +93,7 @@ class UploadPhoto extends React.Component {
 
             <div className="bio-section">
                 <div className="walker-image">
+
                     {photo 
                     ? <img src={photo_url} alt="profile photo"/>
                     : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
@@ -101,6 +102,8 @@ class UploadPhoto extends React.Component {
                 <form 
                     className="upload-photo"
                     onSubmit={e => this.handleSubmit(e)}>
+                    Would you like to update your profile photo?
+
                     <input 
                         type="file"
                         name="profile-photo"

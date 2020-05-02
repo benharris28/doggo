@@ -52,6 +52,13 @@ class LoginPage extends React.Component {
                             Click here to sign up!
                     </Link>
                 </div>
+                <div className="tester-helper">
+
+                    <h3>Working logins:</h3>
+                    <p>For a user: testuser1@testy.com password: TestUser1! </p>
+                    <p>For a walker: testwalker1@testy.com password: TestWalker1!</p>
+
+                </div>
 
             </section>
         )
