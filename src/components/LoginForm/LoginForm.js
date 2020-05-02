@@ -74,7 +74,7 @@ class LoginForm extends React.Component {
         return (
             <>
                 <form 
-                    className="signup-form"
+                    className="login form"
                     onSubmit={this.handleApiSubmit}
                     >
                     <h3 className="form-title">

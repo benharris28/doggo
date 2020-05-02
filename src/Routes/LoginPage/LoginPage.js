@@ -41,12 +41,12 @@ class LoginPage extends React.Component {
                     {this.context.newUser === true && 
                         <p>Thank you for creating a new account! Please login below</p>}
                 </div>
-                <div>
+                <div className="login-form-container">
                     <LoginForm 
                         onLoginSuccess={this.handleLoginSuccess} />
                 </div>
-                <div>
-                    Don't have an account?
+                <div className="register">
+                    <p>Don't have an account?</p>
                     <Link
                         to={'/register'}>
                             Click here to sign up!

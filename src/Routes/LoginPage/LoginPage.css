@@ -7,3 +7,28 @@
 .tester-helper {
     background: lightcyan
 }
+
+.login-form-container {
+    width: 85%;
+    margin: auto;
+    border: 1px solid grey;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    margin-top: 3rem;
+    background-color: white;
+    
+}
+
+.register {
+    font-size: 1.5rem;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    
+}
+
+.register p {
+    margin-bottom: 0.5rem;
+}
