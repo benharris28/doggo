@@ -18,7 +18,14 @@ class LandingPage extends React.Component {
         return (
             <section className="LandingPage">
                 <div className="title_section">
-                    <h2>Welcome to Doggo</h2>
+                    <h2>Book a walk with trusted dog walkers near you</h2>
+                    <Link className="textlink" to={destination} style={{ textDecoration: 'none' }}>
+                        <button 
+                            type="button"
+                            className="hero-button">
+                                Book Now
+                            </button>
+                    </Link>
                 </div>
                 
                 <div className="landing_page_hero">

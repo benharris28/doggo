@@ -77,7 +77,7 @@ class LoginForm extends React.Component {
                     className="signup-form"
                     onSubmit={this.handleApiSubmit}
                     >
-                    <h3>
+                    <h3 className="form-title">
                         Login to your Doggo account
                     </h3>
                     <div className="error-bar" role='alert'>

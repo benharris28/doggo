@@ -1,16 +1,26 @@
+html {
+    font-size: 10px;
+}
+
 .LandingPage {
     margin-top: 0px;
     
 }
 .title_section {
-    height: 40vh;
+    height: 60vh;
     background-color: lightblue;
+    margin: auto;
+    text-align: center;
 }
 
 .title_section h2 {
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 120px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: 3rem;
+    margin-bottom: 3rem;
 }
 
 .landing_page_hero {
@@ -24,3 +34,28 @@
     
 
 }
+
+button {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: black;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    }
+
+   button:hover {
+        background: #434343;
+        letter-spacing: 1px;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+        transition: all 0.4s ease 0s;
+    }
+
+    .textlink {
+        text-decoration: none;
+    }

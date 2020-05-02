@@ -2,19 +2,31 @@ Header {
   padding: 0px;
   width: 100%;
 }
-
+html {
+  font-size: 10px
+}
 .Header {
     height: 60px;
+    display: block;
     padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
     display: flex;
     align-items: normal;
     justify-content: space-between;
-    background-color: grey;
+    background-color: white;
+    font-size: 2rem;
+    border-bottom: 1px solid grey;
+
   }
 
   .Header h1 {
     margin: 0;
     font-size: 25px;
+  }
+
+  .textlink {
+    text-decoration: none;
+    color: inherit;
+
   }

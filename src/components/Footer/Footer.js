@@ -5,13 +5,13 @@ import './Footer.css'
 class Footer extends React.Component {
     render() {
         return (
-            <nav className='Header'>
+            <div className='footer'>
                 <h1>
                     <Link to='/'>
                         Footer
                     </Link>
                 </h1>
-            </nav>
+            </div>
         )
     }
 }

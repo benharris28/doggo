@@ -24,13 +24,15 @@ static contextType = ApiContext;
       <div className='Header__logged-in'>
         <Link
           onClick={this.handleLogoutClick}
-          to='/'>
+          to='/'
+          className="textlink">
           Logout
         </Link>
       </div>
       <div className="header-user-account">
         <Link
-          to={`/user/${loggedInUser.user_id}`}>
+          to={`/user/${loggedInUser.user_id}`}
+          className="textlink">
             My Account
         </Link>
       </div>
@@ -42,7 +44,8 @@ static contextType = ApiContext;
     return (
       <div className='Header__not-logged-in'>
         <Link
-          to='/login'>
+          to='/login'
+          className="textlink">
           Log in
         </Link>
         
@@ -57,7 +60,8 @@ static contextType = ApiContext;
     return <>
       <nav className='Header'>
         <h1>
-          <Link to='/'>
+          <Link to='/'
+          className="textlink">
             {' '}
             Doggo
           </Link>
