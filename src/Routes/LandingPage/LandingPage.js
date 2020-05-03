@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import ApiContext from '../../ApiContext';
 import IMG_1252 from '../../Photos/IMG_1252.JPG'
+import Footer from '../../components/Footer/Footer';
 
 
 class LandingPage extends React.Component {
@@ -70,8 +71,9 @@ class LandingPage extends React.Component {
                    
                    
                
-                
+              
             </section>
+
         )
     }
 }

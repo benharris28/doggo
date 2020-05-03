@@ -1,19 +1,4 @@
-Footer {
-    padding: 0px;
-    width: 100%;
-  }
-  html {
-    font-size: 10px
-  }
-  .footer {
-      height: 20vh;
-      display: block;
-      padding-top: 20px;
-      display: flex;
-      align-items: normal;
-      justify-content: space-between;
-      background-color: grey;
-      font-size: 2rem;
-      border-bottom: 1px solid grey;
-  
-    }
+.footer-title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}

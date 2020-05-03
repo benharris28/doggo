@@ -230,8 +230,8 @@ class App extends React.Component {
           </Switch>
         </main>
         <footer className="App_footer">
-          <Footer />
-        </footer>
+            <Footer />
+        </footer>  
       </div>
       </ApiContext.Provider>
     )
