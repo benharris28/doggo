@@ -35,16 +35,9 @@ html {
 
 }
 
-button {
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: black;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
+.hero-button {
+   
+    width: 50%;
     }
 
    button:hover {
@@ -58,4 +51,19 @@ button {
 
     .textlink {
         text-decoration: none;
+    }
+
+    .hero-photo {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+
+    .landing_page_section_two {
+        text-align: center;
+    }
+
+    .reason-container {
+        width: 80%;
+        margin: auto;
     }

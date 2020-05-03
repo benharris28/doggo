@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import ApiContext from '../../ApiContext';
+import IMG_1252 from '../../Photos/IMG_1252.JPG'
 
 
 class LandingPage extends React.Component {
@@ -14,7 +15,7 @@ class LandingPage extends React.Component {
        const loggedOutDestination = '/login';
        const destination = loggedIn ? loggedInDestination : loggedOutDestination
        
-        
+        const russ = IMG_1252
         return (
             <section className="LandingPage">
                 <div className="title_section">
@@ -28,41 +29,48 @@ class LandingPage extends React.Component {
                     </Link>
                 </div>
                 
-                <div className="landing_page_hero">
+               
+                <div className="landing_page_section_two">
                     <h2>
-                        Book a walk with dog walkers near you
+                        Reasons to Doggo
                     </h2>
-                 
-                    <Link to={destination}>
-                        <button 
-                            type="button">
-                                Book Now
-                            </button>
-                    </Link>
-                </div>
-                <div className="landing_page_hero two">
-                    <h2>
-                        Copy #2
-                    </h2>
-                    <Link to={destination}>
-                        <button 
-                            type="button">
-                                Book Now
-                            </button>
-                    </Link>
+                    <div className="reason-container">
+                        <div className="reason-list">
+
+                        
+                        <div className="reason">
+                            <div className="photo-container">
+                                <img className="hero-photo" src={russ} />
+                            </div>
+                            <div className="text-container">
+                                <h3>Here when you need us</h3>
+                                <p>Whether you're looking for daily walks or just a one time thing, we have a walker for your best friend</p>
+                            </div>
+                         
+                        </div>
+                    </div>
+                    <div className="reason">
+                            <div className="photo-container">
+                                <img className="hero-photo" src={russ} />
+                            </div>
+                            <div className="text-container">
+                                <h3>Here when you need us</h3>
+                                <p>Whether you're looking for daily walks or just a one time thing, we have a walker for your best friend</p>
+                            </div>
+                         
+                        </div>
                    
+                        </div>
                 </div>
-                <div className="landing_page_hero 3">
-                    <h2>
-                        Copy #3
-                    </h2>
-                    <Link to={destination}>
-                        <button 
-                            type="button">
-                                Book Now
-                            </button>
-                    </Link>
-                </div>
+             
+                    
+                  
+                        
+                
+                   
+                   
+               
+                
             </section>
         )
     }
