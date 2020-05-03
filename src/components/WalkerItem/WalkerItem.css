@@ -1,6 +1,7 @@
 .walker-card {
     display: flex;
     border: 1px solid grey;
+    border-radius: 10px;
     padding: 10px;
     text-align: left;
   }
@@ -12,4 +13,14 @@
   .walker-image img{
       height: 100px;
 
+  }
+
+  p {
+    font-size: 2rem;
+    padding-left: 1rem;
+  }
+
+  img {
+    padding-top: 2rem;
+    padding-left: 1rem;
   }

@@ -45,11 +45,16 @@ class LoginPage extends React.Component {
                     <LoginForm 
                         onLoginSuccess={this.handleLoginSuccess} />
                 </div>
+                <hr className="login-break"></hr>
                 <div className="register">
-                    <p>Don't have an account?</p>
+                    <h3>New to Doggo?</h3>
+                    <p>It’s easy to set up your account. Click the link below to start browsing dogwalkers</p>
                     <Link
                         to={'/register'}>
-                            Click here to sign up!
+                            <button className="register">
+                                Sign Up
+                            </button>
+                            
                     </Link>
                 </div>
                 <div className="tester-helper">

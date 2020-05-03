@@ -77,27 +77,30 @@ class LoginForm extends React.Component {
                     className="login form"
                     onSubmit={this.handleApiSubmit}
                     >
-                    <h3 className="form-title">
-                        Login to your Doggo account
+                    <h2 className="form-title">
+                        Login
+                    </h2>
+                    <h3>
+                        Existing users
                     </h3>
                     <div className="error-bar" role='alert'>
                         {error && <p className='red'>{error}</p>}
                     </div>
                     <div>
-                        <label htmlFor="email">Email</label>
+                        
                         <input 
                             type="text" 
                             name="email" 
-                            placeholder="youremail@email.com"
+                            placeholder="Email"
                             onChange={e => this.updateEmail(e.target.value)}
                             required />
                     </div>
                     <div>
-                        <label htmlFor="password">Password</label>
+            
                         <input 
                             type="text" 
                             name="password" 
-                            placeholder="enter password"
+                            placeholder="Password"
                             onChange={e => this.updatePassword(e.target.value)} 
                             required />
                     </div>

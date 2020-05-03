@@ -11,3 +11,7 @@
 .walk-li {
     margin-top: 10px;
 }
+
+.redirect {
+    text-decoration: none;
+}
