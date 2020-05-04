@@ -6,11 +6,11 @@ class Footer extends React.Component {
     render() {
         return (
             <div className='footer'>
-                <h2 className="footer-title">
-                    <Link to='/'>
+                <h3 className="footer-title">
+                    <Link className="footer-link" to='/'>
                         Doggo
                     </Link>
-                </h2>
+                </h3>
             </div>
         )
     }

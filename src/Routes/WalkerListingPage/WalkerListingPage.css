@@ -1,7 +1,14 @@
 .walker_listing_page {
     width: 90%;
-    margin: auto
+    margin: auto;
+    height: 80vh;
+    margin-bottom: 3rem;
 }
+
+.walker_listing_page h3 {
+    font-size: 3rem;
+}
+
 .walk-ul {
     list-style: none;
     padding: 0px;

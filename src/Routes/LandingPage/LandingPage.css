@@ -4,6 +4,7 @@ html {
 
 .LandingPage {
     margin-top: 0px;
+    margin-bottom: 5rem;
     
 }
 .title_section {
@@ -66,4 +67,12 @@ html {
     .reason-container {
         width: 80%;
         margin: auto;
+    }
+
+    .section-title {
+        font-size: 4rem;
+    }
+
+    .book-now {
+        margin-top: 4rem;
     }

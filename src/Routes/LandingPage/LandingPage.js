@@ -32,10 +32,11 @@ class LandingPage extends React.Component {
                 
                
                 <div className="landing_page_section_two">
-                    <h2>
+                    
+                    <div className="reason-container">
+                    <h2 className="section-title">
                         Reasons to Doggo
                     </h2>
-                    <div className="reason-container">
                         <div className="reason-list">
 
                         
@@ -59,10 +60,23 @@ class LandingPage extends React.Component {
                                 <p>Whether you're looking for daily walks or just a one time thing, we have a walker for your best friend</p>
                             </div>
                          
-                        </div>
+                    </div>
+                    <div className="book-now">
                    
-                        </div>
+                    
+                        <Link className="textlink" to={destination} style={{ textDecoration: 'none' }}>
+                            <button 
+                                type="button"
+                                className="hero-button">
+                                    Book Now
+                            </button>
+                        </Link>
+                    </div>  
+                    
+                
+                   
                 </div>
+            </div>
              
                     
                   

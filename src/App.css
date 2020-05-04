@@ -17,7 +17,7 @@ html {
 }
 
 .App_footer {
-  height: 5vh;
+  height: 10vh;
   border-top: 1px solid grey;
   display: block;
   background-color: lightgrey;
