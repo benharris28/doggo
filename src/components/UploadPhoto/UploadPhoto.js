@@ -102,7 +102,7 @@ class UploadPhoto extends React.Component {
                 <form 
                     className="upload-photo"
                     onSubmit={e => this.handleSubmit(e)}>
-                    Would you like to update your profile photo?
+                    <h3>Would you like to update your profile photo?</h3>
 
                     <input 
                         type="file"

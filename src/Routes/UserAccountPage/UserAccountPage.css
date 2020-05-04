@@ -2,6 +2,7 @@
     width: 90%;
     margin: auto;
     margin-top: 20px;
+    height: 80vh;
 }
 
 ul {
@@ -11,4 +12,20 @@ ul {
 
 li {
     margin-top: 10px;
+}
+
+.walker-image {
+    margin: auto;
+}
+
+img {
+    margin: auto;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+.walk-requests, .upcoming-walks, .user-walklist {
+    font-size: 2rem;
 }
