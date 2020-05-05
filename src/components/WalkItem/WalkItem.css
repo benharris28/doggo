@@ -1,8 +1,10 @@
 .walk-card {
     display: flex;
     border: 1px solid grey;
+    border-radius: 5px;
     padding: 10px;
     text-align: left;
+    display: flex;
   }
 
   .walker-info {
@@ -12,4 +14,17 @@
   .walker-image img{
       height: 100px;
 
+  }
+
+  .logo img {
+    width: 75px;
+    border-radius: 50%;
+    margin: auto;
+   
+    
+  }
+
+  .walk-data {
+    width: 100%;
+    padding-left: 3rem;
   }

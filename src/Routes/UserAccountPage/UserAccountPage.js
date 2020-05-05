@@ -78,6 +78,9 @@ class UserAccountPage extends React.Component {
                     <ul>
                             {walkRequests.map(walk => 
                                 <li className="walk-li" key={walk.walk_id}>
+                                <Link
+                                    to={`/walk/${walk.walk_id}`}
+                                    className="walk-link">
                                 <WalkItem
                                     walk={walk.walk_id}
                                     user={walk.user_firstname}
@@ -85,6 +88,7 @@ class UserAccountPage extends React.Component {
                                     date={walk.walk_date}
                                     walk_status={walk.walk_status}
                                     />
+                                </Link>
                                 </li>)}
 
                         </ul>
@@ -96,12 +100,16 @@ class UserAccountPage extends React.Component {
                         <ul>
                             {upcomingWalks.map(walk => 
                                 <li className="walk-li" key={walk.walk_id}>
+                                <Link
+                                    to={`/walk/${walk.walk_id}`}
+                                    className="walk-link">
                                 <WalkItem
                                     walk={walk.walk_id}
                                     walker={walk.walker_firstname}
                                     date={walk.walk_date}
                                     walk_status={walk.walk_status}
                                     />
+                                </Link>
                                 </li>)}
 
                         </ul>
@@ -114,12 +122,16 @@ class UserAccountPage extends React.Component {
                         <ul>
                             {walkList.map(walk => 
                                 <li className="walk-li" key={walk.walk_id}>
+                                <Link
+                                    to={`/walk/${walk.walk_id}`}
+                                    className="walk-link">
                                 <WalkItem
                                     walk={walk.walk_id}
                                     walker={walk.walker_firstname}
                                     date={walk.walk_date}
                                     walk_status={walk.walk_status}
                                     />
+                                </Link>
                                 </li>)}
 
                         </ul>
