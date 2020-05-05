@@ -20,7 +20,7 @@ class WalkerPage extends React.Component {
         const { walkers } = this.context
         const selectWalker =  walkers.find(walker => walker.user_id == user_id)
         const photo = selectWalker.profile_photo
-        
+
 
         photo ? 
         PhotoApiService.getImage(photo)

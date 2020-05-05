@@ -1,4 +1,19 @@
 .walker-page {
     width: 90%;
     margin: auto;
+    min-height: 83vh;
+}
+
+.walker-image {
+    margin-top: 2rem;
+}
+.walker-image img {
+    border-radius: 50%;
+    width: 100px;
+    padding: 0
+}
+
+.return-to-list-button button {
+    background-color: lightgray;
+    margin-top: 2rem;
 }
