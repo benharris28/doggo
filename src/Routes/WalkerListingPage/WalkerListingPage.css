@@ -5,8 +5,19 @@
     margin-bottom: 3rem;
 }
 
+.walker-listing-page-intro {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 4rem;
+}
+
+.walker-listing-page-intro p {
+    font-size: 2rem;
+}
+
 .walker_listing_page h3 {
     font-size: 3rem;
+    text-align: left;
 }
 
 .walk-ul {

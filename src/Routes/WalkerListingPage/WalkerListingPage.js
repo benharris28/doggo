@@ -30,9 +30,12 @@ class WalkerListingPage extends React.Component {
 
         return (
             <section className="walker_listing_page">
+                <div className="walker-listing-page-intro">
                 <h3>Find a walker</h3>
 
                 <p>Choose a walker below to book a walk</p>
+
+                </div>
                 
                 <div className="walker-list">
                     <ul className="walk-ul">

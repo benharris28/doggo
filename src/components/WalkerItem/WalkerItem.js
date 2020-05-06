@@ -10,16 +10,16 @@ class WalkerItem extends React.Component {
         return (
 
             <div className="walker-card">
-                <div className="walker-image">
+                <div className="walkerlist-image">
                 
-         
-                    <img src={faker.image.avatar()} alt="avatar"/>
-         
+                    <div className="image-wrapper">
+                        <img src={faker.image.avatar()} alt="avatar"/>
+                    </div>
                 </div >
 
-                <div className="walker-info">
+                <div className="walkercard-info">
                     
-                    <h3>{name}</h3>
+                    <h4>{name}</h4>
                    
                     
                     {rating ? <p>Rating: {rating}</p> : <p>Rating: 5</p>}
