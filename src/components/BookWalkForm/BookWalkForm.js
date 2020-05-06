@@ -1,6 +1,9 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
 import WalkApiService from '../../services/walk-api-service';
+import moment from 'moment';
+import './BookWalkForm.css'
+
 
 class BookWalkForm extends React.Component {
     static contextType = ApiContext;
@@ -24,7 +27,10 @@ class BookWalkForm extends React.Component {
         pickup_address_city: '',
         pickup_address_province: '',
         pickup_address_postal_code: '',
-        submitted: false
+        submitted: false,
+        date: '',
+        time: ''
+      
 
     }
 
@@ -53,6 +59,8 @@ class BookWalkForm extends React.Component {
 
         const { 
            
+            date,
+            time,
             walk_date, 
             pickup_address_street_number,
             pickup_address_street_name,
@@ -62,14 +70,16 @@ class BookWalkForm extends React.Component {
 
         } = this.state;
 
-        
+        const momentObj = moment(date + time, 'YYYY-MM-DDLT');
+        const dateTime = momentObj.format('YYYY-MM-DDTHH:mm');
+
         const newWalk = {
             walker_id: id,
             user_firstname: loggedInUser.first_name,
             dog_name: loggedInUser.dog_name,
             walker_firstname: selectWalker.first_name,
             user_id: loggedInUser.user_id,
-            walk_date,
+            walk_date: dateTime,
             pickup_address_street_number,
             pickup_address_street_name,
             pickup_address_city,
@@ -108,11 +118,7 @@ class BookWalkForm extends React.Component {
     // how can i conditionally render a "submitted" notification
     
 
-    handleWalkDate(walk_date) {
-        this.setState({
-            walk_date: walk_date
-        })
-    }
+   
 
     handleWalkTime(walk_time) {
         this.setState({
@@ -156,12 +162,31 @@ class BookWalkForm extends React.Component {
         })
     }
 
+    handleTime(time) {
+        this.setState({
+            time
+        })
+    }
+
+    handleDate(date) {
+        this.setState({
+            date
+        })
+    }
+
+   
+
     render() {
         const { id, name } = this.props;
         const { walkers, walks } = this.context;
+        const { date, time } = this.state
         const selectedWalker = walkers.find(walker => walker.id == id)
         const walkNum = walks.length;
         console.log(walkNum)
+        const momentObj = moment(date + time, 'YYYY-MM-DDLT');
+        const dateTime = momentObj.format('YYYY-MM-DDTHH:mm');
+        console.log(dateTime)
+        console.log(this.state.walk_date)
         
         return (
             <form
@@ -169,21 +194,32 @@ class BookWalkForm extends React.Component {
                 onSubmit={e => this.handleSubmit(e)}
                 >
                 <h3>{`Book a walk with ${name}`}</h3>
-               
                     
-                    <div className="walk-date-input">
-                        <label htmlFor="walkdate">
-                            When do you want to book a walk?
+                    <div className="date-input">
+                    <label htmlFor="date">
+                            Requested date
                         </label>
-                        <input 
-                            type="datetime-local" 
-                            name="walkdate"
-                            onChange={e => this.handleWalkDate(e.target.value)}
+                    <input 
+                            type="date" 
+                            name="date"
+                            onChange={e => this.handleDate(e.target.value)}
                             required /> 
                     </div>
+                    <div className="time-input">
+                    <label htmlFor="time">
+                            Requested time
+                        </label>
+                    <input 
+                            type="time" 
+                            name="time"
+                            onChange={e => this.handleTime(e.target.value)}
+                            required /> 
+                  
+                    </div>
+                    
 
                     {' '}
-                    Where should your dog be picked up?
+                    <h3>Where should your dog be picked up?</h3>
                     <div className="street-number-input">
                         <label htmlFor="street-number">
                             Street Number

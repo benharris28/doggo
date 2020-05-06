@@ -8,7 +8,8 @@ class WalkFeedbackForm extends React.Component {
 
     state = {
         comment: '',
-        rating: ''
+        rating: '',
+        submitted: false
     }
 
     handleSubmit = (e) => {
@@ -23,14 +24,21 @@ class WalkFeedbackForm extends React.Component {
         }
 
         WalkApiService.updateWalk(walk_id, feedback)
-            .then(res => {
+        .then(res => {
 
-                    // Need set timeout here
-                this.props.handleBackToSearch()
-               
-                
+            this.setState({
+                submitted: true
+            }, () => {
+                setTimeout(() => {
+                    this.setState({
+                        submitted: false
+                    }, () => {
+                        this.props.handleBackToAccount()
+                    })
+                }, 3000)
             })
-        //this.props.handleFeedback(rating, comment)
+        })
+       
 
     }
 
@@ -86,6 +94,13 @@ class WalkFeedbackForm extends React.Component {
                                     Submit Feedback
                             </button>
                         </div>
+                        
+                        {this.state.submitted && 
+                        <div className="submit-confirmation">
+                            <p>Feedback Submitted!</p>
+                        </div>
+                        }
+
                 </form>
             </div>
         )

@@ -12,7 +12,8 @@ class WalkerPage extends React.Component {
     static contextType = ApiContext;
     
     state = {
-        photo_url: ''
+        photo_url: '',
+        form_open: false
     }
 
     componentDidMount = () => {
@@ -40,6 +41,18 @@ class WalkerPage extends React.Component {
     handleBackToSearch = (e) => {
         const { history } = this.props;
         history.push('/walker')
+    }
+
+    handleOpenForm = () => {
+        this.setState({
+            form_open: true
+        })
+    }
+
+    handleCloseForm = () => {
+        this.setState({
+            form_open: false
+        })
     }
 
     
@@ -71,12 +84,20 @@ class WalkerPage extends React.Component {
                     <h3>{selectWalker.first_name}</h3>
                     <p>{selectWalker.bio}</p>
                 </div>
+                <div className="form=open-button">
+                    {!this.state.form_open &&
+                    <button
+                        onClick={this.handleOpenForm}>
+                        Book with {selectWalker.first_name}
+                    </button>}
+                </div>
                 <section className="book-walk-form">
+                    {this.state.form_open &&
                     <BookWalkForm 
                         name={selectWalker.first_name}
                         id={selectWalker.user_id}
                         handleBackToSearch={this.handleBackToSearch}
-                        />
+                        />}
                 </section>
                 <div className="feedback-list">
                     <FeedbackList

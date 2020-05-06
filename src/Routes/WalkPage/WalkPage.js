@@ -334,6 +334,7 @@ class WalkPage extends React.Component {
                     {(walk.walk_status === "complete" && userType == "user") ?
                         <WalkFeedbackForm 
                             walk_id={walk.walk_id}
+                            handleBackToAccount={this.handleBackToAccount}
                            /> : null }
                     
                 </div>
