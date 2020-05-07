@@ -210,6 +210,7 @@ class WalkPage extends React.Component {
                 <>
                     <button
                         type="button"
+                        className="cancel-button"
                         onClick={e => this.handleCancelWalk(walk.walk_id)}>
                             Cancel Walk Request
                     </button>
@@ -221,6 +222,7 @@ class WalkPage extends React.Component {
                 <>
                     <button
                         type="button"
+                        className="cancel-button"
                         onClick={e => this.handleCancelWalk(walk.walk_id)}>
                             Cancel Walk
                     </button>
@@ -251,11 +253,13 @@ class WalkPage extends React.Component {
                 <>
                     <button
                         type="button"
+                        className="accept-button"
                         onClick={e => this.handleAcceptWalk(walk.walk_id)}>
                         Accept Walk
                     </button>
                     <button
                         type="button"
+                        className="decline-button"
                         onClick={e => this.handleDeclineWalk(walk.walk_id)}>
                         Decline Walk
                     </button>
@@ -268,11 +272,13 @@ class WalkPage extends React.Component {
         
                     <button
                         type="button"
+                        className="cancel-button"
                         onClick={e => this.handleCancelWalk(walk.walk_id)}>
                             Cancel Walk
                         </button>
                         <button
                             type="button"
+                            className="complete-button"
                             onClick={e => this.handleCompleteWalk(walk.walk_id)}
                         >
                              Complete Walk
@@ -292,13 +298,15 @@ class WalkPage extends React.Component {
 
         return (
             <div className="walk-page">
-                <div className="back-button">
+                <div className="back-button-box">
                     <button
+                        className="back-button"
                         onClick={e => this.handleBackToAccount(e)}>
                         Back to my account
                     </button>
                 </div>
-                <div className="walk-page-title">
+                <div className="walkpage-card">
+                <div className="walkpage-title">
                     Walk for {`${walk.dog_name}`}
                 </div>
                 <div className="walk-page-data">
@@ -337,6 +345,7 @@ class WalkPage extends React.Component {
                             handleBackToAccount={this.handleBackToAccount}
                            /> : null }
                     
+                </div>
                 </div>
                 
             </div>

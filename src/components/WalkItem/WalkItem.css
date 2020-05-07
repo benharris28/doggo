@@ -1,30 +1,74 @@
 .walk-card {
-    display: flex;
-    border: 1px solid grey;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-    display: flex;
-  }
+  width: 90%;
+  height: 150px;
+  display: flex;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+}
 
-  .walker-info {
-    padding: 10px;
-  }
 
-  .walker-image img{
-      height: 100px;
 
-  }
-
-  .logo img {
-    width: 75px;
-    border-radius: 50%;
-    margin: auto;
+  .walk-image-wrapper {
    
-    
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    text-align: center;
+    margin-top: 2rem;
+
   }
 
-  .walk-data {
-    width: 100%;
-    padding-left: 3rem;
+  .walk-info {
+    width: 60%;
+    padding: 2rem;
+    padding-left: 2rem;
+  }
+
+  .walk-info h4 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 0;
+    text-align: left;
+    color: inherit;
+  }
+
+  .walk-info p {
+    font-size: 2rem;
+    margin-top: 1rem;
+    padding: 0;
+    color: inherit;
+  }
+
+  .walk-image {
+    background-color: rgb(255, 223, 211);
+    width: 33%;
+    min-width: 120px;
+    margin-left: 0px;
+    padding: 1rem;
+    
+   
+  }
+
+
+
+  .walk-image-wrapper img {
+    height: 60%;
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+  }
+
+ 
+
+  
+
+  img {
+    padding-top: 2rem;
+    padding-left: 1rem;
   }

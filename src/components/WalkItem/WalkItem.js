@@ -37,10 +37,13 @@ class WalkItem extends React.Component {
         const title = userType === "walker" ? <p><b>User:</b> {user}</p> : <p><b>Walker:</b> {walker} </p>
         return (
             <div className="walk-card">
-            <div className="logo">
-                <img src={logo} alt="dog-walker-icon" />
-            </div>
-            <div className="walk-data">
+                <div className="walk-image">
+                    <div className="walk-image-wrapper">
+                        <img src={logo} alt="dog-walker-icon" />
+                    </div>
+                </div>
+                
+            <div className="walk-info">
                 {title}
                 <p><b>Date:</b> {formatDate}</p>
                 <p><b>Time:</b> {formatTime}</p>
