@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import ApiContext from '../../ApiContext';
+import './RegistrationPage.css'
 
 
 // Make Login form and import
@@ -25,13 +26,16 @@ class RegistrationPage extends React.Component {
 
     render() {
         return (
-            <section className="login-page">
-
+            <section className="registration-login-page">
+                <div className="intro-box">
+                    <h3>Sign up for Doggo</h3>
+                    <p>We just need a few details to get started</p>
+                </div>
                 <div>
                     <RegistrationForm 
                         onRegistrationSuccess={this.handleRegistrationSuccess}/>
                 </div>
-                <div>
+                <div className="login-redirect">
                     Already have an account?
                     <Link
                         to={'/login'}>

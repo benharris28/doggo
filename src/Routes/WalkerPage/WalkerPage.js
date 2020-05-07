@@ -72,6 +72,7 @@ class WalkerPage extends React.Component {
                 <div className="return-to-list-button">
                     <button
                         type="button"
+                        className="return-button"
                         onClick={e => this.handleBackToSearch(e)}>
                         Return to search
                     </button>
@@ -84,7 +85,7 @@ class WalkerPage extends React.Component {
                     <h3>{selectWalker.first_name}</h3>
                     <p>{selectWalker.bio}</p>
                 </div>
-                <div className="form=open-button">
+                <div className="form-open-button">
                     {!this.state.form_open &&
                     <button
                         onClick={this.handleOpenForm}>

@@ -6,7 +6,7 @@
 
 .walkpage-card {
     width: 90%;
-    min-height: 30vh;
+    min-height: 40vh;
     background-color: #fff;
     background: linear-gradient(#f8f8f8, #fff);
     box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
@@ -50,11 +50,17 @@
   .walk-control-buttons {
       display: flex;
       margin-top: 2rem;
+      
      
   }
 
   .cancel-button, .decline-button {
-      background-color: rgb(255, 105, 97)
+      background-color: rgb(255, 105, 97);
+        height: 10vh;
+  }
+
+  .complete-button, .accept-button {
+    height: 10vh;
   }
 
   

@@ -1,20 +1,21 @@
 
-
 .feedback-card {
-    display: flex;
-    border: 1px solid grey;
-    padding: 10px;
-    text-align: left;
-  }
+  width: 90%;
+  min-height: 150px;
+  display: flex;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+}
 
-  .feedback-info {
-    padding: 10px;
-  }
+.card-info {
+  
+}
 
-
-  .feedback-image-box img {
-    height: 100px;
-    border: 1px solid grey;
-    background-color: grey;
-    color: white;
+.image-wrapper {
+  
 }

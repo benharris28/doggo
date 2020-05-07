@@ -13,7 +13,22 @@
     padding: 0
 }
 
-.return-to-list-button button {
+.return-to-list-button {
+    margin: auto;
+}
+
+.return-button {
     background-color: lightgray;
     margin-top: 2rem;
+    
+    
+    
+}
+
+.walker-blurb {
+    text-align: center;
+}
+
+.walker-blurb p {
+    font-size: 2rem;
 }

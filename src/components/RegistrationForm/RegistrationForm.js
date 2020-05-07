@@ -114,61 +114,61 @@ class RegistrationForm extends React.Component {
             <form 
               id="signup-form"
               onSubmit={e => this.handleSubmit(e)}>
-              <h3>
-                Signup for Doggo!
-              </h3>
-              <p>We just need a few details to get your account up and running</p>
+              
+              
               
               <div className="error-bar" role='alert'>
                 {error && <p className='red'>{error}</p>}
               </div>
               
               <div>
-                <label htmlFor="first_name">First Name</label>
+                
                 <input 
                   type="text" 
                   name="first_name"
+                  placeholder="First Name"
                   onChange={e => this.updateFirstName(e.target.value)} 
                   required />
               </div>
               
               <div>
-                <label htmlFor="last_name">Last Name</label>
+                
                 <input 
                   type="text" 
                   name="last_name"
+                  placeholder="Last Name"
                   onChange={e => this.updateLastName(e.target.value)}
                   required />
               </div>
               
               
               <div>
-                <label htmlFor="email">Email</label>
+                
                 <input 
                   type="text" 
                   name="email" 
-                  placeholder="youremail@email.com"
+                  placeholder="Email Address"
                   onChange={e => this.updateEmail(e.target.value)}
                   required />
               </div>
               
-              <div>
-                <label htmlFor="password">Create Password</label>
+              <div className="password-box">
+                
                 <input 
                   type="text" 
                   name="password" 
-                  placeholder="enter password"
+                  placeholder="Password"
                   onChange={e => this.updatePassword(e.target.value)}
                   required />
                  
               </div>
 
               <div>
-                <label htmlFor="repeat_password">Repeat Password</label>
+                
                 <input 
                   type="text" 
                   name="repeat_password" 
-                  placeholder="enter password" 
+                  placeholder="Re-enter password" 
                   onChange={e => this.updateRepeatPassword(e.target.value)}
                   required /> 
 
@@ -178,15 +178,15 @@ class RegistrationForm extends React.Component {
                 {repeat_password !== password ? <p>Passwords do not mach</p> : null}
               </div>
 
-              <div>
-                <label htmlFor="user_type">What type of account</label>
+              <div className="account-type-box">
+                
                 <select 
                   name="user-type"
                   id="user_type"
                   onChange={this.updateUserType}
                   required
                   >
-                  <option value="selectone" selected>Please Select One</option>
+                  <option value="selectone" selected>Select Account Type</option>
                   <option value="user">Dog Owner</option>
                   <option value="walker">Dog Walker</option>
                   

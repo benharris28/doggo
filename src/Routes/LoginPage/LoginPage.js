@@ -36,7 +36,7 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <section className="login-page">
+            <section className="registration-login-page">
                 <div className="newRegister">
                     {this.context.newUser === true && 
                         <p>Thank you for creating a new account! Please login below</p>}

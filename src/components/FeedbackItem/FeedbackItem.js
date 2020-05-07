@@ -15,14 +15,16 @@ class FeedbackItem extends React.Component {
         return (
 
             <div className="feedback-card">
-                <div className="feedback-image-box">
+                <div className="card-image">
                 
-                
-                    <img src={faker.image.avatar()} alt="avatar"/>
+                    <div className="image-wrapper">
+                        <img src={faker.image.avatar()} alt="avatar"/>
+                    </div>
+                    
 
                 </div >
 
-                <div className="feedback-info">
+                <div className="card-info">
                     <p>{user}</p>
                     <p>Date: {formatDate}</p>
                     <p>Rating: {rating}</p>

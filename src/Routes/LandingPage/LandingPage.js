@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import ApiContext from '../../ApiContext';
 import IMG_1252 from '../../Photos/IMG_1252.JPG'
+import checkmark from '../../Photos/checkmark.png'
+import clock from '../../Photos/clock.png'
 import Footer from '../../components/Footer/Footer';
 
 
@@ -17,6 +19,9 @@ class LandingPage extends React.Component {
        const destination = loggedIn ? loggedInDestination : loggedOutDestination
        
         const russ = IMG_1252
+        const checkmarkImage = checkmark
+        const clockImage = clock
+
         return (
             <section className="LandingPage">
                 <div className="title_section">
@@ -53,11 +58,21 @@ class LandingPage extends React.Component {
                     </div>
                     <div className="reason">
                             <div className="photo-container">
-                                <img className="hero-photo" src={russ} />
+                                <img className="hero-photo" src={checkmarkImage} />
                             </div>
                             <div className="text-container">
-                                <h3>Here when you need us</h3>
-                                <p>Whether you're looking for daily walks or just a one time thing, we have a walker for your best friend</p>
+                                <h3>Book with trusted walkers</h3>
+                                <p>Walkers are vetted by us and rated by you</p>
+                            </div>
+                         
+                    </div>
+                    <div className="reason">
+                            <div className="photo-container">
+                                <img className="hero-photo" src={clock} />
+                            </div>
+                            <div className="text-container">
+                                <h3>Up to the minute booking</h3>
+                                <p>Only a few taps can book you a walk - even in last minute situations!</p>
                             </div>
                          
                     </div>

@@ -241,7 +241,7 @@ class WalkPage extends React.Component {
         const { walk } = this.state;
         const walkStatus = walk.walk_status;
 
-        if (walkStatus == "complete") {
+        if (walkStatus == "complete" || walkStatus == "declined") {
             return (
                 <div>
                    
