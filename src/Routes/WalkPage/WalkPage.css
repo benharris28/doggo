@@ -6,6 +6,7 @@
 
 .walkpage-card {
     width: 90%;
+    max-width: 800px;
     min-height: 40vh;
     background-color: #fff;
     background: linear-gradient(#f8f8f8, #fff);
@@ -13,7 +14,7 @@
     border-radius: 6px;
     overflow: hidden;
     position: relative;
-    margin: 1.5rem;
+    margin: auto;
     margin-top: 3rem;
   }
 
@@ -68,6 +69,7 @@
     width: 90%;
     margin: auto;
     margin-top: 2rem;
+    text-align: center;
     
 }
 

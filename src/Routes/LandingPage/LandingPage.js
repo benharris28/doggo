@@ -25,24 +25,28 @@ class LandingPage extends React.Component {
         return (
             <section className="LandingPage">
                 <div className="title_section">
-                    <h2>Book a walk with trusted dog walkers near you</h2>
-                    <Link className="textlink" to={destination} style={{ textDecoration: 'none' }}>
-                        <button 
-                            type="button"
-                            className="hero-button">
-                                Book Now
-                            </button>
-                    </Link>
+                    <div className="title-intro-box">
+                        <h2>Book a walk with trusted dog walkers near you</h2>
+                        <Link className="textlink" to={destination} style={{ textDecoration: 'none' }}>
+                            <button 
+                                type="button"
+                                className="hero-button">
+                                    Book Now
+                                </button>
+                        </Link>
+                    </div>
+                    
                 </div>
                 
                
                 <div className="landing_page_section_two">
-                    
-                    <div className="reason-container">
                     <h2 className="section-title">
                         Reasons to Doggo
                     </h2>
-                        <div className="reason-list">
+
+                    <div className="reason-container">
+                    
+                       
 
                         
                         <div className="reason">
@@ -55,7 +59,7 @@ class LandingPage extends React.Component {
                             </div>
                          
                         </div>
-                    </div>
+                    
                     <div className="reason">
                             <div className="photo-container">
                                 <img className="hero-photo" src={checkmarkImage} />
@@ -76,7 +80,12 @@ class LandingPage extends React.Component {
                             </div>
                          
                     </div>
-                    <div className="book-now">
+                    
+                    
+                
+                   
+                </div>
+                <div className="book-now">
                    
                     
                         <Link className="textlink" to={destination} style={{ textDecoration: 'none' }}>
@@ -87,10 +96,6 @@ class LandingPage extends React.Component {
                             </button>
                         </Link>
                     </div>  
-                    
-                
-                   
-                </div>
             </div>
              
                     

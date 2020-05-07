@@ -39,3 +39,12 @@ h1 {
 h2 {
   font-size: 5rem;
 }
+
+button {
+  max-width: 300px;
+  margin: auto;
+}
+
+input {
+  max-width: 700px;
+}

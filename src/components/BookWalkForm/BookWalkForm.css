@@ -38,6 +38,7 @@ input[name="postal-code"]
     margin: auto;
     margin-bottom: 2rem;
     width: 80%;
+    text-align: center;
 }
 
 button {

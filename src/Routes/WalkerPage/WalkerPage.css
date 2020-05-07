@@ -15,6 +15,7 @@
 
 .return-to-list-button {
     margin: auto;
+    text-align: center;
 }
 
 .return-button {
@@ -31,4 +32,14 @@
 
 .walker-blurb p {
     font-size: 2rem;
+}
+
+.form-open-button {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.feedback-list {
+    max-width: 700px;
+    margin: auto;
 }

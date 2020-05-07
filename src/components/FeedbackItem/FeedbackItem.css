@@ -16,6 +16,7 @@
   
 }
 
-.image-wrapper {
-  
+.image-wrapper img {
+  max-height: 90%;
+  max-width: 90%;
 }
