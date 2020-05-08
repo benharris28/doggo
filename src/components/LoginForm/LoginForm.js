@@ -104,12 +104,15 @@ class LoginForm extends React.Component {
                             onChange={e => this.updatePassword(e.target.value)} 
                             required />
                     </div>
-              
-                    <button
-                        type="submit">
-                        
-                            Sign In
-                    </button>
+                    <div className="button-box">
+                        <button
+                            type="submit"
+                            className="login-submit">
+                            
+                                Sign In
+                        </button>
+                    </div>
+                    
             </form>
 
             

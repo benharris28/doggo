@@ -180,13 +180,11 @@ class BookWalkForm extends React.Component {
         const { id, name } = this.props;
         const { walkers, walks } = this.context;
         const { date, time } = this.state
-        const selectedWalker = walkers.find(walker => walker.id == id)
-        const walkNum = walks.length;
-        console.log(walkNum)
+       
+       
         const momentObj = moment(date + time, 'YYYY-MM-DDLT');
         const dateTime = momentObj.format('YYYY-MM-DDTHH:mm');
-        console.log(dateTime)
-        console.log(this.state.walk_date)
+      
         
         return (
             <form

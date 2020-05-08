@@ -60,9 +60,9 @@ class WalkFeedbackForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="feedback-form">
                 <div className="feedback-title">
-                    Leave feedback for your walker
+                    <h3>Leave feedback for your walker</h3>
                 </div>
                 <form 
                     className="walk-feedback-form"
