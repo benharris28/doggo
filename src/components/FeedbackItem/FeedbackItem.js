@@ -7,7 +7,7 @@ import faker from 'faker';
 class FeedbackItem extends React.Component {
     
     render() {
-        const { user, photo, comment, rating, date  } = this.props;
+        const { user, comment, rating, date  } = this.props;
      
         const formatDate = moment(new Date(date)).format('MM DD YYYY')
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './WalkerItem.css';
 import faker from 'faker';
 
 class WalkerItem extends React.Component {
     render() {
-        const {id , name, photo, postal, rating } = this.props;
-        console.log(id)
+        const { name, rating } = this.props;
+        
         return (
 
             <div className="walker-card">

@@ -7,9 +7,7 @@ import './BookWalkForm.css'
 
 class BookWalkForm extends React.Component {
     static contextType = ApiContext;
-    // How should I convert a new walk entry to json?
-    // Should new walk be added to state?
-    // When user logs in in for the first time, send all data that is required to context
+    
     static defaultProps = {
         location: {},
         history: {
@@ -36,26 +34,19 @@ class BookWalkForm extends React.Component {
 
 
     handleSubmit = (e) => {
-        // Fetch request (contains a post)
-        // Some values are coming from context (this.context.user_id, etc)
-        // Create new object with complete walk item
-        // Update context in the then block
 
         e.preventDefault();
-        const { id, history } = this.props;
-        console.log(history)
+        const { id } = this.props;
 
-        const { users, walkers, walks, loggedInUser } = this.context;
+        const { walkers, loggedInUser } = this.context;
 
        
         
         
-        const selectUser =  users;
+        
            
         const selectWalker =  walkers.find(walker => walker.user_id == id && walker.user_type === 'walker')
 
-    
-        console.log(this.state)
 
         const { 
            
@@ -88,9 +79,9 @@ class BookWalkForm extends React.Component {
             walk_status: "requested",
 
         }
-        console.log(newWalk)
+       
 
-        // API Call
+
         WalkApiService.createWalk(newWalk)
             .then(res => {
                 this.context.handleNewWalk(res)
@@ -115,7 +106,7 @@ class BookWalkForm extends React.Component {
     }
    
 
-    // how can i conditionally render a "submitted" notification
+
     
 
    
@@ -126,11 +117,7 @@ class BookWalkForm extends React.Component {
         })
     }
 
-    handleWalkTime(walk_time) {
-        this.setState({
-            request_time: walk_time
-        })
-    }
+   
 
     handleStreetName(street) {
         this.setState({
@@ -177,8 +164,7 @@ class BookWalkForm extends React.Component {
    
 
     render() {
-        const { id, name } = this.props;
-        const { walkers, walks } = this.context;
+        const { name } = this.props;
         const { date, time } = this.state
        
        

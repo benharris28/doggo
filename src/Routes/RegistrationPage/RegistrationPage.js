@@ -19,7 +19,7 @@ class RegistrationPage extends React.Component {
   
     handleRegistrationSuccess = (user) => {
         const { history } = this.props;
-        console.log(history)
+       
         this.context.handleNewRegistration()
         history.push('/login')
     }

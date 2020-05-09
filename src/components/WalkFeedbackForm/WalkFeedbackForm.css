@@ -1,4 +1,11 @@
-.feedback-form {
+.walk-feedback {
     width: 90%;
+    margin: auto;
+    
+}
+
+.feedback-submit {
+    margin: auto;
+    text-align: center;
 }
 

@@ -5,7 +5,6 @@ import ApiContext from '../../ApiContext';
 import './LoginPage.css'
 
 
-// Make Login form and import
 
 class LoginPage extends React.Component {
     static contextType = ApiContext;
@@ -18,9 +17,7 @@ class LoginPage extends React.Component {
       }
 
     
-    //usertype will be passed to this function
-    // push either acount page for walkers or walker listing for users
-    
+   
     
 
     handleLoginSuccess = (userType, loggedInUser) => {

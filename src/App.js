@@ -49,7 +49,7 @@ class App extends React.Component {
         walks: clonedWalks
       });
 
-      console.log(this.state)
+     
 
   }
 
@@ -120,7 +120,7 @@ class App extends React.Component {
       }
 
     setWalks = (walks) => {
-      console.log(walks)
+      
       this.setState({
         walks: walks
     })

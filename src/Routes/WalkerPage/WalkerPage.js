@@ -7,7 +7,7 @@ import './WalkerPage.css'
 
 
 
-// To display photo, request for walkers photo will need to be made when component mounts
+
 class WalkerPage extends React.Component {
     static contextType = ApiContext;
     

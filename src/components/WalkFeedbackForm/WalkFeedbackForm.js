@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
 import WalkApiService from '../../services/walk-api-service';
+import './WalkFeedbackForm.css'
 
 class WalkFeedbackForm extends React.Component {
     

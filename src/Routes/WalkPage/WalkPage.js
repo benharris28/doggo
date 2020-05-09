@@ -13,19 +13,14 @@ class WalkPage extends React.Component {
     state = {
         walk: ''
     }
-    // To update walk, should context be updated and a new walks array pushed to database?
-    // should each walk update post directly to the database?
+    
 
 
     componentDidMount() {
         const { walk_id } = this.props.match.params;
         WalkService.getWalkById(walk_id)
             .then(walk => this.setWalk(walk))
-        // Make API call to walk table
-        // Pass in current logged in user_id and walk_id
-        // On server side, for this walk_id, check if logged in user_id matches user_id in walks table
-        // If successful, render the page, if not, push back to landing page
-        // Create logic so that if logged in user is admin, render page (check on same route)
+        
     }
 
     setWalk = (walk) => {
@@ -34,7 +29,7 @@ class WalkPage extends React.Component {
         })
     }
 
-    // To cancel a walk, Do I need to change the state of walks in App.js or just post a new status to the API?
+    
     
     
     handleCancelWalk = (e) => {
@@ -288,10 +283,10 @@ class WalkPage extends React.Component {
         }
     }
     render() {
-        const { walk_id } = this.props.match.params;
+        
         const { userType } = this.context;
         const { walk } = this.state;
-        console.log(walk)
+        
        
         const formatDate = moment(new Date(walk.walk_date)).format('MM DD YYYY')
         const formatTime = moment(new Date(walk.walk_date)).format('h:mm:ss a')

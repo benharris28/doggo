@@ -4,7 +4,7 @@ import WalkerItem from '../../components/WalkerItem/WalkerItem';
 import ApiContext from '../../ApiContext'
 import WalkerListApiService from '../../services/walkerList-api-service'
 import './WalkerListingPage.css'
-import faker from 'faker'
+
 
 
 
@@ -12,19 +12,18 @@ class WalkerListingPage extends React.Component {
     
     static contextType = ApiContext;
 
-    // API
-    // Pull all walkers from the database (for now) and add them to context - will need to isolate later
+    
     componentDidMount() {
         WalkerListApiService.getAllWalkers()
             .then(res => {
-                console.log(res)
+               
                 this.context.handleWalkerList(res)
             })
     }
 
     render() {
         const { walkers }= this.context;
-        console.log(walkers)
+       
         
        
 

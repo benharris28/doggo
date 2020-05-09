@@ -16,9 +16,9 @@ class UploadBio extends React.Component {
     handleSubmit = (e) => {
 
         e.preventDefault();
-        const { id, history } = this.props;
+        const { id } = this.props;
 
-        console.log(history)
+       
         
         
         const newBlurb = {
@@ -58,8 +58,7 @@ class UploadBio extends React.Component {
     render() {
         const {id , photo } = this.props;
         const { formOpen, blurb } = this.state;
-        const { loggedInUser } = this.context;
-        console.log(id)
+     
         return (
 
             <div className="bio-section">

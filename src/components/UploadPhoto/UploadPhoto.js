@@ -10,15 +10,15 @@ class UploadPhoto extends React.Component {
     }
     
     componentDidMount = () => {
-        // Get profile photo from AWS
+       
         
-        const { photo, id } =  this.props
+        const { photo } =  this.props
         const fileName = photo
         
         photo ? 
         PhotoApiService.getImage(fileName)
             .then(res => {
-                console.log(res)
+                
                 this.setState({
                     photo_url: res.returnData.url
                 })
@@ -83,12 +83,11 @@ class UploadPhoto extends React.Component {
 
 
     render() {
-        const {id , photo } = this.props;
-        const { photo_file, photo_url } = this.state;
-        console.log(this.state)
+        const { photo } = this.props;
+        const { photo_url } = this.state;
+        
         const uuid = (Math.ceil(Math.random() * 100))
-        console.log(uuid)
-        console.log(this.state.photo)
+        
         return (
 
             <div className="bio-section">

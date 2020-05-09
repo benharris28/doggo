@@ -4,7 +4,6 @@ import FeedbackItem from '../FeedbackItem/FeedbackItem';
 import WalkApiService from '../../services/walk-api-service';
 import './FeedbackList.css';
 
-// Needs its own API call for walks because walks in context is walks for the loggedinuser
 class FeedbackList extends React.Component {
     static contextType = ApiContext;
 
@@ -17,7 +16,7 @@ class FeedbackList extends React.Component {
 
         WalkApiService.getAllWalksForWalkerId(id)
             .then(walks => {
-                console.log(walks)
+                
                 this.setWalks(walks)
                 
             })
@@ -33,15 +32,15 @@ class FeedbackList extends React.Component {
     }
     
     render() {
-        const { id, name } = this.props;
-        console.log(id)
+        const { name } = this.props;
+        
         const { walks=[] } = this.state;
-        console.log(walks)
+       
 
         const feedbackItems = walks.filter(walk => walk.comment !== null && walk.walk_status === "complete")
 
 
-        console.log(feedbackItems)
+        
      
         return (
             <section className="walker-feedback-list">

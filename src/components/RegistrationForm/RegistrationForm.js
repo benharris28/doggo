@@ -80,7 +80,7 @@ class RegistrationForm extends React.Component {
 
     updateUserType = (e) => {
       e.preventDefault()
-      console.log(this.state.user_type)
+     
       this.setState({
         user_type: e.target.value
       })
@@ -108,7 +108,7 @@ class RegistrationForm extends React.Component {
     
     render() {
       const { error, repeat_password, password } = this.state;
-      console.log(this.state)
+     
         return (
             <>
             <form 

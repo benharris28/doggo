@@ -18,14 +18,11 @@ class LoginForm extends React.Component {
           password: '',
           error: null
       }
-      // Fetch request to /login or signin endpoint
-      // in then block (if successfuk), will get response from API
-      // Response should contain usertype
-      // Pass usertype as parameter to onLoginSuccess
+    
       
     handleApiSubmit = (e) => {
         e.preventDefault()
-        const { email, password, error} = this.state;
+        const { email, password } = this.state;
 
         this.setState({ error: null})
 
