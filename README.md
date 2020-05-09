@@ -9,4 +9,4 @@ As a walker, you can list your services on the Doggo app. You can review request
 
 ## Screenshots
 
-![alt text](https://github.com/benharris28/doggo/blob/master/Browse_Walker_Screen.png?raw=true)
+![alt text](https://github.com/benharris28/doggo/blob/master/Screenshots/Browse_Walker_Screen.png?raw=true)
