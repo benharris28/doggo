@@ -86,7 +86,7 @@ class UploadPhoto extends React.Component {
         const { photo } = this.props;
         const { photo_url } = this.state;
         
-        const uuid = (Math.ceil(Math.random() * 100))
+        
         
         return (
 
@@ -94,8 +94,8 @@ class UploadPhoto extends React.Component {
                 <div className="walker-image">
 
                     {photo 
-                    ? <img src={photo_url} alt="profile photo"/>
-                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile photo avatar" />}
+                    ? <img src={photo_url} alt="profile avatar"/>
+                    : <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile avatar" />}
                     
                 </div >
                 <form 

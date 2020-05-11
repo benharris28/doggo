@@ -56,7 +56,7 @@ class UploadBio extends React.Component {
     }
     
     render() {
-        const {id , photo } = this.props;
+       
         const { formOpen, blurb } = this.state;
      
         return (

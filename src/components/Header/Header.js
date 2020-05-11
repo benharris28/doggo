@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ApiContext from '../../ApiContext';
 import TokenService from '../../services/token-service'
-import Dog from '../../Photos/dog.png'
 import './Header.css'
 
 class Header extends React.Component {
@@ -56,7 +55,7 @@ static contextType = ApiContext;
 
   render() {
     
-    const dogLogo = Dog
+    
 
     return <>
       <nav className='Header'>

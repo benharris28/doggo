@@ -50,7 +50,7 @@ class LandingPage extends React.Component {
                         
                         <div className="reason">
                             <div className="photo-container">
-                                <img className="hero-photo" src={russ} />
+                                <img className="hero-photo" src={russ} alt="dog" />
                             </div>
                             <div className="text-container">
                                 <h3>Here when you need us</h3>
@@ -61,7 +61,7 @@ class LandingPage extends React.Component {
                     
                     <div className="reason">
                             <div className="photo-container">
-                                <img className="hero-photo" src={checkmarkImage} />
+                                <img className="hero-photo" src={checkmarkImage} alt="checkmark icon" />
                             </div>
                             <div className="text-container">
                                 <h3>Book with trusted walkers</h3>
@@ -71,7 +71,7 @@ class LandingPage extends React.Component {
                     </div>
                     <div className="reason">
                             <div className="photo-container">
-                                <img className="hero-photo" src={clock} />
+                                <img className="hero-photo" src={clock} alt="clock icon" />
                             </div>
                             <div className="text-container">
                                 <h3>Up to the minute booking</h3>

@@ -51,8 +51,7 @@ class BookWalkForm extends React.Component {
         const { 
            
             date,
-            time,
-            walk_date, 
+            time, 
             pickup_address_street_number,
             pickup_address_street_name,
             pickup_address_city,
@@ -165,11 +164,10 @@ class BookWalkForm extends React.Component {
 
     render() {
         const { name } = this.props;
-        const { date, time } = this.state
+        
        
        
-        const momentObj = moment(date + time, 'YYYY-MM-DDLT');
-        const dateTime = momentObj.format('YYYY-MM-DDTHH:mm');
+        
       
         
         return (

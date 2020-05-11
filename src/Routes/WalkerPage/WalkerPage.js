@@ -26,7 +26,7 @@ class WalkerPage extends React.Component {
         photo ? 
         PhotoApiService.getImage(photo)
             .then(res => {
-                console.log(res)
+                
                 this.setState({
                     photo_url: res.returnData.url
                 })
@@ -79,7 +79,7 @@ class WalkerPage extends React.Component {
                 </div>
                 <div className="walker-image">
         
-                    <img src={photo_url} />
+                    <img src={photo_url} alt="profile avatar" />
                 </div>
                 <div className="walker-blurb">
                     <h3>{selectWalker.first_name}</h3>

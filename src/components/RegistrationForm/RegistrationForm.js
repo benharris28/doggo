@@ -155,7 +155,7 @@ class RegistrationForm extends React.Component {
               <div className="password-box">
                 
                 <input 
-                  type="text" 
+                  type="password" 
                   name="password" 
                   placeholder="Password"
                   onChange={e => this.updatePassword(e.target.value)}
@@ -166,7 +166,7 @@ class RegistrationForm extends React.Component {
               <div>
                 
                 <input 
-                  type="text" 
+                  type="password" 
                   name="repeat_password" 
                   placeholder="Re-enter password" 
                   onChange={e => this.updateRepeatPassword(e.target.value)}
